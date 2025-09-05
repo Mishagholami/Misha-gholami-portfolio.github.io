@@ -1385,6 +1385,7 @@ section {
 
 @media (max-width: 768px) {
   .footer-content {
+  margin: 4rem;
     grid-template-columns: 1fr;
     gap: var(--space-8);
     text-align: center;

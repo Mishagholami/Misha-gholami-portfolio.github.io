@@ -13,7 +13,7 @@ import { SkillsSection } from "@/components/skills-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { GallerySection } from "@/components/gallery-section"
 import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
+import Footer from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 
 const projects: Project[] = [
