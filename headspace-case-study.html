@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="deep-ocean-silver">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headspace App Redesign - Case Study | Misha Gholami</title>
+    <!-- CHANGE: Update title with your name and project -->
+    <meta name="description" content="A comprehensive case study of the Headspace app redesign focusing on accessibility and modern UI principles.">
+    <!-- CHANGE: Update description -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="case-study-page">
+    <!-- Header with back button -->
+    <header class="case-study-header">
+        <div class="container">
+            <a href="index.html" class="case-study-back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- Case Study Content -->
+    <main class="case-study-content">
+        <!-- Hero Section -->
+        <section class="cs-section">
+            <div class="cs-badge purple">UX/UI Design Case Study</div>
+            <!-- CHANGE: Replace with your project title -->
+            <h1 class="cs-title">🧘‍♀️ Headspace App Redesign</h1>
+            <!-- CHANGE: Replace with your project description -->
+            <p class="cs-description">
+                Rethinking the meditation experience with a focus on accessibility, modern UI principles, and enhanced user engagement through thoughtful design decisions.
+            </p>
+            <div class="cs-image-container">
+                <!-- IMAGE PLACEHOLDER: Replace with your project hero image -->
+                <!-- Put your image file in the same folder as this HTML file -->
+                <img src="headspace-hero.jpg" alt="Headspace App Redesign Overview">
+                <div class="cs-image-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Project Info -->
+        <section class="cs-section">
+            <div class="cs-info-grid">
+                <!-- CHANGE: Update these project details -->
+                <div class="cs-info-item">
+                    <h3>Duration</h3>
+                    <p>8 weeks</p>
+                </div>
+                <div class="cs-info-item">
+                    <h3>Role</h3>
+                    <p>UX/UI Designer</p>
+                </div>
+                <div class="cs-info-item">
+                    <h3>Team</h3>
+                    <p>Solo Project</p>
+                </div>
+                <div class="cs-info-item">
+                    <h3>Tools</h3>
+                    <p>Figma, Principle, Maze</p>
+                </div>
+                <div class="cs-info-item">
+                    <h3>Platform</h3>
+                    <p>iOS Mobile App</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section class="cs-section">
+            <h2 class="cs-title">The Challenge</h2>
+            <div class="cs-problem-grid">
+                <!-- CHANGE: Replace with your project's main problems -->
+                <div class="cs-problem-card">
+                    <div class="icon-circle red">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Accessibility Issues</h3>
+                    <p>The current app lacks proper accessibility features, making it difficult for users with disabilities to navigate and use meditation content effectively.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="icon-circle blue">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Outdated Visual Design</h3>
+                    <p>The interface feels dated and doesn't align with modern design principles, potentially affecting user engagement and brand perception.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="icon-circle yellow">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Complex Navigation</h3>
+                    <p>Users report difficulty finding specific meditation content and customizing their experience according to their preferences and needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Insights -->
+        <section class="cs-section">
+            <h2 class="cs-title">Research & Insights</h2>
+            <!-- CHANGE: Replace with your research findings -->
+            <div class="cs-quote-block">
+                <i class="fas fa-quote-left"></i>
+                <p>"I love meditation apps, but I often struggle to find the right session for my current mood. The navigation feels overwhelming sometimes."</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="cs-insight-card">
+                    <div class="insight-header">
+                        <i class="fas fa-users" style="color: #a855f7;"></i>
+                        <h4>User Interviews (n=12)</h4>
+                    </div>
+                    <p>Conducted in-depth interviews with existing Headspace users to understand pain points and desired features.</p>
+                    <blockquote>"The biggest insight was that users wanted more personalized recommendations based on their emotional state and available time."</blockquote>
+                </div>
+                
+                <div class="cs-insight-card">
+                    <div class="insight-header">
+                        <i class="fas fa-chart-line" style="color: #a855f7;"></i>
+                        <h4>Usability Testing</h4>
+                    </div>
+                    <p>Tested current app with 8 participants to identify specific usability issues and navigation problems.</p>
+                    <blockquote>"75% of users had difficulty finding specific meditation types within 3 taps from the home screen."</blockquote>
+                </div>
+                
+                <div class="cs-insight-card">
+                    <div class="insight-header">
+                        <i class="fas fa-universal-access" style="color: #a855f7;"></i>
+                        <h4>Accessibility Audit</h4>
+                    </div>
+                    <p>Comprehensive accessibility review revealed multiple WCAG compliance issues affecting users with disabilities.</p>
+                    <blockquote>"Screen reader compatibility was poor, and color contrast ratios fell below accessibility standards in several areas."</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Goals -->
+        <section class="cs-section">
+            <h2 class="cs-title">Design Goals</h2>
+            <!-- CHANGE: Replace with your design goals -->
+            <div class="cs-design-goal-grid">
+                <div class="cs-design-goal-card">
+                    <div class="icon-box">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3>Improve Accessibility</h3>
+                    <p>Create an inclusive experience that works for all users, regardless of their abilities.</p>
+                    <ul>
+                        <li><span class="dot"></span>WCAG 2.1 AA compliance</li>
+                        <li><span class="dot"></span>Screen reader optimization</li>
+                        <li><span class="dot"></span>High contrast color schemes</li>
+                        <li><span class="dot"></span>Voice navigation support</li>
+                    </ul>
+                </div>
+                
+                <div class="cs-design-goal-card">
+                    <div class="icon-box">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Simplify Navigation</h3>
+                    <p>Streamline the user journey to help users find content quickly and intuitively.</p>
+                    <ul>
+                        <li><span class="dot"></span>Reduce cognitive load</li>
+                        <li><span class="dot"></span>Clear information hierarchy</li>
+                        <li><span class="dot"></span>Intuitive categorization</li>
+                        <li><span class="dot"></span>Smart search functionality</li>
+                    </ul>
+                </div>
+                
+                <div class="cs-design-goal-card">
+                    <div class="icon-box">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Modernize Visual Design</h3>
+                    <p>Update the visual language to feel contemporary while maintaining brand identity.</p>
+                    <ul>
+                        <li><span class="dot"></span>Clean, minimal interface</li>
+                        <li><span class="dot"></span>Consistent design system</li>
+                        <li><span class="dot"></span>Improved typography</li>
+                        <li><span class="dot"></span>Calming color palette</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Solutions -->
+        <section class="cs-section">
+            <h2 class="cs-title">Design Solutions</h2>
+            <!-- CHANGE: Replace with your design solutions and images -->
+            <div class="cs-design-solution-grid">
+                <div class="cs-design-solution-card">
+                    <h3>Redesigned Home Screen</h3>
+                    <!-- IMAGE PLACEHOLDER: Replace with your design solution image -->
+                    <img src="headspace-home-redesign.jpg" alt="Redesigned Headspace home screen">
+                    <p>Simplified the home screen with clear visual hierarchy, personalized recommendations, and quick access to frequently used features.</p>
+                </div>
+                
+                <div class="cs-design-solution-card">
+                    <h3>Improved Navigation</h3>
+                    <!-- IMAGE PLACEHOLDER: Replace with your design solution image -->
+                    <img src="headspace-navigation.jpg" alt="Improved navigation design">
+                    <p>Restructured the navigation with intuitive categories, smart filtering, and a persistent search function for better content discovery.</p>
+                </div>
+                
+                <div class="cs-design-solution-card">
+                    <h3>Accessibility Features</h3>
+                    <!-- IMAGE PLACEHOLDER: Replace with your design solution image -->
+                    <img src="headspace-accessibility.jpg" alt="Accessibility improvements">
+                    <p>Implemented high contrast modes, larger touch targets, voice commands, and comprehensive screen reader support throughout the app.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Improvements -->
+        <section class="cs-section">
+            <div class="cs-key-improvements">
+                <h3>Key Improvements Delivered</h3>
+                <!-- CHANGE: Replace with your project improvements -->
+                <div class="grid">
+                    <div class="cs-list-card">
+                        <h3>User Experience</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i>40% improvement in task completion rates</li>
+                            <li><i class="fas fa-check"></i>Reduced navigation time by 60%</li>
+                            <li><i class="fas fa-check"></i>Increased user satisfaction scores</li>
+                            <li><i class="fas fa-check"></i>Better content discoverability</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cs-list-card">
+                        <h3>Accessibility</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i>WCAG 2.1 AA compliance achieved</li>
+                            <li><i class="fas fa-check"></i>Screen reader compatibility improved</li>
+                            <li><i class="fas fa-check"></i>High contrast mode implemented</li>
+                            <li><i class="fas fa-check"></i>Voice navigation support added</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cs-list-card">
+                        <h3>Visual Design</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i>Modern, clean interface design</li>
+                            <li><i class="fas fa-check"></i>Consistent design system created</li>
+                            <li><i class="fas fa-check"></i>Improved color contrast ratios</li>
+                            <li><i class="fas fa-check"></i>Enhanced typography hierarchy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results & Impact -->
+        <section class="cs-section">
+            <h2 class="cs-title">Results & Impact</h2>
+            <!-- CHANGE: Replace with your project results -->
+            <div class="cs-impact-grid">
+                <div class="cs-impact-card">
+                    <div class="metric">40%</div>
+                    <p>Improvement in task completion rates</p>
+                </div>
+                <div class="cs-impact-card">
+                    <div class="metric">60%</div>
+                    <p>Reduction in navigation time</p>
+                </div>
+                <div class="cs-impact-card">
+                    <div class="metric">95%</div>
+                    <p>Accessibility compliance score</p>
+                </div>
+                <div class="cs-impact-card">
+                    <div class="metric">4.8/5</div>
+                    <p>User satisfaction rating</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflection -->
+        <section class="cs-section">
+            <div class="cs-reflection">
+                <h2 class="cs-title">Reflection & Learnings</h2>
+                <!-- CHANGE: Replace with your personal reflection -->
+                <p>
+                    This project taught me the critical importance of accessibility in design. Initially, I focused primarily on visual improvements, but user research revealed that accessibility barriers were preventing many users from fully enjoying the app. This shifted my approach to prioritize inclusive design from the start.
+                </p>
+                <p>
+                    Working on this redesign also reinforced the value of iterative testing. Each round of usability testing revealed new insights that shaped the final design. The most significant learning was that accessibility improvements often benefit all users, not just those with disabilities – the clearer navigation and improved contrast made the app easier for everyone to use.
+                </p>
+                <p>
+                    If I were to continue this project, I would focus on implementing more advanced personalization features and exploring how AI could help users discover content that matches their current emotional state and available time.
+                </p>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section class="cs-section">
+            <div class="cs-links">
+                <!-- CHANGE: Replace with your project links -->
+                <a href="https://figma.com/headspace-redesign" target="_blank" rel="noopener noreferrer" class="cs-link-button primary">
+                    <i class="fab fa-figma"></i>
+                    View Figma Prototype
+                </a>
+                <a href="https://headspace-redesign.example.com" target="_blank" rel="noopener noreferrer" class="cs-link-button secondary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Live Demo
+                </a>
+                <a href="index.html" class="cs-link-button secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

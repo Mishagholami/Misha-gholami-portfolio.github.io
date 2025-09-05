@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="deep-ocean-silver">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misha Gholami - Creative Developer & Illustrator</title>
+    <meta name="description" content="Portfolio of Misha Gholami, a creative developer and illustrator crafting interactive and aesthetic web experiences.">
+    <meta name="keywords" content="web developer, creative developer, illustrator, portfolio, React, TypeScript, Next.js">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <!-- CHANGE: Replace "Misha Gholami" with your name -->
+                <button onclick="scrollToSection('home')" class="brand-button">Misha Gholami</button>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <button class="nav-link" onclick="scrollToSection('home')" data-section="home">Home</button>
+                <button class="nav-link" onclick="scrollToSection('about')" data-section="about">About</button>
+                <button class="nav-link" onclick="scrollToSection('skills')" data-section="skills">Skills</button>
+                <button class="nav-link" onclick="scrollToSection('projects')" data-section="projects">Projects</button>
+                <button class="nav-link" onclick="scrollToSection('contact')" data-section="contact">Contact</button>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <!-- IMAGE PLACEHOLDER: Replace with your hero background image -->
+            <!-- Put your hero image file in the same folder as index.html -->
+            <!-- Then change the URL in styles.css line ~200: background-image: url('your-hero-image.jpg'); -->
+            <div class="hero-overlay"></div>
+            <div class="hero-decorations">
+                <div class="decoration-circle decoration-1"></div>
+                <div class="decoration-circle decoration-2"></div>
+                <div class="decoration-dot dot-1"></div>
+                <div class="decoration-dot dot-2"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <!-- CHANGE: Replace with your name and title -->
+                <span class="hero-name">Misha Gholami</span>
+                <span class="hero-subtitle">Creative Developer & Illustrator</span>
+            </h1>
+            <!-- CHANGE: Replace with your personal description -->
+            <p class="hero-description">
+                Merging thoughtful design with robust front-end development
+            </p>
+            <!-- CHANGE: Replace with your personal subtitle and university -->
+            <p class="hero-subdescription">
+                Interaction Design Student at Capilano University | Crafting immersive digital experiences that tell stories and feel personal
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                    View My Work
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                    Learn More
+                </button>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToSection('about')">
+                <span>Scroll to explore</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-container">
+                        <!-- IMAGE PLACEHOLDER: Replace with your profile photo -->
+                        <!-- Put your photo file (e.g., profile.jpg) in the same folder as index.html -->
+                        <!-- Then replace the src below: -->
+                        <img src="profile-photo.jpg" alt="Misha Gholami - Creative Developer and Illustrator">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="image-decoration">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="about-description">
+                        <!-- CHANGE: Replace with your personal story and information -->
+                        <p>
+                            Hi, I'm <strong>Misha Gholami</strong> — a creative developer, illustrator, and interaction design student at 
+                            <strong>Capilano University</strong>. I love combining code and design to craft immersive, interactive, and aesthetic web experiences that tell stories and feel personal. You can connect with me and see my professional journey on 
+                            <!-- CHANGE: Replace with your LinkedIn URL -->
+                            <a href="https://linkedin.com/in/mishagholami" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+                        </p>
+                        <!-- CHANGE: Replace with your personal approach and philosophy -->
+                        <p>
+                            My approach blends technical expertise with creative vision, always keeping the human experience at the center of everything I create. Whether it's a complex web application or a simple illustration, I believe in the power of thoughtful design to make technology more accessible and delightful.
+                        </p>
+                    </div>
+                    <div class="about-buttons">
+                        <!-- CHANGE: Replace with your LinkedIn URL -->
+                        <a href="https://linkedin.com/in/mishagholami" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fab fa-linkedin"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <!-- CHANGE: Replace with your email -->
+                        <a href="mailto:hello@mishagholami.com" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            Say Hello
+                        </a>
+                    </div>
+                    <div class="interests-section">
+                        <h3>What Drives Me</h3>
+                        <div class="interests-grid">
+                            <!-- CHANGE: Customize these interest items with your own values and descriptions -->
+                            <div class="interest-item">
+                                <div class="interest-icon">🎨</div>
+                                <div class="interest-content">
+                                    <h4>Creativity</h4>
+                                    <p>Bringing unique ideas to life through code and design</p>
+                                </div>
+                            </div>
+                            <div class="interest-item">
+                                <div class="interest-icon">♿</div>
+                                <div class="interest-content">
+                                    <h4>Accessibility</h4>
+                                    <p>Creating inclusive experiences for everyone</p>
+                                </div>
+                            </div>
+                            <div class="interest-item">
+                                <div class="interest-icon">🧠</div>
+                                <div class="interest-content">
+                                    <h4>Human-centered design</h4>
+                                    <p>Putting people at the heart of every solution</p>
+                                </div>
+                            </div>
+                            <div class="interest-item">
+                                <div class="interest-icon">📐</div>
+                                <div class="interest-content">
+                                    <h4>Design-first thinking</h4>
+                                    <p>Starting with user needs and aesthetic vision</p>
+                                </div>
+                            </div>
+                            <div class="interest-item">
+                                <div class="interest-icon">📖</div>
+                                <div class="interest-content">
+                                    <h4>Storytelling through interaction</h4>
+                                    <p>Crafting narratives that engage and inspire</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <!-- CHANGE: Replace with your own skills description -->
+                <p class="section-description">
+                    A unique blend of design expertise and technical skills, bridging creativity with code to deliver exceptional user experiences.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <!-- CHANGE: Customize these skill categories with your own skills -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Design & UX</h3>
+                    </div>
+                    <div class="skills-list">
+                        <!-- CHANGE: Replace with your design skills and adjust percentages -->
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Figma</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">User Research</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">UX Design</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Typography</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Adobe Illustrator</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Frontend Development</h3>
+                    </div>
+                    <div class="skills-list">
+                        <!-- CHANGE: Replace with your development skills and adjust percentages -->
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CSS</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Responsive Design</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Creative Tech & Tools</h3>
+                    </div>
+                    <div class="skills-list">
+                        <!-- CHANGE: Replace with your creative/tech skills and adjust percentages -->
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">AI Tools</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Design Systems</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Generative AI</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Creative Workflows</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Prototyping</span>
+                                <span class="skill-level">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="87"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <!-- CHANGE: Replace with your projects section title and description -->
+                <h2 class="section-title">University Projects</h2>
+                <p class="section-description">
+                    A showcase of key assignments from my studies at Capilano University, demonstrating skills in UX research, UI design, and development across various real-world challenges.
+                </p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be dynamically loaded here from script.js -->
+                <!-- CHANGE: Edit the projects array in script.js to add your own projects -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <!-- CHANGE: Replace with your contact description -->
+                <p class="section-description">
+                    Ready to bring your creative vision to life? I'd love to hear about your project and explore how we can work together.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-items">
+                            <!-- CHANGE: Replace with your email -->
+                            <a href="mailto:hello@mishagholami.com" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <p class="contact-label">Email</p>
+                                    <p class="contact-value">hello@mishagholami.com</p>
+                                </div>
+                            </a>
+                            <!-- CHANGE: Replace with your phone number -->
+                            <a href="tel:+15551234567" class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <p class="contact-label">Phone</p>
+                                    <p class="contact-value">+1 (555) 123-4567</p>
+                                </div>
+                            </a>
+                            <!-- CHANGE: Replace with your location -->
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <p class="contact-label">Location</p>
+                                    <p class="contact-value">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <h4>Follow Me</h4>
+                        <div class="social-icons">
+                            <!-- CHANGE: Replace with your social media URLs -->
+                            <a href="https://github.com/mishagholami" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/mishagholami" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/mishagholami" target="_blank" rel="noopener noreferrer" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                        <p class="contact-email">
+                            <!-- CHANGE: Replace with your email -->
+                            <a href="mailto:hello@mishagholami.com">hello@mishagholami.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>Send a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <!-- CHANGE: Replace with your name and description -->
+                    <h3>Misha Gholami</h3>
+                    <p>Creative Developer & Illustrator crafting interactive experiences that blend thoughtful design with robust development.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <nav class="footer-nav">
+                        <button onclick="scrollToSection('home')">Home</button>
+                        <button onclick="scrollToSection('about')">About</button>
+                        <button onclick="scrollToSection('skills')">Skills</button>
+                        <button onclick="scrollToSection('projects')">Projects</button>
+                        <button onclick="scrollToSection('contact')">Contact</button>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <!-- CHANGE: Replace with your social media URLs -->
+                        <a href="https://github.com/mishagholami" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/mishagholami" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/mishagholami" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <!-- CHANGE: Replace with your email -->
+                    <p><a href="mailto:hello@mishagholami.com">hello@mishagholami.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <!-- CHANGE: Replace with your name and location -->
+                    <span>&copy; 2024 Misha Gholami. All rights reserved.</span>
+                    <span>•</span>
+                    <span>Made with <i class="fas fa-heart"></i> in Vancouver</span>
+                </div>
+                <button class="back-to-top" onclick="scrollToTop()">
+                    <span>Back to Top</span>
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title-section">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDescription"></p>
+                </div>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
