@@ -1,51 +1,45 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ChevronDown, Download, Mail, Linkedin, Github, Dribbble, Sparkles } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Github, Linkedin, Mail, FileText, ChevronDown } from "lucide-react"
 
 const roles = [
-  "UX/UI Designer",
-  "Creative Illustrator",
-  "User Researcher",
-  "Digital Artist",
-  "Brand Designer",
+  "UX Designer",
+  "UI Designer",
   "Frontend Developer",
-  "Visual Storyteller",
-  "Design Systems Expert",
+  "User Researcher",
+  "Product Designer",
+  "Web Developer",
+  "Creative Designer",
+  "Digital Designer",
 ]
 
 const skills = [
-  "crafting intuitive interfaces",
-  "creating stunning illustrations",
-  "solving complex problems",
-  "building seamless experiences",
-  "designing with empathy",
-  "bringing ideas to life",
-  "telling visual stories",
-  "innovating with purpose",
+  "User Research",
+  "Prototyping",
+  "Visual Design",
+  "Frontend Development",
+  "User Testing",
+  "Information Architecture",
+  "Interaction Design",
+  "Design Systems",
 ]
 
 export function HeroSection() {
-  const [currentRole, setCurrentRole] = useState(0)
-  const [currentSkill, setCurrentSkill] = useState(0)
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
-  const [isTyping, setIsTyping] = useState(true)
-  const [displayText, setDisplayText] = useState("")
-  const [charIndex, setCharIndex] = useState(0)
 
   useEffect(() => {
     setMounted(true)
-
-    // Role rotation
     const roleInterval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length)
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
     }, 3000)
 
-    // Skill rotation
     const skillInterval = setInterval(() => {
-      setCurrentSkill((prev) => (prev + 1) % skills.length)
-    }, 4000)
+      setCurrentSkillIndex((prev) => (prev + 1) % skills.length)
+    }, 2500)
 
     return () => {
       clearInterval(roleInterval)
@@ -53,163 +47,186 @@ export function HeroSection() {
     }
   }, [])
 
-  // Typing animation effect
-  useEffect(() => {
-    if (!mounted) return
-
-    const currentText = roles[currentRole]
-
-    if (isTyping && charIndex < currentText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(currentText.slice(0, charIndex + 1))
-        setCharIndex(charIndex + 1)
-      }, 100)
-      return () => clearTimeout(timeout)
-    } else if (isTyping && charIndex === currentText.length) {
-      const timeout = setTimeout(() => {
-        setIsTyping(false)
-      }, 2000)
-      return () => clearTimeout(timeout)
-    } else if (!isTyping && charIndex > 0) {
-      const timeout = setTimeout(() => {
-        setDisplayText(currentText.slice(0, charIndex - 1))
-        setCharIndex(charIndex - 1)
-      }, 50)
-      return () => clearTimeout(timeout)
-    } else if (!isTyping && charIndex === 0) {
-      setIsTyping(true)
-      setCurrentRole((prev) => (prev + 1) % roles.length)
-    }
-  }, [charIndex, isTyping, currentRole, mounted])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId)
-    if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      })
-    }
-  }
-
   if (!mounted) return null
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  }
+
+  const nameVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.5,
+      },
+    },
+  }
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
+
+  const socialVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 10,
+        delay: 1.2,
+      },
+    },
+  }
+
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Smart Blurred Bubbles Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden">
         {/* Large Primary Bubble */}
         <motion.div
-          animate={{
-            x: [0, 100, -50, 0],
-            y: [0, -80, 60, 0],
-            scale: [1, 1.2, 0.8, 1],
-            rotate: [0, 90, 180, 270, 360],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -8,
-          }}
-          className="absolute top-20 right-32 w-96 h-96 rounded-full opacity-20"
+          className="absolute w-96 h-96 rounded-full opacity-20"
           style={{
             background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             filter: "blur(40px)",
           }}
-        />
-
-        {/* Medium Secondary Bubble */}
-        <motion.div
           animate={{
-            x: [0, -120, 80, 0],
-            y: [0, 100, -60, 0],
-            scale: [0.8, 1.4, 0.6, 0.8],
+            x: [100, 300, 150, 250, 100],
+            y: [200, 100, 300, 150, 200],
+            scale: [1, 1.2, 0.8, 1.1, 1],
+            rotate: [0, 180, 360],
           }}
           transition={{
             duration: 20,
             repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
-            delay: -5,
+            delay: -2,
           }}
-          className="absolute bottom-40 left-20 w-80 h-80 rounded-full opacity-25"
+        />
+
+        {/* Medium Secondary Bubble */}
+        <motion.div
+          className="absolute w-80 h-80 rounded-full opacity-15"
           style={{
             background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
             filter: "blur(35px)",
           }}
-        />
-
-        {/* Small Accent Bubble 1 */}
-        <motion.div
           animate={{
-            x: [0, 60, -40, 100, -20, 0],
-            y: [0, -40, 80, 20, -60, 0],
-            scale: [1, 0.7, 1.3, 0.9, 1.1, 1],
-            rotate: [0, 72, 144, 216, 288, 360],
+            x: [300, 100, 400, 200, 300],
+            y: [100, 250, 50, 200, 100],
+            scale: [0.8, 1.3, 0.9, 1.1, 0.8],
+            rotate: [360, 180, 0],
           }}
           transition={{
             duration: 18,
             repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
-            delay: -2,
+            delay: -5,
           }}
-          className="absolute top-1/3 left-1/4 w-48 h-48 rounded-full opacity-30"
+        />
+
+        {/* Small Accent Bubble 1 */}
+        <motion.div
+          className="absolute w-48 h-48 rounded-full opacity-25"
           style={{
             background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-            filter: "blur(30px)",
-          }}
-        />
-
-        {/* Small Accent Bubble 2 */}
-        <motion.div
-          animate={{
-            x: [0, -80, 40, 0],
-            y: [0, 60, -100, 0],
-            scale: [0.9, 1.1, 0.7, 0.9],
-            rotate: [0, 120, 240, 360],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -6,
-          }}
-          className="absolute top-2/3 right-1/4 w-56 h-56 rounded-full opacity-25"
-          style={{
-            background: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
             filter: "blur(25px)",
           }}
-        />
-
-        {/* Micro Bubble 1 */}
-        <motion.div
           animate={{
-            scale: [1, 1.5, 0.5, 1],
+            x: [50, 200, 80, 180, 50],
+            y: [300, 150, 250, 100, 300],
+            scale: [1.1, 0.7, 1.4, 0.9, 1.1],
           }}
           transition={{
             duration: 15,
             repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
+            delay: -8,
+          }}
+        />
+
+        {/* Small Accent Bubble 2 */}
+        <motion.div
+          className="absolute w-56 h-56 rounded-full opacity-20"
+          style={{
+            background: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            filter: "blur(30px)",
+          }}
+          animate={{
+            x: [400, 150, 350, 100, 400],
+            y: [50, 200, 80, 180, 50],
+            scale: [0.9, 1.5, 0.6, 1.2, 0.9],
+            rotate: [0, 270, 180, 90, 0],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
             delay: -3,
           }}
-          className="absolute top-1/4 right-1/3 w-24 h-24 rounded-full opacity-35"
+        />
+
+        {/* Micro Bubble 1 */}
+        <motion.div
+          className="absolute w-24 h-24 rounded-full opacity-30"
           style={{
             background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
-            filter: "blur(20px)",
+            filter: "blur(15px)",
+          }}
+          animate={{
+            x: [200, 350, 180, 320, 200],
+            y: [80, 220, 120, 180, 80],
+            scale: [1.2, 0.8, 1.6, 1, 1.2],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: -6,
           }}
         />
 
         {/* Micro Bubble 2 */}
         <motion.div
+          className="absolute w-32 h-32 rounded-full opacity-25"
+          style={{
+            background: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+            filter: "blur(20px)",
+          }}
           animate={{
-            x: [0, -30, 50, 20, 0],
-            y: [0, 40, -20, 60, 0],
-            scale: [0.8, 1.2, 0.9, 1.1, 0.8],
-            rotate: [0, 90, 180, 270, 360],
+            x: [120, 280, 140, 260, 120],
+            y: [180, 80, 220, 120, 180],
+            scale: [0.7, 1.3, 0.9, 1.1, 0.7],
+            rotate: [180, 0, 360],
           }}
           transition={{
             duration: 16,
@@ -217,474 +234,283 @@ export function HeroSection() {
             ease: "easeInOut",
             delay: -4,
           }}
-          className="absolute bottom-1/3 left-1/3 w-32 h-32 rounded-full opacity-30"
+        />
+
+        {/* Additional Smart Bubble 1 */}
+        <motion.div
+          className="absolute w-40 h-40 rounded-full opacity-18"
           style={{
-            background: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
-            filter: "blur(15px)",
+            background: "linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)",
+            filter: "blur(28px)",
+          }}
+          animate={{
+            x: [80, 320, 120, 280, 80],
+            y: [250, 120, 280, 160, 250],
+            scale: [1, 0.6, 1.4, 0.8, 1],
+            rotate: [90, 270, 180, 0, 90],
+          }}
+          transition={{
+            duration: 19,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: -7,
           }}
         />
 
-        {/* Additional Smart Bubbles */}
+        {/* Additional Smart Bubble 2 */}
         <motion.div
-          animate={{
-            x: [0, 80, -40, 60, 0],
-            y: [0, -60, 40, -20, 0],
-            scale: [1, 0.8, 1.3, 0.9, 1],
-            rotate: [0, -90, -180, -270, -360],
-          }}
-          transition={{
-            duration: 28,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -8,
-          }}
-          className="absolute top-10 left-10 w-40 h-40 rounded-full opacity-20"
+          className="absolute w-36 h-36 rounded-full opacity-22"
           style={{
-            background: "linear-gradient(135deg, #667eea 20%, #764ba2 80%)",
-            filter: "blur(35px)",
+            background: "linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)",
+            filter: "blur(22px)",
           }}
-        />
-
-        <motion.div
           animate={{
-            x: [0, -60, 30, -40, 0],
-            y: [0, 50, -80, 30, 0],
-            scale: [0.9, 1.2, 0.7, 1.1, 0.9],
+            x: [350, 120, 380, 150, 350],
+            y: [120, 280, 100, 240, 120],
+            scale: [1.3, 0.9, 1.1, 1.5, 1.3],
           }}
           transition={{
-            duration: 24,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -10,
-          }}
-          className="absolute bottom-10 right-10 w-36 h-36 rounded-full opacity-25"
-          style={{
-            background: "linear-gradient(135deg, #4facfe 10%, #00f2fe 90%)",
-            filter: "blur(32px)",
-          }}
-        />
-
-        {/* Floating Particles */}
-        <motion.div
-          animate={{
-            y: [-10, 10, -10],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/5 left-1/5 w-2 h-2 bg-white/40 rounded-full"
-          style={{ filter: "blur(1px)" }}
-        />
-
-        <motion.div
-          animate={{
-            y: [10, -10, 10],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -2,
-          }}
-          className="absolute top-3/5 right-1/5 w-3 h-3 bg-blue-300/30 rounded-full"
-          style={{ filter: "blur(2px)" }}
-        />
-
-        <motion.div
-          animate={{
-            y: [-5, 15, -5],
-            x: [0, 5, 0],
-            opacity: [0.4, 0.7, 0.4],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -4,
-          }}
-          className="absolute top-1/2 left-3/4 w-1 h-1 bg-purple-300/50 rounded-full"
-          style={{ filter: "blur(1px)" }}
-        />
-
-        <motion.div
-          animate={{
-            y: [8, -12, 8],
-            opacity: [0.2, 0.6, 0.2],
-          }}
-          transition={{
-            duration: 7,
+            duration: 14,
             repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
             delay: -1,
           }}
-          className="absolute top-1/6 right-1/3 w-2 h-2 bg-pink-300/40 rounded-full"
-          style={{ filter: "blur(1px)" }}
         />
 
-        <motion.div
-          animate={{
-            y: [-6, 14, -6],
-            opacity: [0.3, 0.7, 0.3],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: -3,
-          }}
-          className="absolute bottom-1/6 left-2/3 w-3 h-3 bg-cyan-300/35 rounded-full"
-          style={{ filter: "blur(2px)" }}
-        />
-      </div>
-
-      {/* Enhanced Floating Background Elements */}
-      <div className="absolute inset-0 overflow-hidden z-5">
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"
-        />
-
-        <motion.div
-          animate={{
-            y: [0, 30, 0],
-            x: [0, -10, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-br from-pink-400/15 to-orange-400/15 rounded-full blur-3xl"
-        />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-          className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-br from-green-400/10 to-blue-400/10 rounded-full blur-2xl"
-        />
-
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            scale: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-xl"
-        />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Welcome Badge */}
+        {/* Floating Particles */}
+        {[...Array(5)].map((_, i) => (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-lg mb-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <Sparkles className="w-5 h-5 text-blue-500 mr-3 animate-pulse" />
-              <span className="text-sm font-medium text-gray-700">Welcome to my creative world</span>
-            </div>
-          </motion.div>
+            key={i}
+            className="absolute w-2 h-2 bg-white/40 rounded-full"
+            animate={{
+              x: [Math.random() * 400, Math.random() * 400],
+              y: [Math.random() * 400, Math.random() * 400],
+              opacity: [0.2, 0.8, 0.2],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 4,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: Math.random() * 5,
+            }}
+            style={{
+              left: `${20 + Math.random() * 60}%`,
+              top: `${20 + Math.random() * 60}%`,
+            }}
+          />
+        ))}
 
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="mb-8"
-          >
-            <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1 shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-500">
-              <img
-                src="/placeholder.svg?height=160&width=160&text=MG"
-                alt="Misha Gholami"
-                className="w-full h-full rounded-full object-cover bg-white transition-transform duration-500"
-              />
-            </div>
-          </motion.div>
-
-          {/* Smart Main Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            <h1 className="text-6xl md:text-7xl font-serif font-bold text-gray-800 mb-6 leading-tight">
-              <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="inline-block"
-              >
-                Misha
-              </motion.span>{" "}
-              <motion.span
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="inline-block"
-              >
-                Gholami
-              </motion.span>
-            </h1>
-
-            {/* Smart Dynamic Role with Typing Effect */}
-            <div className="text-2xl md:text-3xl mb-6 min-h-[3rem] flex items-center justify-center">
-              <motion.span
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                className="text-gray-600 mr-3"
-              >
-                I'm a
-              </motion.span>
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold inline-block min-w-[300px] text-left">
-                {displayText}
-                <span className="animate-pulse text-blue-500">|</span>
-              </span>
-            </div>
-
-            {/* Smart Dynamic Description */}
-            <div className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1.2 }}>
-                Passionate about{" "}
-              </motion.span>
-              <span
-                key={currentSkill}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium"
-              >
-                {skills[currentSkill]}
-              </span>
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1.4 }}>
-                {" "}
-                through user-centered design, creative illustration, and thoughtful problem-solving.
-              </motion.span>
-            </div>
-
-            {/* Smart Stats Counter */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-              className="flex justify-center space-x-8 mb-10"
-            >
-              <div className="text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.8, type: "spring", stiffness: 200 }}
-                  className="text-2xl font-bold text-blue-600"
-                >
-                  50+
-                </motion.div>
-                <div className="text-sm text-gray-600">Projects</div>
-              </div>
-              <div className="text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.6, delay: 2.0, type: "spring", stiffness: 200 }}
-                  className="text-2xl font-bold text-blue-600"
-                >
-                  3+
-                </motion.div>
-                <div className="text-sm text-gray-600">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.6, delay: 2.2, type: "spring", stiffness: 200 }}
-                  className="text-2xl font-bold text-blue-600"
-                >
-                  100%
-                </motion.div>
-                <div className="text-sm text-gray-600">Passion</div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* CTA Buttons with Staggered Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.4 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection("#projects")}
-              className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center gap-3"
-            >
-              <span className="relative z-10">View My Work</span>
-              <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1 relative z-10" />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection("#contact")}
-              className="group px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-3"
-            >
-              <Mail className="w-4 h-4 transition-transform group-hover:scale-110" />
-              <span>Get In Touch</span>
-            </motion.button>
-
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-3"
-            >
-              <Download className="w-4 h-4 transition-transform group-hover:translate-y-1" />
-              <span>Download Resume</span>
-            </motion.a>
-          </motion.div>
-
-          {/* Social Links with Enhanced Hover Effects */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.6 }}
-            className="flex justify-center space-x-6 mb-16"
-          >
-            {[
-              {
-                icon: Linkedin,
-                href: "https://linkedin.com/in/mishagholami",
-                label: "LinkedIn",
-                color: "hover:text-blue-600",
-                bgColor: "group-hover:bg-blue-50",
-              },
-              {
-                icon: Github,
-                href: "https://github.com/mishagholami",
-                label: "GitHub",
-                color: "hover:text-gray-800",
-                bgColor: "group-hover:bg-gray-50",
-              },
-              {
-                icon: Dribbble,
-                href: "https://dribbble.com/mishagholami",
-                label: "Dribbble",
-                color: "hover:text-pink-600",
-                bgColor: "group-hover:bg-pink-50",
-              },
-            ].map((social, index) => {
-              const IconComponent = social.icon
-              return (
-                <motion.a
-                  key={social.label}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 2.8 + index * 0.1, type: "spring", stiffness: 200 }}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group ${social.color} transition-all duration-300`}
-                  aria-label={social.label}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div
-                    className={`w-14 h-14 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 transition-all duration-300 group-hover:shadow-xl ${social.bgColor}`}
-                  >
-                    <IconComponent className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
-                  </div>
-                </motion.a>
-              )
-            })}
-          </motion.div>
-
-          {/* Smart Scroll Indicator with Enhanced Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.2 }}
-          >
-            <motion.button
-              onClick={() => scrollToSection("#about")}
-              className="inline-flex flex-col items-center text-gray-400 hover:text-blue-600 transition-all duration-500 group"
-              whileHover={{ y: -5 }}
-            >
-              <span className="text-sm font-medium mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                Scroll to explore my journey
-              </span>
-              <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center group-hover:border-blue-600 transition-all duration-300 group-hover:shadow-lg">
-                <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                  className="w-1 h-3 bg-gray-400 rounded-full mt-2 group-hover:bg-blue-600 transition-colors duration-300"
-                />
-              </div>
-            </motion.button>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Floating Text Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-5">
+        {/* Background Text Elements */}
         <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-          className="absolute top-1/4 left-10 text-6xl font-bold text-gray-100 opacity-5 select-none"
+          className="absolute text-9xl font-bold text-slate-200/5 select-none pointer-events-none"
+          style={{ left: "10%", top: "20%" }}
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
         >
           UX
         </motion.div>
         <motion.div
-          animate={{ y: [0, 15, 0], rotate: [0, -3, 0] }}
-          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 3 }}
-          className="absolute bottom-1/4 right-10 text-6xl font-bold text-gray-100 opacity-5 select-none"
+          className="absolute text-8xl font-bold text-slate-200/5 select-none pointer-events-none"
+          style={{ right: "15%", top: "30%" }}
+          animate={{ rotate: [0, -3, 3, 0] }}
+          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY }}
         >
           UI
         </motion.div>
         <motion.div
-          animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
-          transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/2 left-1/4 text-4xl font-bold text-gray-100 opacity-5 select-none"
+          className="absolute text-7xl font-bold text-slate-200/5 select-none pointer-events-none"
+          style={{ left: "20%", bottom: "25%" }}
+          animate={{ rotate: [0, 4, -4, 0] }}
+          transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY }}
         >
           Design
         </motion.div>
         <motion.div
-          animate={{ y: [0, 12, 0], rotate: [0, 2, 0] }}
-          transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/3 right-1/3 text-4xl font-bold text-gray-100 opacity-5 select-none"
+          className="absolute text-6xl font-bold text-slate-200/5 select-none pointer-events-none"
+          style={{ right: "25%", bottom: "20%" }}
+          animate={{ rotate: [0, -2, 2, 0] }}
+          transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY }}
         >
           Create
         </motion.div>
       </div>
+
+      {/* Main Content */}
+      <motion.div
+        className="relative z-10 text-center px-4 max-w-4xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Greeting */}
+        <motion.div variants={itemVariants} className="mb-6">
+          <span className="inline-block px-4 py-2 bg-white/80 backdrop-blur-sm text-slate-600 rounded-full text-sm font-medium shadow-lg">
+            👋 Hello, I'm
+          </span>
+        </motion.div>
+
+        {/* Name with Letter Animation */}
+        <motion.h1
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+          variants={nameVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="bg-gradient-to-r from-slate-800 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            {"Misha Gholami".split("").map((letter, index) => (
+              <motion.span key={index} variants={letterVariants} className="inline-block">
+                {letter === " " ? "\u00A0" : letter}
+              </motion.span>
+            ))}
+          </div>
+        </motion.h1>
+
+        {/* Dynamic Role with Typing Effect */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-700 mb-2">
+            <span className="text-slate-500">I'm a </span>
+            <motion.span
+              key={currentRoleIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+            >
+              {roles[currentRoleIndex]}
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
+                className="text-blue-600"
+              >
+                |
+              </motion.span>
+            </motion.span>
+          </div>
+          <div className="text-lg md:text-xl text-slate-600">
+            <span>Specializing in </span>
+            <motion.span
+              key={currentSkillIndex}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="font-semibold text-indigo-600"
+            >
+              {skills[currentSkillIndex]}
+            </motion.span>
+          </div>
+        </motion.div>
+
+        {/* Description with Word Animation */}
+        <motion.div variants={itemVariants} className="mb-12">
+          <motion.p
+            className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 1.5,
+                },
+              },
+            }}
+          >
+            {[
+              "Passionate",
+              "about",
+              "creating",
+              "intuitive",
+              "digital",
+              "experiences",
+              "that",
+              "solve",
+              "real",
+              "problems.",
+              "I",
+              "combine",
+              "user-centered",
+              "design",
+              "with",
+              "technical",
+              "expertise",
+              "to",
+              "build",
+              "meaningful",
+              "solutions.",
+            ].map((word, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                className="inline-block mr-2"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.p>
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            View My Work
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.9)" }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-white/80 backdrop-blur-sm text-slate-700 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200"
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            Get In Touch
+          </motion.button>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div variants={socialVariants} className="flex justify-center space-x-6 mb-12">
+          {[
+            { icon: Github, href: "https://github.com/mishagholami", color: "hover:text-gray-800" },
+            { icon: Linkedin, href: "https://linkedin.com/in/mishagholami", color: "hover:text-blue-600" },
+            { icon: Mail, href: "mailto:misha@example.com", color: "hover:text-red-500" },
+            { icon: FileText, href: "/resume.pdf", color: "hover:text-green-600" },
+          ].map(({ icon: Icon, href, color }, index) => (
+            <motion.a
+              key={index}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : "_self"}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              whileHover={{ scale: 1.2, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className={`w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-600 ${color} transition-all duration-300 shadow-lg hover:shadow-xl`}
+            >
+              <Icon className="w-5 h-5" />
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div variants={itemVariants} className="flex flex-col items-center">
+          <span className="text-sm text-slate-500 mb-2">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+            className="cursor-pointer"
+            onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            <ChevronDown className="w-6 h-6 text-slate-400 hover:text-slate-600 transition-colors" />
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
 
-// Default export for compatibility
-export default HeroSection
+// Named export for compatibility
+export { HeroSection as default }

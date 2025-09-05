@@ -2,6 +2,10 @@
 
 import { useState } from "react"
 import CaseStudyPage from "@/components/CaseStudyPage"
+import LinkedInCaseStudy from "@/components/LinkedInCaseStudy"
+import WellnestCaseStudy from "@/components/WellnestCaseStudy"
+import KalmontCaseStudy from "@/components/KalmontCaseStudy"
+import GranvilleIslandCaseStudy from "@/components/GranvilleIslandCaseStudy"
 import type { Project } from "@/types/portfolio"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
@@ -119,24 +123,29 @@ export default function Home() {
     setShowCaseStudy(null)
   }
 
+  // LinkedIn Case Study (Project ID: 1)
+  if (showCaseStudy === 1) {
+    return <LinkedInCaseStudy onBack={handleBackFromCaseStudy} />
+  }
+
+  // Headspace Case Study (Project ID: 2)
   if (showCaseStudy === 2) {
     return <CaseStudyPage onBack={handleBackFromCaseStudy} />
   }
 
-  if (showCaseStudy === 1) {
-    return <CaseStudyPage onBack={handleBackFromCaseStudy} project={projects[0]} />
-  }
-
+  // Wellnest Case Study (Project ID: 3)
   if (showCaseStudy === 3) {
-    return <CaseStudyPage onBack={handleBackFromCaseStudy} project={projects[2]} />
+    return <WellnestCaseStudy onBack={handleBackFromCaseStudy} />
   }
 
+  // KALMONT Case Study (Project ID: 4)
   if (showCaseStudy === 4) {
-    return <CaseStudyPage onBack={handleBackFromCaseStudy} project={projects[3]} />
+    return <KalmontCaseStudy onBack={handleBackFromCaseStudy} />
   }
 
+  // Granville Island Case Study (Project ID: 5)
   if (showCaseStudy === 5) {
-    return <CaseStudyPage onBack={handleBackFromCaseStudy} project={projects[4]} />
+    return <GranvilleIslandCaseStudy onBack={handleBackFromCaseStudy} />
   }
 
   return (
