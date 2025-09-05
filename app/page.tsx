@@ -107,7 +107,7 @@ const projects: Project[] = [
   },
 ]
 
-function PortfolioContent() {
+export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [showCaseStudy, setShowCaseStudy] = useState<number | null>(null)
 
@@ -140,27 +140,12 @@ function PortfolioContent() {
   }
 
   return (
-    <>
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection projects={projects} onCaseStudyClick={handleCaseStudyClick} />
-      <GallerySection />
-      <ContactSection />
-      <Footer />
-    </>
-  )
-}
-
-export default function Home() {
-  return (
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
       <AboutSection />
       <SkillsSection />
-      <ProjectsSection />
+      <ProjectsSection projects={projects} onCaseStudyClick={handleCaseStudyClick} />
       <GallerySection />
       <ContactSection />
       <Footer />
