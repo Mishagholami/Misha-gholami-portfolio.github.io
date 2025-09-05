@@ -341,7 +341,7 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
     <div className={`min-h-screen ${theme.bg}`}>
       {/* Header */}
       <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
           <motion.button
             onClick={onBack}
             whileHover={{ x: -4 }}
@@ -353,41 +353,48 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-12 sm:space-y-20"
+        >
           {/* Hero Section */}
           <motion.section variants={itemVariants} className="text-center">
-            <div className="mb-12">
-              <span className="inline-block px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-6">
+            <div className="mb-8 sm:mb-12">
+              <span className="inline-block px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-4 sm:mb-6">
                 UX Research & Design
               </span>
-              <h1 className={`text-4xl md:text-5xl font-bold ${theme.text} mb-6`}>Granville Island Website Redesign</h1>
-              <p className={`text-xl ${theme.textSecondary} max-w-3xl mx-auto leading-relaxed mb-8`}>
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold ${theme.text} mb-4 sm:mb-6`}>
+                Granville Island Website Redesign
+              </h1>
+              <p className={`text-lg sm:text-xl ${theme.textSecondary} max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8`}>
                 Creating a simple, relevant, and confident digital experience for Vancouver's beloved cultural district
               </p>
-              <p className={`text-lg ${theme.textSecondary} max-w-2xl mx-auto leading-relaxed`}>
+              <p className={`text-base sm:text-lg ${theme.textSecondary} max-w-2xl mx-auto leading-relaxed`}>
                 A comprehensive UX research and design project focused on helping visitors easily explore, plan, and
                 engage with everything Granville Island offers through user-centered design principles.
               </p>
             </div>
 
             {/* Project Highlights */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <div className="flex items-center gap-2 px-4 py-2 bg-teal-50 rounded-full">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-teal-50 rounded-full">
                 <Users className="w-4 h-4 text-teal-600" />
-                <span className="text-sm font-medium text-teal-700">5 User Interviews</span>
+                <span className="text-xs sm:text-sm font-medium text-teal-700">5 User Interviews</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full">
+              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-50 rounded-full">
                 <Search className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-700">User Research</span>
+                <span className="text-xs sm:text-sm font-medium text-blue-700">User Research</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-full">
+              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-purple-50 rounded-full">
                 <Eye className="w-4 h-4 text-purple-600" />
-                <span className="text-sm font-medium text-purple-700">Information Architecture</span>
+                <span className="text-xs sm:text-sm font-medium text-purple-700">Information Architecture</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full">
+              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-green-50 rounded-full">
                 <Figma className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-medium text-green-700">Interactive Prototypes</span>
+                <span className="text-xs sm:text-sm font-medium text-green-700">Interactive Prototypes</span>
               </div>
             </div>
 
@@ -404,39 +411,39 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
           </motion.section>
 
           {/* Project Overview */}
-          <motion.section variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-8`}>
-            <div className="grid md:grid-cols-4 gap-8">
+          <motion.section variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
               <div>
-                <h3 className={`font-semibold ${theme.text} mb-3`}>Role</h3>
-                <p className={theme.textSecondary}>Lead UX Researcher & Designer</p>
+                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Role</h3>
+                <p className={`${theme.textSecondary} text-sm sm:text-base`}>Lead UX Researcher & Designer</p>
               </div>
               <div>
-                <h3 className={`font-semibold ${theme.text} mb-3`}>Duration</h3>
-                <p className={theme.textSecondary}>8 weeks</p>
+                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Duration</h3>
+                <p className={`${theme.textSecondary} text-sm sm:text-base`}>8 weeks</p>
               </div>
               <div>
-                <h3 className={`font-semibold ${theme.text} mb-3`}>Team</h3>
-                <p className={theme.textSecondary}>Individual Project</p>
+                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Team</h3>
+                <p className={`${theme.textSecondary} text-sm sm:text-base`}>Individual Project</p>
               </div>
               <div>
-                <h3 className={`font-semibold ${theme.text} mb-3`}>Tools</h3>
-                <p className={theme.textSecondary}>Figma, Miro, UserTesting, Zoom</p>
+                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Tools</h3>
+                <p className={`${theme.textSecondary} text-sm sm:text-base`}>Figma, Miro, UserTesting, Zoom</p>
               </div>
             </div>
           </motion.section>
 
           {/* The Challenge */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>The Challenge</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-10 mb-12`}>
-              <div className="text-center mb-8">
-                <Quote className="w-12 h-12 text-teal-400 mx-auto mb-6" />
-                <p className={`text-xl italic ${theme.text} leading-relaxed mb-6`}>
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>The Challenge</h2>
+            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10 mb-8 sm:mb-12`}>
+              <div className="text-center mb-6 sm:mb-8">
+                <Quote className="w-10 sm:w-12 h-10 sm:h-12 text-teal-400 mx-auto mb-4 sm:mb-6" />
+                <p className={`text-lg sm:text-xl italic ${theme.text} leading-relaxed mb-4 sm:mb-6`}>
                   "The current Granville Island website overwhelms visitors with too much information and complex
                   navigation, making it difficult to plan visits and discover what matters most to them."
                 </p>
               </div>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed text-center`}>
+              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed text-center`}>
                 Visitors needed a digital experience that matched the welcoming, accessible nature of Granville Island
                 itself—simple, relevant, and confidence-inspiring.
               </p>
@@ -445,48 +452,55 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* User Research Process */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>User Research Process</h2>
-            <div className="space-y-10">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              User Research Process
+            </h2>
+            <div className="space-y-6 sm:space-y-10">
               {designProcess.map((phase, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-10`}>
-                  <div className="grid md:grid-cols-4 gap-8">
+                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-teal-600">{index + 1}</span>
+                      <div className="w-12 sm:w-16 h-12 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <span className="text-lg sm:text-2xl font-bold text-teal-600">{index + 1}</span>
                       </div>
-                      <h3 className={`text-lg font-semibold ${theme.text} mb-3`}>{phase.phase}</h3>
-                      <span className={`text-sm ${theme.textSecondary} px-3 py-1 bg-gray-100 rounded-full`}>
+                      <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-2 sm:mb-3`}>{phase.phase}</h3>
+                      <span className={`text-xs sm:text-sm ${theme.textSecondary} px-3 py-1 bg-gray-100 rounded-full`}>
                         {phase.duration}
                       </span>
                     </div>
                     <div>
-                      <h4 className={`font-medium ${theme.text} mb-4`}>Activities:</h4>
-                      <ul className="space-y-3">
+                      <h4 className={`font-medium ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Activities:</h4>
+                      <ul className="space-y-2 sm:space-y-3">
                         {phase.activities.map((activity, activityIndex) => (
-                          <li key={activityIndex} className={`text-sm ${theme.textSecondary} flex items-start gap-3`}>
-                            <div className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2 flex-shrink-0" />
+                          <li
+                            key={activityIndex}
+                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
+                          >
+                            <div className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
                             {activity}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className={`font-medium ${theme.text} mb-4`}>Deliverables:</h4>
-                      <ul className="space-y-3">
+                      <h4 className={`font-medium ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Deliverables:</h4>
+                      <ul className="space-y-2 sm:space-y-3">
                         {phase.deliverables.map((deliverable, deliverableIndex) => (
                           <li
                             key={deliverableIndex}
-                            className={`text-sm ${theme.textSecondary} flex items-start gap-3`}
+                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
                           >
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-500 mt-0.5 flex-shrink-0" />
                             {deliverable}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className={`font-medium ${theme.text} mb-4`}>Key Insight:</h4>
-                      <p className={`text-sm ${theme.textSecondary} italic p-4 bg-teal-50 rounded-lg`}>
+                      <h4 className={`font-medium ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Key Insight:</h4>
+                      <p
+                        className={`text-xs sm:text-sm ${theme.textSecondary} italic p-3 sm:p-4 bg-teal-50 rounded-lg`}
+                      >
                         "{phase.keyInsight}"
                       </p>
                     </div>
@@ -498,46 +512,50 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Core Findings */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>Core Research Findings</h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              Core Research Findings
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
               {coreFindings.map((finding, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-8 text-center hover:shadow-lg transition-shadow`}
+                  className={`${theme.cardBg} rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-shadow`}
                 >
-                  <div className="flex items-center justify-center gap-4 mb-6">
-                    <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold">
+                  <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="w-8 sm:w-10 h-8 sm:h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
                       {finding.number}
                     </div>
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
-                      <finding.icon className="w-6 h-6 text-teal-600" />
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+                      <finding.icon className="w-5 sm:w-6 h-5 sm:h-6 text-teal-600" />
                     </div>
                   </div>
-                  <h3 className={`text-lg font-semibold ${theme.text} mb-4`}>{finding.title}</h3>
+                  <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-3 sm:mb-4`}>{finding.title}</h3>
                   <p className={`text-sm ${theme.textSecondary}`}>{finding.description}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className={`${theme.cardBg} rounded-2xl p-10`}>
-              <h3 className={`text-xl font-semibold ${theme.text} mb-8 text-center`}>Key User Insights</h3>
-              <div className="grid md:grid-cols-3 gap-8">
+            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
+              <h3 className={`text-lg sm:text-xl font-semibold ${theme.text} mb-6 sm:mb-8 text-center`}>
+                Key User Insights
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 {userResearchFindings.map((insight, index) => (
                   <div key={index} className="text-center">
-                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-2xl">{insight.icon}</span>
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                      <span className="text-xl sm:text-2xl">{insight.icon}</span>
                     </div>
                     <div
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 ${
+                      className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 sm:mb-4 ${
                         insight.priority === "High" ? "bg-red-100 text-red-700" : "bg-yellow-100 text-yellow-700"
                       }`}
                     >
                       {insight.priority} Priority
                     </div>
-                    <h4 className={`text-lg font-semibold ${theme.text} mb-3`}>{insight.title}</h4>
-                    <p className={`text-sm ${theme.textSecondary} mb-5`}>{insight.description}</p>
-                    <blockquote className={`text-xs italic ${theme.textSecondary} p-4 bg-white/50 rounded-lg`}>
+                    <h4 className={`text-base sm:text-lg font-semibold ${theme.text} mb-2 sm:mb-3`}>{insight.title}</h4>
+                    <p className={`text-sm ${theme.textSecondary} mb-4 sm:mb-5`}>{insight.description}</p>
+                    <blockquote className={`text-xs italic ${theme.textSecondary} p-3 sm:p-4 bg-white/50 rounded-lg`}>
                       "{insight.quote}"
                     </blockquote>
                   </div>
@@ -548,13 +566,13 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* User Personas */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>User Personas</h2>
-            <div className="space-y-10">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>User Personas</h2>
+            <div className="space-y-6 sm:space-y-10">
               {personas.map((persona, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-10`}>
-                  <div className="grid md:grid-cols-5 gap-8">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
+                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
+                    <div className="text-center lg:text-left">
+                      <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gray-200 rounded-full mx-auto lg:mx-0 mb-3 sm:mb-4 overflow-hidden">
                         <Image
                           src={persona.avatar || "/placeholder.svg"}
                           alt={persona.name}
@@ -563,46 +581,51 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h3 className={`text-lg font-bold ${theme.text} mb-2`}>{persona.name}</h3>
-                      <p className={`text-sm ${theme.textSecondary} mb-3`}>Age {persona.age}</p>
+                      <h3 className={`text-base sm:text-lg font-bold ${theme.text} mb-1 sm:mb-2`}>{persona.name}</h3>
+                      <p className={`text-sm ${theme.textSecondary} mb-2 sm:mb-3`}>Age {persona.age}</p>
                       <span className="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs rounded-full">
                         {persona.type}
                       </span>
                     </div>
                     <div>
-                      <h4 className={`font-semibold ${theme.text} mb-4`}>Goals</h4>
-                      <ul className="space-y-3">
+                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Goals</h4>
+                      <ul className="space-y-2 sm:space-y-3">
                         {persona.goals.map((goal, goalIndex) => (
-                          <li key={goalIndex} className={`text-sm ${theme.textSecondary} flex items-start gap-3`}>
-                            <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <li
+                            key={goalIndex}
+                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
+                          >
+                            <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-500 mt-0.5 flex-shrink-0" />
                             {goal}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className={`font-semibold ${theme.text} mb-4`}>Frustrations</h4>
-                      <ul className="space-y-3">
+                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Frustrations</h4>
+                      <ul className="space-y-2 sm:space-y-3">
                         {persona.frustrations.map((frustration, frustrationIndex) => (
                           <li
                             key={frustrationIndex}
-                            className={`text-sm ${theme.textSecondary} flex items-start gap-3`}
+                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
                           >
-                            <div className="w-4 h-4 bg-red-200 rounded-full mt-0.5 flex-shrink-0" />
+                            <div className="w-3 sm:w-4 h-3 sm:h-4 bg-red-200 rounded-full mt-0.5 flex-shrink-0" />
                             {frustration}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className={`font-semibold ${theme.text} mb-4`}>Quote</h4>
-                      <blockquote className={`text-sm italic ${theme.textSecondary} p-4 bg-white/50 rounded-lg mb-4`}>
+                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Quote</h4>
+                      <blockquote
+                        className={`text-xs sm:text-sm italic ${theme.textSecondary} p-3 sm:p-4 bg-white/50 rounded-lg mb-3 sm:mb-4`}
+                      >
                         "{persona.quote}"
                       </blockquote>
                     </div>
                     <div>
-                      <h4 className={`font-semibold ${theme.text} mb-4`}>Behavior</h4>
-                      <p className={`text-sm ${theme.textSecondary}`}>{persona.behavior}</p>
+                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Behavior</h4>
+                      <p className={`text-xs sm:text-sm ${theme.textSecondary}`}>{persona.behavior}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -612,24 +635,26 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* UX Strategy */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>UX Strategy Framework</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              UX Strategy Framework
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {uxStrategy.map((strategy, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-8 hover:shadow-lg transition-shadow`}
+                  className={`${theme.cardBg} rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow`}
                 >
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <strategy.icon className="w-8 h-8 text-teal-600" />
+                  <div className="text-center mb-4 sm:mb-6">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                      <strategy.icon className="w-6 sm:w-8 h-6 sm:h-8 text-teal-600" />
                     </div>
-                    <h3 className={`text-xl font-bold ${theme.text} mb-4`}>{strategy.principle}</h3>
-                    <p className={`${theme.textSecondary} mb-6`}>{strategy.description}</p>
+                    <h3 className={`text-lg sm:text-xl font-bold ${theme.text} mb-3 sm:mb-4`}>{strategy.principle}</h3>
+                    <p className={`${theme.textSecondary} mb-4 sm:mb-6 text-sm sm:text-base`}>{strategy.description}</p>
                   </div>
-                  <div className="p-5 bg-teal-50 rounded-lg">
-                    <h4 className="font-medium text-teal-800 mb-3">Implementation:</h4>
-                    <p className="text-sm text-teal-700">{strategy.implementation}</p>
+                  <div className="p-4 sm:p-5 bg-teal-50 rounded-lg">
+                    <h4 className="font-medium text-teal-800 mb-2 sm:mb-3 text-sm sm:text-base">Implementation:</h4>
+                    <p className="text-xs sm:text-sm text-teal-700">{strategy.implementation}</p>
                   </div>
                 </motion.div>
               ))}
@@ -638,27 +663,34 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Design Solutions */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>Design Solutions</h2>
-            <div className="space-y-16">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              Design Solutions
+            </h2>
+            <div className="space-y-10 sm:space-y-16">
               {keyFeatures.map((feature, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-10`}>
+                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
                   <div
-                    className={`grid md:grid-cols-2 gap-10 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}
+                    className={`grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}
                   >
                     <div className={index % 2 === 1 ? "md:col-start-2" : ""}>
-                      <h3 className={`text-2xl font-bold ${theme.text} mb-6`}>{feature.title}</h3>
-                      <p className={`${theme.textSecondary} mb-8 text-lg`}>{feature.description}</p>
-                      <ul className="space-y-4 mb-8">
+                      <h3 className={`text-xl sm:text-2xl font-bold ${theme.text} mb-4 sm:mb-6`}>{feature.title}</h3>
+                      <p className={`${theme.textSecondary} mb-6 sm:mb-8 text-base sm:text-lg`}>
+                        {feature.description}
+                      </p>
+                      <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                         {feature.features.map((item, itemIndex) => (
-                          <li key={itemIndex} className={`flex items-start gap-4 ${theme.textSecondary}`}>
-                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <li
+                            key={itemIndex}
+                            className={`flex items-start gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}
+                          >
+                            <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
-                      <div className="p-5 bg-green-50 rounded-lg border-l-4 border-green-400">
-                        <h4 className="font-semibold text-green-800 mb-2">Impact</h4>
-                        <p className="text-green-700">{feature.impact}</p>
+                      <div className="p-4 sm:p-5 bg-green-50 rounded-lg border-l-4 border-green-400">
+                        <h4 className="font-semibold text-green-800 mb-1 sm:mb-2 text-sm sm:text-base">Impact</h4>
+                        <p className="text-green-700 text-sm sm:text-base">{feature.impact}</p>
                       </div>
                     </div>
                     <div className={index % 2 === 1 ? "md:col-start-1" : ""}>
@@ -680,44 +712,46 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Project Impact */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>Project Impact</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>Project Impact</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-12">
               {projectImpact.map((metric, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-8 text-center hover:shadow-lg transition-shadow`}
+                  className={`${theme.cardBg} rounded-2xl p-4 sm:p-8 text-center hover:shadow-lg transition-shadow`}
                 >
-                  <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <metric.icon className="w-8 h-8 text-teal-600" />
+                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <metric.icon className="w-6 sm:w-8 h-6 sm:h-8 text-teal-600" />
                   </div>
-                  <div className="text-3xl font-bold text-teal-600 mb-3">{metric.metric}</div>
-                  <p className={`text-sm font-medium ${theme.text} mb-3`}>{metric.description}</p>
+                  <div className="text-2xl sm:text-3xl font-bold text-teal-600 mb-2 sm:mb-3">{metric.metric}</div>
+                  <p className={`text-xs sm:text-sm font-medium ${theme.text} mb-2 sm:mb-3`}>{metric.description}</p>
                   <p className={`text-xs ${theme.textSecondary}`}>{metric.detail}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className={`${theme.cardBg} rounded-2xl p-10`}>
-              <h3 className={`text-xl font-semibold ${theme.text} mb-8 text-center`}>Key Outcomes</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <ul className="space-y-4">
-                  <li className={`flex items-center gap-4 ${theme.textSecondary}`}>
-                    <CheckCircle className="w-5 h-5 text-green-500" />
+            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
+              <h3 className={`text-lg sm:text-xl font-semibold ${theme.text} mb-6 sm:mb-8 text-center`}>
+                Key Outcomes
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <ul className="space-y-3 sm:space-y-4">
+                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
                     Redesigned site helps users feel informed without overload
                   </li>
-                  <li className={`flex items-center gap-4 ${theme.textSecondary}`}>
-                    <CheckCircle className="w-5 h-5 text-green-500" />
+                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
                     Inspires visits with approachable content and easy planning
                   </li>
                 </ul>
-                <ul className="space-y-4">
-                  <li className={`flex items-center gap-4 ${theme.textSecondary}`}>
-                    <CheckCircle className="w-5 h-5 text-green-500" />
+                <ul className="space-y-3 sm:space-y-4">
+                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
                     Serves first-time visitors and locals effectively
                   </li>
-                  <li className={`flex items-center gap-4 ${theme.textSecondary}`}>
-                    <CheckCircle className="w-5 h-5 text-green-500" />
+                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
+                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
                     Respects real user behaviors and needs
                   </li>
                 </ul>
@@ -727,16 +761,20 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Design Deliverables */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>Design Deliverables</h2>
-            <div className="grid md:grid-cols-2 gap-10">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              Design Deliverables
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
               {designDeliverables.map((category, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-8`}>
-                  <h3 className={`text-lg font-semibold ${theme.text} mb-6 text-center`}>{category.category}</h3>
-                  <ul className="space-y-4">
+                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
+                  <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-4 sm:mb-6 text-center`}>
+                    {category.category}
+                  </h3>
+                  <ul className="space-y-3 sm:space-y-4">
                     {category.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className={`flex items-start gap-4 ${theme.textSecondary}`}>
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
+                      <li key={itemIndex} className={`flex items-start gap-3 sm:gap-4 ${theme.textSecondary}`}>
+                        <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -747,11 +785,15 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Design Process Showcase */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>Design Process Showcase</h2>
-            <div className="grid md:grid-cols-2 gap-10">
-              <div className={`${theme.cardBg} rounded-2xl p-8`}>
-                <h3 className={`text-lg font-semibold ${theme.text} mb-6`}>Low-Fidelity Wireframes</h3>
-                <div className="relative rounded-lg overflow-hidden shadow-md mb-6">
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              Design Process Showcase
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
+              <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
+                <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-4 sm:mb-6`}>
+                  Low-Fidelity Wireframes
+                </h3>
+                <div className="relative rounded-lg overflow-hidden shadow-md mb-4 sm:mb-6">
                   <Image
                     src="/placeholder.svg?height=300&width=400&text=Low-Fi+Wireframes"
                     alt="Low-fidelity wireframes"
@@ -760,14 +802,16 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
                     className="w-full h-auto"
                   />
                 </div>
-                <p className={`text-sm ${theme.textSecondary}`}>
+                <p className={`text-xs sm:text-sm ${theme.textSecondary}`}>
                   Initial wireframes focused on information hierarchy and user flow optimization based on research
                   insights
                 </p>
               </div>
-              <div className={`${theme.cardBg} rounded-2xl p-8`}>
-                <h3 className={`text-lg font-semibold ${theme.text} mb-6`}>High-Fidelity Mockups</h3>
-                <div className="relative rounded-lg overflow-hidden shadow-md mb-6">
+              <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
+                <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-4 sm:mb-6`}>
+                  High-Fidelity Mockups
+                </h3>
+                <div className="relative rounded-lg overflow-hidden shadow-md mb-4 sm:mb-6">
                   <Image
                     src="/placeholder.svg?height=300&width=400&text=High-Fi+Mockups"
                     alt="High-fidelity mockups"
@@ -776,7 +820,7 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
                     className="w-full h-auto"
                   />
                 </div>
-                <p className={`text-sm ${theme.textSecondary}`}>
+                <p className={`text-xs sm:text-sm ${theme.textSecondary}`}>
                   Polished designs incorporating visual branding and detailed interactions with curated content approach
                 </p>
               </div>
@@ -785,23 +829,25 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Reflection & Learnings */}
           <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-12 text-center`}>Reflection & Key Learnings</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-10`}>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-8`}>
+            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
+              Reflection & Key Learnings
+            </h2>
+            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
+              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed mb-6 sm:mb-8`}>
                 This project reinforced the importance of user research in challenging assumptions about what users
                 actually need. Initially, I thought comprehensive planning tools would be valuable, but research
                 revealed that users prefer curated, simple experiences over complex functionality.
               </p>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-8`}>
+              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed mb-6 sm:mb-8`}>
                 The most significant insight was understanding that different user types (tourists, locals, families)
                 have fundamentally different information needs, but they all share a desire for simplicity and
                 confidence in their planning process.
               </p>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-8`}>
+              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed mb-6 sm:mb-8`}>
                 Working on a beloved Vancouver landmark taught me how to balance innovation with respect for established
                 brand identity, and how to design for both emotional connection and practical functionality.
               </p>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed`}>
+              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed`}>
                 The iterative design process, guided by continuous user feedback, was crucial in creating a solution
                 that truly serves real user behaviors and needs rather than assumptions about what they might want.
               </p>
@@ -810,16 +856,16 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
 
           {/* Project Links */}
           <motion.section variants={itemVariants} className="text-center">
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <motion.a
                 href="https://figma.com/granville-island-redesign"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-medium transition-colors"
+                className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-medium transition-colors text-sm sm:text-base"
               >
-                <Figma className="w-5 h-5" />
+                <Figma className="w-4 sm:w-5 h-4 sm:h-5" />
                 View Figma Prototype
               </motion.a>
               <motion.a
@@ -828,16 +874,16 @@ export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCase
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-colors"
+                className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-colors text-sm sm:text-base"
               >
-                <FileText className="w-5 h-5" />
+                <FileText className="w-4 sm:w-5 h-4 sm:h-5" />
                 Download Research Report
               </motion.a>
               <motion.button
                 onClick={onBack}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-8 py-4 ${theme.cardBg} ${theme.text} rounded-full font-medium transition-colors ${theme.hover}`}
+                className={`px-6 sm:px-8 py-3 sm:py-4 ${theme.cardBg} ${theme.text} rounded-full font-medium transition-colors ${theme.hover} text-sm sm:text-base`}
               >
                 Back to Projects
               </motion.button>
