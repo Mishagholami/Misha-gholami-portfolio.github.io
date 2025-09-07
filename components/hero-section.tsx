@@ -437,7 +437,7 @@ export function HeroSection() {
         className="relative z-20 text-center px-6 max-w-6xl mx-auto"
       >
         {/* Animated Name */}
-        <motion.div variants={itemVariants} className="mb-8">
+        <motion.div variants={itemVariants} className="mb-8 mt-20">
           <motion.h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight">
             {"Misha Gholami".split("").map((letter, index) => (
               <motion.span
@@ -585,10 +585,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          className="mt-16 flex justify-center"
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 3, 0] }}
             transition={{
               duration: 2,
               repeat: Number.POSITIVE_INFINITY,
@@ -597,7 +597,7 @@ export function HeroSection() {
             className="flex flex-col items-center text-gray-400 cursor-pointer hover:text-gray-600 transition-colors duration-300"
             onClick={() => scrollToSection("#about")}
           >
-            <span className="text-sm mb-2 font-medium">Scroll to explore</span>
+            <span className="text-sm mb-6 font-medium">Scroll to explore</span>
             <ChevronDown className="w-6 h-6" />
           </motion.div>
         </motion.div>

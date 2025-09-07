@@ -63,9 +63,9 @@ export function Navbar() {
           <div className="flex-shrink-0">
             <button
               onClick={() => handleNavClick("#home")}
-              className="text-2xl font-serif font-bold text-primary hover:text-secondary transition-all duration-300 hover-scale"
+              className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover-scale"
             >
-              Misha Gholami
+              <img src="/placeholder-logo.svg" alt="Logo" className="w-8 h-8 object-contain" />
             </button>
           </div>
 
