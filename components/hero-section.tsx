@@ -438,7 +438,7 @@ export function HeroSection() {
       >
         {/* Animated Name */}
         <motion.div variants={itemVariants} className="mb-8 mt-20">
-          <motion.h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight">
+          <motion.h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             {"Misha Gholami".split("").map((letter, index) => (
               <motion.span
                 key={index}
