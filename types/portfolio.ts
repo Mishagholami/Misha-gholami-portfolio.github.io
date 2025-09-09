@@ -1,5 +1,6 @@
 export interface Project {
   id: number
+  slug: string
   title: string
   description: string
   image?: string
@@ -24,6 +25,20 @@ export interface Project {
     role: string
     company: string
   }
+  // New fields for detailed project pages
+  overview?: string
+  problem?: string
+  research?: string[]
+  solutionDetails?: string
+  impact?: string[]
+  gallery?: string[]
+  skills?: string[]
+  tools?: string[]
+  reflection?: string
+  lessonsLearned?: string[]
+  nextSteps?: string[]
+  year?: string
+  client?: string
 }
 
 export interface GalleryItem {
