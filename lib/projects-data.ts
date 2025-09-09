@@ -2,303 +2,719 @@ import type { Project } from "@/types/portfolio"
 
 export const projects: Project[] = [
   {
-    id: 1,
-    slug: "linkedin-user-study",
-    title: "LinkedIn User Study",
-    description: "In-depth qualitative research to uncover user pain points and opportunities on LinkedIn's platform.",
-    image: "/placeholder.svg?height=600&width=800&text=LinkedIn+Study",
-    category: "research",
-    tags: ["User Research", "Data Analysis", "Usability Testing", "Thematic Analysis"],
-    role: "Lead UX Researcher",
-    duration: "2 months",
-    year: "2024",
-    team: ["UX Researcher", "Data Analyst", "Product Manager"],
-    challenge:
-      "LinkedIn users were experiencing difficulties with content discovery and professional networking efficiency.",
-    solution:
-      "Conducted comprehensive user interviews and usability testing to identify key pain points and opportunities.",
-    outcome:
-      "Identified 5 key pain points affecting 80% of users, leading to actionable recommendations that could improve user engagement by an estimated 35%.",
-    overview:
-      "This comprehensive user research study aimed to understand how professionals interact with LinkedIn's platform, identifying friction points in their networking and content discovery journey. Through a mixed-methods approach, we uncovered critical insights that could reshape the user experience.",
-    problem:
-      "LinkedIn users reported frustration with content relevance, difficulty in meaningful networking, and overwhelming notification systems. Our preliminary data showed a 40% drop-off rate in daily active users over 6 months.",
-    research: [
-      "Conducted 25 in-depth user interviews with professionals across various industries",
-      "Performed usability testing sessions with 15 participants using think-aloud protocol",
-      "Analyzed user behavior data from 1,000+ anonymized user sessions",
-      "Created user journey maps highlighting pain points and opportunities",
-      "Conducted competitive analysis of professional networking platforms",
-    ],
-    solutionDetails:
-      "Our research methodology combined qualitative and quantitative approaches to provide comprehensive insights. We used thematic analysis to identify patterns in user feedback and created actionable recommendations based on evidence-based findings.",
-    impact: [
-      "Identified 5 critical pain points affecting 80% of surveyed users",
-      "Provided 12 actionable recommendations with priority rankings",
-      "Estimated potential 35% increase in user engagement if recommendations implemented",
-      "Created user personas and journey maps adopted by the product team",
-      "Influenced product roadmap decisions for Q3-Q4 development cycles",
-    ],
-    gallery: [
-      "/placeholder.svg?height=400&width=600&text=User+Interview+Setup",
-      "/placeholder.svg?height=400&width=600&text=Journey+Map",
-      "/placeholder.svg?height=400&width=600&text=Pain+Points+Analysis",
-      "/placeholder.svg?height=400&width=600&text=Recommendations+Framework",
-    ],
-    skills: ["User Research", "Data Analysis", "Usability Testing", "Thematic Analysis", "User Journey Mapping"],
-    tools: ["Figma", "Miro", "Google Analytics", "Zoom", "Notion", "SPSS"],
-    reflection:
-      "This project reinforced the importance of combining qualitative insights with quantitative data. The biggest challenge was synthesizing diverse user feedback into actionable recommendations while maintaining objectivity.",
-    lessonsLearned: [
-      "Always validate assumptions with real user data",
-      "Diverse user perspectives lead to more comprehensive insights",
-      "Clear communication of findings is as important as the research itself",
-      "Stakeholder buy-in requires evidence-based recommendations",
-    ],
-    figmaLink: "https://figma.com/linkedin-study",
-    pdfReport: "https://example.com/linkedin-report.pdf",
-    caseStudyColor: "blue",
-    featured: true,
-  },
-  {
-    id: 2,
+    id: "1",
     slug: "headspace-app-redesign",
     title: "Headspace App Redesign",
-    description: "Rethinking the meditation experience with a focus on accessibility and modern UI principles.",
-    image: "/placeholder.svg?height=600&width=800&text=Headspace+Redesign",
-    category: "design",
-    tags: ["UX/UI Design", "Prototyping", "Accessibility", "User Flows"],
-    role: "UX/UI Designer",
+    description:
+      "A comprehensive UX redesign of the Headspace meditation app focusing on improved user engagement and accessibility.",
+    longDescription:
+      "This project involved a complete UX audit and redesign of the Headspace meditation app, with a focus on improving user engagement, accessibility, and the overall meditation experience. Through extensive user research and iterative design, we created a more intuitive and calming interface.",
+    image: "/placeholder.svg?height=400&width=600&text=Headspace+Redesign",
+    category: "UX Design",
+    tags: ["Mobile App", "UX Research", "Prototyping", "Accessibility"],
+    role: "Lead UX Designer",
     duration: "3 months",
-    year: "2024",
-    team: ["UX Designer", "UI Designer", "Accessibility Consultant"],
-    challenge:
-      "The existing Headspace app had accessibility issues and outdated visual design that didn't align with modern design principles.",
-    solution: "Led a complete redesign process focusing on accessibility improvements and modern UI patterns.",
-    outcome: "Created a more accessible and visually appealing interface that improved task completion rates by 40%.",
-    overview:
-      "A comprehensive redesign of the Headspace meditation app, focusing on creating an inclusive experience that serves users with diverse abilities while maintaining the calming, mindful aesthetic the brand is known for.",
-    problem:
-      "User feedback indicated that the current app design created barriers for users with visual impairments, motor difficulties, and cognitive differences. Additionally, the interface felt outdated compared to modern design standards.",
-    research: [
-      "Conducted accessibility audit using WCAG 2.1 guidelines",
-      "Interviewed 20 users with diverse accessibility needs",
-      "Analyzed competitor apps for accessibility best practices",
-      "Tested current app with screen readers and assistive technologies",
-      "Reviewed user support tickets for common usability issues",
-    ],
-    solutionDetails:
-      "The redesign focused on improving color contrast, implementing proper focus states, adding alternative text for all images, and creating more intuitive navigation patterns. We also introduced customizable interface options for users with different needs.",
-    impact: [
-      "Improved WCAG compliance from Level A to Level AA",
-      "Increased task completion rates by 40% across all user groups",
-      "Reduced user support tickets related to navigation by 60%",
-      "Achieved 4.8/5 accessibility rating in user testing",
-      "Positive feedback from accessibility advocacy groups",
-    ],
-    gallery: [
-      "/placeholder.svg?height=400&width=600&text=Before+After+Comparison",
-      "/placeholder.svg?height=400&width=600&text=Accessibility+Features",
-      "/placeholder.svg?height=400&width=600&text=Color+Contrast+Guide",
-      "/placeholder.svg?height=400&width=600&text=User+Flow+Diagrams",
-      "/placeholder.svg?height=400&width=600&text=Prototype+Screens",
-    ],
-    skills: ["UX Design", "UI Design", "Accessibility Design", "Prototyping", "User Testing"],
-    tools: ["Figma", "Principle", "Stark", "Axe", "VoiceOver", "JAWS"],
-    reflection:
-      "This project opened my eyes to the importance of inclusive design. Working with users who have different abilities taught me that accessibility improvements often benefit all users, not just those with specific needs.",
-    lessonsLearned: [
-      "Accessibility should be considered from the beginning, not as an afterthought",
-      "User testing with diverse groups reveals insights you can't get from guidelines alone",
-      "Small design changes can have massive impacts on usability",
-      "Inclusive design principles make products better for everyone",
-    ],
-    figmaLink: "https://figma.com/headspace-redesign",
-    liveDemo: "https://headspace-redesign.example.com",
-    caseStudyColor: "purple",
+    team: "4 designers, 2 researchers",
+    client: "Headspace (Concept)",
+    year: 2024,
     featured: true,
+    links: {
+      figma: "https://figma.com/headspace-redesign",
+      prototype: "https://prototype.headspace-redesign.com",
+    },
+    overview: {
+      challenge:
+        "Users were experiencing difficulty navigating the app and finding relevant meditation content, leading to decreased engagement and retention.",
+      approach:
+        "Conducted comprehensive user research, created user personas, and iteratively designed and tested new interface solutions.",
+      outcome:
+        "Achieved a 40% increase in user engagement and 25% improvement in task completion rates through improved navigation and content discovery.",
+    },
+    problem: {
+      title: "Navigation Complexity & Content Discovery",
+      description:
+        "Users struggled with the existing navigation structure and had difficulty finding meditation content that matched their current needs and mood.",
+      painPoints: [
+        "Complex navigation with too many nested levels",
+        "Difficulty finding relevant content for current mood/situation",
+        "Overwhelming amount of options without clear guidance",
+        "Lack of personalization in content recommendations",
+      ],
+    },
+    research: {
+      methods: [
+        "User interviews with 15 current Headspace users",
+        "Competitive analysis of meditation apps",
+        "Usability testing of current app",
+        "Survey of 200+ meditation app users",
+        "Analytics review of user behavior patterns",
+      ],
+      insights: [
+        "Users want quick access to mood-based meditation sessions",
+        "Personalization is key for long-term engagement",
+        "Visual cues help users understand meditation benefits",
+        "Progress tracking motivates continued use",
+      ],
+      userQuotes: [
+        '"I just want to find a 5-minute meditation for anxiety without clicking through 10 screens."',
+        '"The app has so much content, but I always end up using the same 3 sessions because I can\'t find what I need."',
+      ],
+    },
+    solution: {
+      approach:
+        "Redesigned the information architecture with a mood-first approach, simplified navigation, and enhanced personalization features.",
+      keyFeatures: [
+        "Mood-based content discovery on home screen",
+        "Simplified 3-level navigation structure",
+        "Smart recommendations based on usage patterns",
+        "Quick access to favorite and recent sessions",
+        "Enhanced progress tracking with visual rewards",
+      ],
+      designDecisions: [
+        "Implemented a card-based layout for better content scanning",
+        "Used calming color palette with improved contrast ratios",
+        "Added micro-interactions to provide feedback and delight",
+        "Created consistent iconography system for different meditation types",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          label: "User Engagement",
+          value: "+40%",
+          description: "Increase in daily active users",
+        },
+        {
+          label: "Task Completion",
+          value: "+25%",
+          description: "Improvement in finding desired content",
+        },
+        {
+          label: "Session Duration",
+          value: "+15%",
+          description: "Average meditation session length",
+        },
+        {
+          label: "User Retention",
+          value: "+30%",
+          description: "7-day retention rate improvement",
+        },
+      ],
+      outcomes: [
+        "Reduced cognitive load through simplified navigation",
+        "Improved accessibility with WCAG 2.1 AA compliance",
+        "Enhanced user satisfaction scores by 35%",
+        "Decreased support tickets related to navigation by 50%",
+      ],
+    },
+    gallery: [
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Home+Screen",
+        alt: "Redesigned home screen with mood-based content",
+        caption: "New home screen featuring mood-based meditation recommendations",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Navigation",
+        alt: "Simplified navigation structure",
+        caption: "Streamlined navigation with clear content categories",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Progress",
+        alt: "Enhanced progress tracking",
+        caption: "Visual progress tracking with achievement rewards",
+      },
+    ],
+    skills: ["UX Research", "User Interface Design", "Prototyping", "Usability Testing"],
+    tools: ["Figma", "Principle", "Maze", "Miro", "Adobe Creative Suite"],
+    reflection: {
+      challenges: [
+        "Balancing feature richness with simplicity",
+        "Ensuring accessibility without compromising visual appeal",
+        "Managing stakeholder expectations during iterative design",
+      ],
+      learnings: [
+        "The importance of mood-based design in wellness apps",
+        "How micro-interactions can significantly impact user perception",
+        "The value of continuous user testing throughout the design process",
+      ],
+      nextSteps: [
+        "Implement A/B testing for key interface elements",
+        "Explore voice-guided navigation features",
+        "Develop companion Apple Watch app integration",
+      ],
+    },
   },
   {
-    id: 3,
-    slug: "wellnest-to-work-app",
+    id: "2",
+    slug: "linkedin-user-study",
+    title: "LinkedIn User Study",
+    description:
+      "Comprehensive user research study analyzing professional networking behaviors and pain points on LinkedIn.",
+    longDescription:
+      "An in-depth user research study examining how professionals use LinkedIn for networking, job searching, and content consumption. The study revealed key insights about user behavior patterns and identified opportunities for platform improvement.",
+    image: "/placeholder.svg?height=400&width=600&text=LinkedIn+Study",
+    category: "User Research",
+    tags: ["User Research", "Data Analysis", "Behavioral Study", "Professional Networks"],
+    role: "Lead UX Researcher",
+    duration: "2 months",
+    team: "2 researchers, 1 data analyst",
+    client: "Independent Research",
+    year: 2024,
+    featured: true,
+    links: {
+      figma: "https://figma.com/linkedin-research-findings",
+    },
+    overview: {
+      challenge:
+        "Understanding how professionals navigate LinkedIn and identifying friction points in their networking and job search activities.",
+      approach:
+        "Mixed-methods research approach combining surveys, interviews, and behavioral analysis to gather comprehensive insights.",
+      outcome:
+        "Identified 5 key areas for improvement and provided actionable recommendations that could increase user engagement by 30%.",
+    },
+    problem: {
+      title: "Professional Networking Friction",
+      description:
+        "Professionals struggle with effective networking on LinkedIn due to platform complexity and unclear value propositions of various features.",
+      painPoints: [
+        "Overwhelming amount of content in feed",
+        "Difficulty finding relevant networking opportunities",
+        "Unclear messaging etiquette for professional outreach",
+        "Limited visibility into connection value and relevance",
+      ],
+    },
+    research: {
+      methods: [
+        "In-depth interviews with 20 professionals across industries",
+        "Survey of 500+ LinkedIn users about usage patterns",
+        "Behavioral analysis of user interaction data",
+        "Competitive analysis of professional networking platforms",
+        "Card sorting exercise for feature prioritization",
+      ],
+      insights: [
+        "Users spend 70% of time consuming content vs. actively networking",
+        "Job seekers find the platform overwhelming and impersonal",
+        "Content creators struggle with audience engagement",
+        "Networking success correlates with profile completeness",
+      ],
+      userQuotes: [
+        '"I scroll through LinkedIn like social media, but I never actually network."',
+        '"I want to reach out to people, but I never know what to say that won\'t sound spammy."',
+      ],
+    },
+    solution: {
+      approach:
+        "Developed a framework for improving professional networking through better content curation, networking guidance, and connection quality indicators.",
+      keyFeatures: [
+        "Smart feed curation based on professional goals",
+        "Networking conversation starters and templates",
+        "Connection quality scoring system",
+        "Industry-specific content recommendations",
+        "Professional development pathway suggestions",
+      ],
+      designDecisions: [
+        "Prioritized quality over quantity in connection suggestions",
+        "Implemented contextual help for networking activities",
+        "Created clear visual hierarchy for different content types",
+        "Designed progressive disclosure for complex features",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          label: "Research Participants",
+          value: "520+",
+          description: "Professionals interviewed and surveyed",
+        },
+        {
+          label: "Data Points",
+          value: "10,000+",
+          description: "Behavioral interactions analyzed",
+        },
+        {
+          label: "Key Insights",
+          value: "25",
+          description: "Actionable findings identified",
+        },
+        {
+          label: "Recommendations",
+          value: "12",
+          description: "Strategic improvement suggestions",
+        },
+      ],
+      outcomes: [
+        "Identified opportunity for 30% increase in meaningful connections",
+        "Revealed 5 critical pain points in current user journey",
+        "Provided framework for feature prioritization",
+        "Created user personas for professional networking segments",
+      ],
+    },
+    gallery: [
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Research+Findings",
+        alt: "Key research findings visualization",
+        caption: "Summary of key insights from user interviews and surveys",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=User+Journey",
+        alt: "Professional networking user journey map",
+        caption: "Current state user journey highlighting pain points",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Recommendations",
+        alt: "Strategic recommendations framework",
+        caption: "Prioritized recommendations for platform improvement",
+      },
+    ],
+    skills: ["User Research", "Data Analysis", "Survey Design", "Interview Techniques"],
+    tools: ["Miro", "Typeform", "SPSS", "Figma", "Notion"],
+    reflection: {
+      challenges: [
+        "Recruiting diverse professional participants across industries",
+        "Balancing quantitative data with qualitative insights",
+        "Managing large dataset analysis and synthesis",
+      ],
+      learnings: [
+        "The importance of mixed-methods research for comprehensive insights",
+        "How professional context significantly impacts user behavior",
+        "The value of longitudinal studies for understanding behavior patterns",
+      ],
+      nextSteps: [
+        "Conduct follow-up study on implemented recommendations",
+        "Expand research to international professional networking behaviors",
+        "Develop industry-specific networking behavior studies",
+      ],
+    },
+  },
+  {
+    id: "3",
+    slug: "wellnest-work-app",
     title: "Wellnest to Work App",
-    description: "Ideation and design of a mobile application connecting workplace wellness with productivity.",
-    image: "/placeholder.svg?height=600&width=800&text=Wellnest+App",
-    category: "concept",
-    tags: ["App Design", "User Stories", "Prototyping", "Concept Development"],
+    description:
+      "Mobile app concept helping new parents transition back to work with wellness tracking and support features.",
+    longDescription:
+      "A comprehensive mobile application designed to support new parents during their transition back to work, featuring wellness tracking, childcare coordination, and peer support networks.",
+    image: "/placeholder.svg?height=400&width=600&text=Wellnest+App",
+    category: "Mobile App",
+    tags: ["Mobile Design", "Wellness", "User Experience", "Concept Design"],
     role: "Product Designer",
     duration: "4 months",
-    year: "2024",
-    team: ["Product Designer", "UX Researcher", "Business Analyst"],
-    challenge: "Remote workers struggle to maintain work-life balance and wellness routines.",
-    solution:
-      "Designed an integrated solution that promotes wellness while enhancing productivity in remote work environments.",
-    outcome: "Developed a comprehensive app concept with 15+ core features, validated through user feedback sessions.",
-    overview:
-      "Wellnest to Work is a conceptual mobile application designed to bridge the gap between workplace productivity and personal wellness. The app recognizes that employee wellbeing directly impacts work performance and aims to create sustainable habits.",
-    problem:
-      "With the rise of remote work, employees reported increased stress, decreased physical activity, and blurred boundaries between work and personal life. Traditional wellness apps don't integrate with work schedules, making it difficult to maintain consistent healthy habits.",
-    research: [
-      "Surveyed 150 remote workers about their wellness challenges",
-      "Conducted 30 interviews with HR professionals and wellness coordinators",
-      "Analyzed existing wellness and productivity apps for feature gaps",
-      "Studied workplace wellness research and best practices",
-      "Created user personas based on different work-from-home scenarios",
-    ],
-    solutionDetails:
-      "The app integrates with calendar systems to suggest wellness activities during breaks, tracks both productivity and wellness metrics, and provides personalized recommendations based on work patterns and stress levels.",
-    impact: [
-      "Validated concept with 85% positive feedback from target users",
-      "Identified market opportunity worth $2.3B in corporate wellness",
-      "Created detailed feature specifications for 15 core functionalities",
-      "Developed go-to-market strategy with potential B2B partnerships",
-      "Generated interest from 3 potential investors during concept presentations",
-    ],
-    gallery: [
-      "/placeholder.svg?height=400&width=600&text=App+Concept+Overview",
-      "/placeholder.svg?height=400&width=600&text=User+Journey+Map",
-      "/placeholder.svg?height=400&width=600&text=Feature+Wireframes",
-      "/placeholder.svg?height=400&width=600&text=Visual+Design+System",
-      "/placeholder.svg?height=400&width=600&text=Prototype+Demo",
-    ],
-    skills: ["Product Design", "Concept Development", "User Research", "Prototyping", "Business Strategy"],
-    tools: ["Figma", "Miro", "Notion", "Principle", "Google Forms", "Zoom"],
-    reflection:
-      "This project taught me the importance of validating concepts early and often. The intersection of wellness and productivity revealed interesting insights about user motivation and behavior change.",
-    lessonsLearned: [
-      "Concept validation is crucial before investing in detailed design",
-      "Understanding business models helps create more viable product concepts",
-      "User motivation varies significantly across different demographics",
-      "Integration capabilities can make or break a productivity app",
-    ],
-    figmaLink: "https://figma.com/wellnesstowork-concept",
-    caseStudyColor: "green",
+    team: "3 designers, 1 researcher",
+    client: "Concept Project",
+    year: 2023,
     featured: true,
+    links: {
+      figma: "https://figma.com/wellnest-app-concept",
+      prototype: "https://prototype.wellnest-app.com",
+    },
+    overview: {
+      challenge:
+        "New parents face significant challenges when returning to work, including wellness management, childcare coordination, and lack of support systems.",
+      approach:
+        "Designed a holistic mobile solution that addresses physical, mental, and logistical aspects of the work transition.",
+      outcome:
+        "Created a comprehensive app concept that received positive feedback from 85% of target users in concept testing.",
+    },
+    problem: {
+      title: "Return-to-Work Transition Challenges",
+      description:
+        "New parents struggle with the complex transition back to work, facing wellness, childcare, and emotional support challenges.",
+      painPoints: [
+        "Difficulty managing physical and mental wellness",
+        "Complex childcare scheduling and coordination",
+        "Lack of peer support and community",
+        "Overwhelming amount of information and resources",
+        "Guilt and anxiety about work-life balance",
+      ],
+    },
+    research: {
+      methods: [
+        "Interviews with 25 working parents",
+        "Survey of 150+ parents about return-to-work experiences",
+        "Expert interviews with pediatricians and workplace wellness specialists",
+        "Competitive analysis of parenting and wellness apps",
+        "Journey mapping of return-to-work process",
+      ],
+      insights: [
+        "Parents need personalized wellness guidance during transition",
+        "Childcare coordination is a major source of stress",
+        "Peer support significantly impacts successful transitions",
+        "Flexible scheduling tools are essential for work-life balance",
+      ],
+      userQuotes: [
+        '"I felt completely overwhelmed trying to manage everything when I went back to work."',
+        '"I wish I had other parents to talk to who understood what I was going through."',
+      ],
+    },
+    solution: {
+      approach:
+        "Created an integrated platform combining wellness tracking, childcare management, and community support features.",
+      keyFeatures: [
+        "Personalized wellness tracking and recommendations",
+        "Childcare scheduling and provider coordination",
+        "Peer support community and mentorship matching",
+        "Work-life balance planning tools",
+        "Resource library with expert-curated content",
+        "Progress tracking and milestone celebrations",
+      ],
+      designDecisions: [
+        "Used calming color palette to reduce stress and anxiety",
+        "Implemented progressive onboarding to avoid overwhelming users",
+        "Created modular interface allowing users to focus on priority areas",
+        "Designed for one-handed use during busy parenting moments",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          label: "Concept Validation",
+          value: "85%",
+          description: "Positive feedback from target users",
+        },
+        {
+          label: "Feature Adoption",
+          value: "92%",
+          description: "Users interested in wellness tracking",
+        },
+        {
+          label: "Community Interest",
+          value: "78%",
+          description: "Users wanting peer support features",
+        },
+        {
+          label: "Market Opportunity",
+          value: "$2.3B",
+          description: "Estimated market size for parenting apps",
+        },
+      ],
+      outcomes: [
+        "Validated market need for comprehensive return-to-work support",
+        "Identified key feature priorities for MVP development",
+        "Created scalable design system for future development",
+        "Established framework for measuring user wellness outcomes",
+      ],
+    },
+    gallery: [
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Onboarding",
+        alt: "App onboarding flow",
+        caption: "Gentle onboarding process focusing on user goals and needs",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Dashboard",
+        alt: "Main dashboard with wellness tracking",
+        caption: "Personalized dashboard with wellness metrics and quick actions",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Community",
+        alt: "Community support features",
+        caption: "Peer support community with mentorship matching",
+      },
+    ],
+    skills: ["Mobile Design", "User Research", "Prototyping", "Design Systems"],
+    tools: ["Figma", "Principle", "Maze", "Miro", "Notion"],
+    reflection: {
+      challenges: [
+        "Balancing comprehensive features with simple user experience",
+        "Addressing diverse needs of different parenting situations",
+        "Ensuring privacy and security for sensitive personal data",
+      ],
+      learnings: [
+        "The importance of emotional design in wellness applications",
+        "How life transitions require flexible and adaptive interfaces",
+        "The power of community features in supporting major life changes",
+      ],
+      nextSteps: [
+        "Develop MVP focusing on core wellness tracking features",
+        "Partner with healthcare providers for expert content",
+        "Conduct longitudinal study on app impact on return-to-work success",
+      ],
+    },
   },
   {
-    id: 4,
-    slug: "kalmont-web-development",
-    title: "KALMONT Web Development",
-    description: "Full-stack web design and development for a modern business website with focus on user experience.",
-    image: "/placeholder.svg?height=600&width=800&text=KALMONT+Website",
-    category: "development",
-    tags: ["React", "Tailwind CSS", "Web Design", "Frontend Development"],
+    id: "4",
+    slug: "kalmont-website",
+    title: "KALMONT Website",
+    description:
+      "Full-stack web development project for a modern business website with custom CMS and e-commerce integration.",
+    longDescription:
+      "A comprehensive web development project involving the design and development of a modern, responsive business website with custom content management system and integrated e-commerce functionality.",
+    image: "/placeholder.svg?height=400&width=600&text=KALMONT+Website",
+    category: "Web Development",
+    tags: ["Full-Stack", "React", "Node.js", "E-commerce", "CMS"],
     role: "Full-Stack Developer",
     duration: "6 months",
-    year: "2024",
-    client: "KALMONT Corporation",
-    team: ["Full-Stack Developer", "UI Designer", "Content Strategist"],
-    challenge: "KALMONT needed a modern, responsive website that would effectively communicate their brand values.",
-    solution:
-      "Handled complete project from initial design concepts to final deployment using modern web technologies.",
-    outcome:
-      "Delivered a high-performance website with 95+ Lighthouse scores, resulting in 60% increase in user engagement.",
-    overview:
-      "A complete web development project for KALMONT Corporation, involving everything from initial concept and design to full-stack development and deployment. The project focused on creating a modern, performant website that effectively communicates the company's values and services.",
-    problem:
-      "KALMONT's existing website was outdated, not mobile-responsive, and failed to convert visitors into leads. The site had poor performance scores and didn't reflect the company's innovative approach to their industry.",
-    research: [
-      "Analyzed competitor websites and industry best practices",
-      "Conducted stakeholder interviews to understand business goals",
-      "Performed technical audit of existing website infrastructure",
-      "Researched target audience preferences and behaviors",
-      "Studied conversion optimization techniques for B2B websites",
-    ],
-    solutionDetails:
-      "Built a modern, responsive website using React and Next.js with a focus on performance, accessibility, and conversion optimization. Implemented a headless CMS for easy content management and integrated analytics for tracking user behavior.",
-    impact: [
-      "Achieved 95+ scores across all Lighthouse metrics",
-      "Increased user engagement by 60% within first month",
-      "Improved mobile traffic by 120% due to responsive design",
-      "Reduced page load times from 8s to under 2s",
-      "Generated 40% more qualified leads through improved UX",
-    ],
-    gallery: [
-      "/placeholder.svg?height=400&width=600&text=Homepage+Design",
-      "/placeholder.svg?height=400&width=600&text=Mobile+Responsive+Views",
-      "/placeholder.svg?height=400&width=600&text=Performance+Metrics",
-      "/placeholder.svg?height=400&width=600&text=Code+Architecture",
-      "/placeholder.svg?height=400&width=600&text=Before+After+Comparison",
-    ],
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Web Performance"],
-    tools: ["VS Code", "Figma", "Vercel", "GitHub", "Lighthouse", "Google Analytics"],
-    reflection:
-      "This project reinforced the importance of performance optimization and user-centered design in web development. Balancing aesthetic appeal with technical performance was a key challenge that led to creative solutions.",
-    lessonsLearned: [
-      "Performance optimization should be considered from the beginning",
-      "Regular client communication prevents scope creep and ensures alignment",
-      "Modern web technologies can significantly improve user experience",
-      "Data-driven decisions lead to better outcomes than assumptions",
-    ],
-    liveDemo: "https://kalmont.example.com",
-    githubRepo: "https://github.com/mishagholami/kalmont-website",
-    caseStudyColor: "blue",
+    team: "2 developers, 1 designer",
+    client: "KALMONT Business Solutions",
+    year: 2023,
     featured: true,
+    links: {
+      github: "https://github.com/kalmont-website",
+      live: "https://kalmont.com",
+    },
+    overview: {
+      challenge:
+        "KALMONT needed a modern, scalable website that could handle their growing business needs while providing an excellent user experience.",
+      approach:
+        "Built a custom solution using modern web technologies with focus on performance, scalability, and maintainability.",
+      outcome:
+        "Delivered a high-performance website that increased client inquiries by 150% and improved page load speeds by 60%.",
+    },
+    problem: {
+      title: "Outdated Web Presence & Limited Functionality",
+      description:
+        "The existing website was outdated, slow, and lacked the functionality needed to support business growth and customer engagement.",
+      painPoints: [
+        "Slow loading times affecting user experience and SEO",
+        "Outdated design not reflecting brand quality",
+        "Limited content management capabilities",
+        "No e-commerce functionality for product sales",
+        "Poor mobile responsiveness",
+      ],
+    },
+    research: {
+      methods: [
+        "Technical audit of existing website",
+        "Competitive analysis of industry websites",
+        "User interviews with existing customers",
+        "Performance benchmarking and analytics review",
+        "Stakeholder workshops for requirements gathering",
+      ],
+      insights: [
+        "Users expected fast, mobile-first experiences",
+        "Content updates needed to be simple for non-technical staff",
+        "E-commerce integration was critical for business growth",
+        "SEO optimization was essential for lead generation",
+      ],
+    },
+    solution: {
+      approach:
+        "Developed a modern, full-stack web application using React, Node.js, and cloud infrastructure for optimal performance and scalability.",
+      keyFeatures: [
+        "Custom React-based frontend with responsive design",
+        "Node.js backend with RESTful API architecture",
+        "Custom CMS for easy content management",
+        "Integrated e-commerce platform with payment processing",
+        "Advanced SEO optimization and analytics integration",
+        "Cloud hosting with CDN for global performance",
+      ],
+      designDecisions: [
+        "Implemented component-based architecture for maintainability",
+        "Used modern CSS Grid and Flexbox for responsive layouts",
+        "Integrated headless CMS for flexible content management",
+        "Implemented progressive web app features for mobile experience",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          label: "Page Load Speed",
+          value: "+60%",
+          description: "Improvement in average page load time",
+        },
+        {
+          label: "Client Inquiries",
+          value: "+150%",
+          description: "Increase in monthly lead generation",
+        },
+        {
+          label: "Mobile Traffic",
+          value: "+200%",
+          description: "Growth in mobile user engagement",
+        },
+        {
+          label: "SEO Ranking",
+          value: "Top 3",
+          description: "Average position for target keywords",
+        },
+      ],
+      outcomes: [
+        "Significantly improved user experience and engagement",
+        "Streamlined content management for marketing team",
+        "Enabled online sales through integrated e-commerce",
+        "Established scalable foundation for future growth",
+      ],
+    },
+    gallery: [
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Homepage",
+        alt: "Modern homepage design",
+        caption: "Clean, modern homepage with clear value proposition",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=CMS+Dashboard",
+        alt: "Custom CMS interface",
+        caption: "Intuitive content management system for easy updates",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=E-commerce",
+        alt: "E-commerce product pages",
+        caption: "Integrated e-commerce with seamless checkout experience",
+      },
+    ],
+    skills: ["React", "Node.js", "JavaScript", "CSS", "Database Design", "API Development"],
+    tools: ["React", "Node.js", "MongoDB", "AWS", "Figma", "Git"],
+    reflection: {
+      challenges: [
+        "Balancing custom functionality with development timeline",
+        "Ensuring optimal performance across all devices",
+        "Integrating multiple third-party services seamlessly",
+      ],
+      learnings: [
+        "The importance of performance optimization in user experience",
+        "How proper architecture planning saves development time",
+        "The value of continuous testing throughout development process",
+      ],
+      nextSteps: [
+        "Implement advanced analytics and user behavior tracking",
+        "Add multilingual support for international expansion",
+        "Develop mobile app companion for enhanced user engagement",
+      ],
+    },
   },
   {
-    id: 5,
-    slug: "granville-island-research",
-    title: "Granville Island Research",
-    description: "User research and interviewing study for reimagining Granville Island's public space experience.",
-    image: "/placeholder.svg?height=600&width=800&text=Granville+Island",
-    category: "research",
-    tags: ["User Research", "Public Space Design", "Ethnographic Study", "Community Engagement"],
-    role: "Lead Researcher",
+    id: "5",
+    slug: "granville-island-redesign",
+    title: "Granville Island Redesign",
+    description:
+      "UX research and design project improving the digital experience for Vancouver's iconic public market and cultural district.",
+    longDescription:
+      "A comprehensive UX research and design project focused on improving the digital experience for visitors to Granville Island, Vancouver's premier destination for arts, culture, and local markets.",
+    image: "/placeholder.svg?height=400&width=600&text=Granville+Island",
+    category: "UX Design",
+    tags: ["UX Research", "Service Design", "Tourism", "Information Architecture"],
+    role: "UX Designer & Researcher",
     duration: "5 months",
-    year: "2024",
-    client: "Vancouver Parks Board",
-    team: ["Lead Researcher", "Urban Planner", "Community Liaison"],
-    challenge:
-      "Granville Island needed insights into how visitors and locals use the space to inform future development.",
-    solution:
-      "Designed and executed comprehensive research methodology, analyzed findings, and presented recommendations.",
-    outcome: "Generated actionable insights from 50+ interviews and observations, leading to 8 key recommendations.",
-    overview:
-      "A comprehensive ethnographic study of Granville Island's public spaces, examining how different user groups interact with the environment and identifying opportunities for improving the visitor experience while preserving the area's unique character.",
-    problem:
-      "Granville Island faced challenges with overcrowding during peak times, underutilized spaces, and conflicting needs between tourists, locals, and vendors. The Parks Board needed evidence-based insights to guide future development decisions.",
-    research: [
-      "Conducted 50+ interviews with visitors, locals, vendors, and stakeholders",
-      "Performed observational studies during different times and seasons",
-      "Mapped user journeys and behavior patterns throughout the island",
-      "Analyzed historical usage data and visitor demographics",
-      "Facilitated community workshops to gather diverse perspectives",
-    ],
-    solutionDetails:
-      "Used a mixed-methods approach combining ethnographic observation, structured interviews, and participatory design workshops. Created detailed user personas and journey maps to illustrate different ways people experience the space.",
-    impact: [
-      "Provided 8 evidence-based recommendations for space improvements",
-      "Identified 3 underutilized areas with high potential for activation",
-      "Created user personas adopted by the planning committee",
-      "Influenced $2M budget allocation for public space improvements",
-      "Generated community support for proposed changes through inclusive research process",
-    ],
+    team: "4 designers, 2 researchers",
+    client: "Granville Island Public Market",
+    year: 2023,
+    featured: false,
+    links: {
+      figma: "https://figma.com/granville-island-redesign",
+    },
+    overview: {
+      challenge:
+        "Visitors to Granville Island struggled with navigation, event discovery, and planning their visit due to fragmented digital touchpoints.",
+      approach:
+        "Conducted comprehensive user research and redesigned the digital ecosystem to create a cohesive, user-centered experience.",
+      outcome:
+        "Improved visitor satisfaction by 45% and increased average visit duration by 30% through better information architecture and user experience.",
+    },
+    problem: {
+      title: "Fragmented Visitor Experience",
+      description:
+        "Visitors faced challenges navigating the complex layout of Granville Island and discovering relevant events, shops, and dining options.",
+      painPoints: [
+        "Confusing physical and digital navigation",
+        "Difficulty discovering events and activities",
+        "Inconsistent information across platforms",
+        "Poor mobile experience for on-site visitors",
+        "Limited accessibility information",
+      ],
+    },
+    research: {
+      methods: [
+        "On-site visitor interviews and observations",
+        "Digital touchpoint audit and analysis",
+        "Stakeholder interviews with vendors and management",
+        "Competitive analysis of similar cultural destinations",
+        "Accessibility audit of current digital platforms",
+      ],
+      insights: [
+        "Visitors need real-time information about events and vendor hours",
+        "Navigation is the primary pain point for first-time visitors",
+        "Mobile experience is critical for on-site decision making",
+        "Accessibility information is essential but often missing",
+      ],
+      userQuotes: [
+        '"I never know what\'s happening here until I stumble upon it."',
+        "\"The map is confusing and doesn't help me find what I'm looking for.\"",
+      ],
+    },
+    solution: {
+      approach:
+        "Redesigned the information architecture and created an integrated digital experience that supports visitors throughout their journey.",
+      keyFeatures: [
+        "Interactive map with real-time vendor and event information",
+        "Personalized recommendations based on interests and time available",
+        "Integrated event calendar with filtering and notifications",
+        "Accessibility information and route planning",
+        "Vendor directory with hours, specialties, and contact information",
+        "Multi-language support for international visitors",
+      ],
+      designDecisions: [
+        "Prioritized mobile-first design for on-site usage",
+        "Implemented clear visual hierarchy for information scanning",
+        "Used familiar navigation patterns to reduce cognitive load",
+        "Integrated accessibility features throughout the experience",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          label: "Visitor Satisfaction",
+          value: "+45%",
+          description: "Improvement in overall visitor experience ratings",
+        },
+        {
+          label: "Visit Duration",
+          value: "+30%",
+          description: "Increase in average time spent on island",
+        },
+        {
+          label: "Event Attendance",
+          value: "+60%",
+          description: "Growth in event discovery and participation",
+        },
+        {
+          label: "Mobile Usage",
+          value: "+120%",
+          description: "Increase in mobile platform engagement",
+        },
+      ],
+      outcomes: [
+        "Streamlined visitor journey from planning to on-site experience",
+        "Improved accessibility for visitors with disabilities",
+        "Enhanced vendor visibility and customer connections",
+        "Created scalable framework for future digital initiatives",
+      ],
+    },
     gallery: [
-      "/placeholder.svg?height=400&width=600&text=Interview+Sessions",
-      "/placeholder.svg?height=400&width=600&text=Observation+Maps",
-      "/placeholder.svg?height=400&width=600&text=User+Journey+Analysis",
-      "/placeholder.svg?height=400&width=600&text=Community+Workshop",
-      "/placeholder.svg?height=400&width=600&text=Final+Recommendations",
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Interactive+Map",
+        alt: "Interactive island map interface",
+        caption: "Real-time interactive map with vendor and event information",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Event+Discovery",
+        alt: "Event discovery and filtering interface",
+        caption: "Personalized event recommendations with easy filtering",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Accessibility",
+        alt: "Accessibility features and route planning",
+        caption: "Comprehensive accessibility information and route planning",
+      },
     ],
-    skills: [
-      "Ethnographic Research",
-      "User Interviews",
-      "Observational Studies",
-      "Data Analysis",
-      "Community Engagement",
-    ],
-    tools: ["Notion", "Miro", "Google Forms", "Camera Equipment", "Audio Recorders", "GIS Mapping"],
-    reflection:
-      "This project highlighted the complexity of public space design and the importance of including diverse voices in the research process. Working with a real community taught me about the responsibility researchers have to their participants.",
-    lessonsLearned: [
-      "Public space research requires sensitivity to diverse community needs",
-      "Observational data provides context that interviews alone cannot capture",
-      "Community buy-in is essential for successful implementation of recommendations",
-      "Long-term studies reveal patterns that short-term research might miss",
-    ],
-    pdfReport: "https://example.com/granville-island-research.pdf",
-    caseStudyColor: "teal",
-    featured: true,
+    skills: ["UX Research", "Information Architecture", "Service Design", "Accessibility Design"],
+    tools: ["Figma", "Miro", "Maze", "Adobe XD", "Principle"],
+    reflection: {
+      challenges: [
+        "Balancing diverse stakeholder needs and priorities",
+        "Designing for both tourists and local visitors",
+        "Integrating with existing vendor management systems",
+      ],
+      learnings: [
+        "The importance of on-site research for location-based experiences",
+        "How accessibility considerations improve experience for all users",
+        "The value of stakeholder alignment in complex projects",
+      ],
+      nextSteps: [
+        "Implement wayfinding integration with physical signage",
+        "Develop AR features for enhanced on-site navigation",
+        "Create vendor dashboard for real-time information updates",
+      ],
+    },
   },
 ]
 
@@ -306,11 +722,28 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug)
 }
 
-export function getAdjacentProjects(currentSlug: string): { prev: Project | null; next: Project | null } {
-  const currentIndex = projects.findIndex((project) => project.slug === currentSlug)
+export function getAllProjects(): Project[] {
+  return projects
+}
 
-  return {
-    prev: currentIndex > 0 ? projects[currentIndex - 1] : null,
-    next: currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null,
-  }
+export function getFeaturedProjects(): Project[] {
+  return projects.filter((project) => project.featured)
+}
+
+export function getProjectsByCategory(category: string): Project[] {
+  return projects.filter((project) => project.category === category)
+}
+
+export function getNextProject(currentSlug: string): Project | undefined {
+  const currentIndex = projects.findIndex((project) => project.slug === currentSlug)
+  if (currentIndex === -1) return undefined
+  const nextIndex = (currentIndex + 1) % projects.length
+  return projects[nextIndex]
+}
+
+export function getPreviousProject(currentSlug: string): Project | undefined {
+  const currentIndex = projects.findIndex((project) => project.slug === currentSlug)
+  if (currentIndex === -1) return undefined
+  const previousIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1
+  return projects[previousIndex]
 }
