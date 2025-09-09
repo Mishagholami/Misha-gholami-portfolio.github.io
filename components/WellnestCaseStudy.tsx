@@ -1,564 +1,434 @@
 "use client"
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { ArrowLeft, Clock, Users, Brain, Heart, Shield, Coffee, Moon, Sun, MessageCircle, Calendar, Target, Globe, Quote, ExternalLink, CheckCircle } from 'lucide-react'
-import { useTheme } from "./ThemeProvider"
+import {
+  ArrowLeft,
+  ExternalLink,
+  Heart,
+  Smartphone,
+  Users,
+  Target,
+  Lightbulb,
+  TrendingUp,
+  Clock,
+  User,
+  Zap,
+  Shield,
+  BarChart,
+} from "lucide-react"
 
 interface WellnestCaseStudyProps {
   onBack: () => void
 }
 
 export default function WellnestCaseStudy({ onBack }: WellnestCaseStudyProps) {
-  const { getThemeClasses } = useTheme()
-  const theme = getThemeClasses()
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
-
-  const problemPoints = [
-    {
-      icon: "🔥",
-      title: "Burnout & Always-On Pressure",
-      description: "Remote workers struggle to disconnect, leading to chronic stress and decreased productivity",
-      quote: "I check Slack at 11 PM because I'm afraid I'll miss something important",
-      color: "bg-red-50 border-red-200",
-    },
-    {
-      icon: "💬",
-      title: "Loss of Casual Team Bonding",
-      description: "Missing spontaneous conversations that build relationships and spark creativity",
-      quote: "I miss those random coffee conversations where the best ideas happened",
-      color: "bg-blue-50 border-blue-200",
-    },
-    {
-      icon: "🌍",
-      title: "Communication Across Time Zones",
-      description: "Asynchronous work creates delays and misunderstandings in global teams",
-      quote: "By the time I respond, my teammates are already asleep",
-      color: "bg-green-50 border-green-200",
-    },
-    {
-      icon: "⚡",
-      title: "Mismatched Energy Rhythms",
-      description: "Traditional 9-5 schedules ignore individual productivity patterns and natural energy cycles",
-      quote: "I'm most creative at 6 AM, but all meetings are scheduled for 2 PM",
-      color: "bg-yellow-50 border-yellow-200",
-    },
-  ]
-
-  const researchInsights = [
-    {
-      icon: Shield,
-      title: "Boundary Struggles",
-      insight: "Lack of clear boundaries = stress & poor time management",
-      description: "78% of remote workers report difficulty separating work and personal life, leading to longer hours and decreased well-being.",
-      stat: "78%",
-      statLabel: "struggle with work-life boundaries",
-    },
-    {
-      icon: Coffee,
-      title: "Social Connection Gap",
-      insight: "Users miss informal team interaction",
-      description: "Remote workers feel 43% less connected to their colleagues compared to in-office workers, impacting collaboration and job satisfaction.",
-      stat: "43%",
-      statLabel: "feel less connected to colleagues",
-    },
-    {
-      icon: Clock,
-      title: "Productivity Mismatch",
-      insight: "Most tools assume 9–5 productivity, ignoring biological rhythms",
-      description: "Only 23% of people are most productive during traditional business hours, yet most tools are designed around this assumption.",
-      stat: "23%",
-      statLabel: "are most productive 9-5",
-    },
-  ]
-
-  const designInterventions = [
-    {
-      number: "1",
-      emoji: "🛡️",
-      title: "Smart Work Boundaries",
-      subtitle: "Digital wellness for work",
-      problem: "Remote workers struggle to disconnect and maintain healthy work-life balance",
-      description: "A system that encourages energy-based time management, clear work hours, intentional log-off, and better notification control.",
-      features: [
-        "Energy-based scheduling that adapts to your natural rhythms",
-        "Gentle wind-down reminders and automatic log-off suggestions",
-        "Smart notification filtering based on urgency and context",
-        "Boundary visualization showing work/life balance over time",
-      ],
-      whyItMatters: "Respects human energy cycles and promotes sustainable productivity patterns",
-      mockup: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      number: "2",
-      emoji: "☕",
-      title: "Virtual Breakroom",
-      subtitle: "Casual connection without disruption",
-      problem: "Teams miss spontaneous interactions that build relationships and spark creativity",
-      description: "A lightweight, opt-in chat space for casual interaction—replicating spontaneous office chats without disrupting deep work.",
-      features: [
-        "Ambient presence indicators showing who's available for casual chat",
-        "Topic-based conversation starters and icebreakers",
-        "Integration with existing tools (Slack, Teams) without notification overload",
-        "Scheduled virtual coffee breaks and informal team activities",
-      ],
-      whyItMatters: "Maintains team culture and psychological safety in distributed environments",
-      mockup: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      number: "3",
-      emoji: "🌅",
-      title: "Chronotype-Based Scheduling",
-      subtitle: "Work with your natural rhythm",
-      problem: "Traditional scheduling ignores individual productivity patterns and global team coordination",
-      description: "Flexible scheduling based on users' peak productivity times, paired with collaborative tools to coordinate across time zones.",
-      features: [
-        "Personal chronotype assessment and productivity mapping",
-        "Smart meeting scheduling that finds optimal overlap times",
-        "Asynchronous collaboration tools for different time zones",
-        "Energy-aware task assignment and deadline management",
-      ],
-      whyItMatters: "Maximizes individual performance while maintaining team cohesion",
-      mockup: "/placeholder.svg?height=400&width=600",
-    },
-  ]
-
-  const coreValues = [
-    {
-      icon: Target,
-      title: "Autonomy",
-      description: "Empowering individuals to work in ways that suit their unique needs and circumstances",
-    },
-    {
-      icon: Globe,
-      title: "Inclusivity",
-      description: "Supporting diverse time zones, life situations, and work preferences",
-    },
-    {
-      icon: MessageCircle,
-      title: "Connection",
-      description: "Fostering meaningful relationships without pressure or forced interaction",
-    },
-  ]
-
-  const deliverables = [
-    "Journey maps and interview quotes from 12 remote workers",
-    "Wireframes and user flows for each intervention",
-    "High-fidelity interactive prototypes",
-    "Persona profiles and use-case scenarios",
-    "Usability testing plan and early feedback synthesis",
-    "Implementation roadmap for pilot testing",
-  ]
-
   return (
-    <div className={`min-h-screen ${theme.bg}`}>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
       {/* Header */}
-      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <motion.button
-            onClick={onBack}
-            whileHover={{ x: -4 }}
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Projects
-          </motion.button>
-        </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-16">
-          {/* Hero Section */}
-          <motion.section variants={itemVariants} className="text-center">
-            <div className="mb-8">
-              <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-4">
-                Concept Design Study
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 text-gray-600 hover:text-green-600 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Projects
+            </button>
+            <div className="flex items-center gap-4">
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                App Concept
               </span>
-              <h1 className={`text-4xl md:text-5xl font-bold ${theme.text} mb-4`}>
-                Wellnest to Work: Designing Healthier Remote Workflows
-              </h1>
-              <p className={`text-xl ${theme.textSecondary} max-w-3xl mx-auto leading-relaxed mb-6`}>
-                A human-centered approach to fixing the remote work rut.
-              </p>
-              <p className={`text-lg ${theme.textSecondary} max-w-2xl mx-auto leading-relaxed`}>
-                This UX case study explores how we can redesign the way we work remotely by building tools that support boundaries, well-being, and team connection—without sacrificing productivity.
-              </p>
+              <span className="text-sm text-gray-500">10 weeks • 2024</span>
             </div>
+          </div>
+        </div>
+      </header>
 
-            {/* Project Details */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full">
-                <Brain className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-medium text-green-700">UX Research & Strategy</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full">
-                <Heart className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-700">Empathetic Design</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-purple-50 rounded-full">
-                <Users className="w-4 h-4 text-purple-600" />
-                <span className="text-sm font-medium text-purple-700">Team-Based Concept</span>
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Wellnest to Work</h1>
+              <p className="text-xl text-green-100 mb-8">
+                A conceptual mobile application designed to help remote workers integrate wellness practices into their
+                daily work routines, promoting better work-life balance and productivity.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <User className="w-4 h-4" />
+                  <span>Product Designer</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <Clock className="w-4 h-4" />
+                  <span>10 weeks</span>
+                </div>
               </div>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/placeholder.svg?height=600&width=800"
-                alt="Wellnest to Work Concept Mockup"
-                width={800}
-                height={600}
-                className="w-full h-auto"
+            <div className="relative">
+              <img
+                src="/placeholder.svg?height=500&width=300&text=Wellnest+App+Mockup"
+                alt="Wellnest App Mockup"
+                className="rounded-lg shadow-2xl mx-auto"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
-          </motion.section>
+          </div>
+        </div>
+      </section>
 
-          {/* Project Overview */}
-          <motion.section variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-8`}>
-            <div className="grid md:grid-cols-4 gap-6">
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2`}>Role</h3>
-                <p className={theme.textSecondary}>UX Designer, Researcher</p>
-              </div>
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2`}>Duration</h3>
-                <p className={theme.textSecondary}>10 weeks</p>
-              </div>
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2`}>Team</h3>
-                <p className={theme.textSecondary}>Collaborative Concept</p>
-              </div>
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2`}>Tools</h3>
-                <p className={theme.textSecondary}>Figma, Miro, Interviews</p>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Problem Statement */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>The Human Challenge</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-8 mb-8`}>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed text-center`}>
-                In the age of remote work, employees are still stuck in outdated routines and tools that don't align with flexible, distributed teams. From burnout to scattered tools and social disconnection, the modern work-from-home experience needs to evolve.
+      {/* Project Overview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center p-6 bg-green-50 rounded-xl">
+              <Target className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Challenge</h3>
+              <p className="text-gray-600">
+                Remote workers struggle to maintain work-life balance and wellness routines, leading to burnout and
+                decreased productivity.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {problemPoints.map((problem, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-6 border-2 ${problem.color} hover:shadow-lg transition-shadow`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
-                      <span className="text-xl">{problem.icon}</span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`font-semibold ${theme.text} mb-2`}>{problem.title}</h3>
-                      <p className={`text-sm ${theme.textSecondary} mb-3`}>{problem.description}</p>
-                      <blockquote className={`text-xs italic ${theme.textSecondary} p-3 bg-white/50 rounded-lg`}>
-                        "{problem.quote}"
-                      </blockquote>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Research & Insights */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>Research & Insights</h2>
-            
-            {/* Research Methods */}
-            <div className={`${theme.cardBg} rounded-2xl p-8 mb-8`}>
-              <h3 className={`text-xl font-semibold ${theme.text} mb-6 text-center`}>Methods Used</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-6 h-6 text-green-600" />
-                  </div>
-                  <h4 className={`font-medium ${theme.text} mb-2`}>1-on-1 Interviews</h4>
-                  <p className={`text-sm ${theme.textSecondary}`}>Remote workers from different industries</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Clock className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <h4 className={`font-medium ${theme.text} mb-2`}>Journey Mapping</h4>
-                  <p className={`text-sm ${theme.textSecondary}`}>Typical remote workday analysis</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Target className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <h4 className={`font-medium ${theme.text} mb-2`}>Tool Analysis</h4>
-                  <p className={`text-sm ${theme.textSecondary}`}>Slack, Asana, Notion comparison</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Insights */}
-            <div className="space-y-6">
-              {researchInsights.map((insight, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-6 hover:shadow-lg transition-shadow`}
-                >
-                  <div className="grid md:grid-cols-4 gap-6 items-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <insight.icon className="w-8 h-8 text-green-600" />
-                      </div>
-                      <h4 className={`font-semibold ${theme.text}`}>{insight.title}</h4>
-                    </div>
-                    <div className="md:col-span-2">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Heart className="w-4 h-4 text-red-500" />
-                        <span className={`font-medium ${theme.text}`}>{insight.insight}</span>
-                      </div>
-                      <p className={`text-sm ${theme.textSecondary}`}>{insight.description}</p>
-                    </div>
-                    <div className="text-center">
-                      <div className={`text-3xl font-bold text-green-600 mb-1`}>{insight.stat}</div>
-                      <p className={`text-sm ${theme.textSecondary}`}>{insight.statLabel}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Design Interventions */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>Design Interventions</h2>
-            <div className="space-y-12">
-              {designInterventions.map((intervention, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-8`}
-                >
-                  <div className={`grid md:grid-cols-2 gap-8 items-start ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
-                    <div className={index % 2 === 1 ? 'md:col-start-2' : ''}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
-                          {intervention.number}
-                        </div>
-                        <span className="text-2xl">{intervention.emoji}</span>
-                        <div>
-                          <h3 className={`text-xl font-bold ${theme.text}`}>{intervention.title}</h3>
-                          <p className={`text-sm ${theme.textSecondary} italic`}>{intervention.subtitle}</p>
-                        </div>
-                      </div>
-
-                      <div className="mb-4 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
-                        <h4 className="font-medium text-red-800 mb-2">Problem it solves:</h4>
-                        <p className="text-sm text-red-700">{intervention.problem}</p>
-                      </div>
-
-                      <p className={`${theme.textSecondary} mb-6`}>{intervention.description}</p>
-
-                      <div className="mb-6">
-                        <h4 className={`font-semibold ${theme.text} mb-3`}>Key Features:</h4>
-                        <ul className="space-y-2">
-                          {intervention.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className={`flex items-start gap-3 ${theme.textSecondary} text-sm`}>
-                              <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
-                        <h4 className="font-medium text-green-800 mb-2">Why it matters:</h4>
-                        <p className="text-sm text-green-700">{intervention.whyItMatters}</p>
-                      </div>
-                    </div>
-
-                    <div className={index % 2 === 1 ? 'md:col-start-1' : ''}>
-                      <div className="relative rounded-xl overflow-hidden shadow-lg">
-                        <Image
-                          src={intervention.mockup || "/placeholder.svg"}
-                          alt={`${intervention.title} mockup`}
-                          width={600}
-                          height={400}
-                          className="w-full h-auto"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Why These Matter */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>Why These Matter</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-8 mb-8`}>
-              <div className="text-center mb-8">
-                <Quote className="w-12 h-12 text-green-400 mx-auto mb-4" />
-                <p className={`text-xl italic ${theme.text} leading-relaxed`}>
-                  "These tools respect human rhythms, support emotional well-being, and promote a healthier kind of productivity—one that values intention over always-on presence."
-                </p>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {coreValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-6 text-center hover:shadow-lg transition-shadow`}
-                >
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h3 className={`text-lg font-semibold ${theme.text} mb-3`}>{value.title}</h3>
-                  <p className={`text-sm ${theme.textSecondary}`}>{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Next Steps & Prototyping */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>Next Steps & Prototyping</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-8 mb-8`}>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-6`}>
-                We're now testing these ideas through interactive prototypes with real users. Our goal is to gather feedback, iterate, and refine each concept into a usable, scalable solution for remote teams.
+            <div className="text-center p-6 bg-blue-50 rounded-xl">
+              <Lightbulb className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Solution</h3>
+              <p className="text-gray-600">
+                Designed a comprehensive wellness app with smart break reminders, virtual wellness rooms, and analytics
+                to promote healthy work habits.
               </p>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className={`text-lg font-semibold ${theme.text} mb-4`}>Current Testing Phase</h3>
-                  <ul className="space-y-2">
-                    <li className={`flex items-center gap-3 ${theme.textSecondary} text-sm`}>
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      Interactive prototype development
-                    </li>
-                    <li className={`flex items-center gap-3 ${theme.textSecondary} text-sm`}>
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      User feedback sessions (ongoing)
-                    </li>
-                    <li className={`flex items-center gap-3 ${theme.textSecondary} text-sm`}>
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      A/B testing different interaction patterns
-                    </li>
-                  </ul>
+            </div>
+            <div className="text-center p-6 bg-purple-50 rounded-xl">
+              <TrendingUp className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Impact</h3>
+              <p className="text-gray-600">
+                85% of interviewed remote workers expressed interest in using the app daily, with 92% believing it would
+                improve their work-life balance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6">The Problem</h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              The shift to remote work has blurred the boundaries between personal and professional life, leading to
+              increased stress, burnout, and decreased overall well-being among workers.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-red-500 mb-2">76%</div>
+              <p className="text-gray-600">of remote workers report burnout</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-orange-500 mb-2">68%</div>
+              <p className="text-gray-600">struggle with work-life balance</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-yellow-500 mb-2">54%</div>
+              <p className="text-gray-600">skip regular breaks</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-blue-500 mb-2">42%</div>
+              <p className="text-gray-600">work longer hours than in office</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* User Research */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">User Research Insights</h2>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-green-600">Key Pain Points</h3>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Constant Connectivity</h4>
+                    <p className="text-gray-600 text-sm">
+                      Workers feel pressure to be always available, leading to stress and anxiety.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className={`text-lg font-semibold ${theme.text} mb-4`}>Upcoming Milestones</h3>
-                  <ul className="space-y-2">
-                    <li className={`flex items-center gap-3 ${theme.textSecondary} text-sm`}>
-                      <Clock className="w-4 h-4 text-blue-500" />
-                      Pilot testing with 3 remote teams
-                    </li>
-                    <li className={`flex items-center gap-3 ${theme.textSecondary} text-sm`}>
-                      <Clock className="w-4 h-4 text-blue-500" />
-                      Integration feasibility study
-                    </li>
-                    <li className={`flex items-center gap-3 ${theme.textSecondary} text-sm`}>
-                      <Clock className="w-4 h-4 text-blue-500" />
-                      Scalability and business model exploration
-                    </li>
-                  </ul>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Poor Time Management</h4>
+                    <p className="text-gray-600 text-sm">
+                      Difficulty structuring the day and taking regular breaks without office environment cues.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Neglected Self-Care</h4>
+                    <p className="text-gray-600 text-sm">
+                      Wellness activities like exercise, meditation, and proper meals are often skipped.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/placeholder.svg?height=400&width=800"
-                alt="Early prototype screenshots"
-                width={800}
-                height={400}
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-sm font-medium">Early-stage prototypes and user testing setup</p>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Reflection & Takeaways */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>Reflection & Takeaways</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-8`}>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-6`}>
-                This project helped me think critically about workplace mental health, behavioral design, and the emotional side of digital tools. Designing for work-life balance isn't just about features—it's about empathy, flexibility, and sustainability.
-              </p>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-6`}>
-                The research phase revealed how deeply personal work habits are, and how one-size-fits-all solutions often fail to address individual needs. Moving forward, I'm excited to explore how technology can adapt to human rhythms rather than forcing humans to adapt to technology.
-              </p>
-              <p className={`text-lg ${theme.textSecondary} leading-relaxed`}>
-                The most rewarding aspect was hearing from participants how these concepts made them feel "seen" and understood. It reinforced my belief that the best design solutions come from genuine empathy and deep listening to user experiences.
-              </p>
-            </div>
-          </motion.section>
-
-          {/* Deliverables Checklist */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-3xl font-bold ${theme.text} mb-8 text-center`}>Deliverables</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-8`}>
-              <div className="grid md:grid-cols-2 gap-6">
-                {deliverables.map((deliverable, index) => (
-                  <div key={index} className={`flex items-start gap-3 ${theme.textSecondary}`}>
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">{deliverable}</span>
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-blue-600">User Needs</h3>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-4 h-4" />
                   </div>
-                ))}
+                  <div>
+                    <h4 className="font-semibold mb-2">Boundary Setting</h4>
+                    <p className="text-gray-600 text-sm">
+                      Tools to help establish clear work-life boundaries and stick to them.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <BarChart className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Progress Tracking</h4>
+                    <p className="text-gray-600 text-sm">
+                      Visibility into wellness habits and their impact on productivity and mood.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Community Support</h4>
+                    <p className="text-gray-600 text-sm">
+                      Connection with other remote workers facing similar challenges.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </motion.section>
+          </div>
+        </div>
+      </section>
 
-          {/* Project Links */}
-          <motion.section variants={itemVariants} className="text-center">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="https://figma.com/wellnesstowork-concept"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-medium transition-colors"
-              >
-                <ExternalLink className="w-5 h-5" />
-                View Figma Prototype
-              </motion.a>
-              <motion.button
-                onClick={onBack}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 ${theme.cardBg} ${theme.text} rounded-full font-medium transition-colors ${theme.hover}`}
-              >
-                Back to Projects
-              </motion.button>
+      {/* Solution Overview */}
+      <section className="py-16 bg-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Solution Overview</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Smart Break Reminders</h3>
+              <p className="text-gray-600 text-sm">
+                AI-powered break suggestions based on work patterns, stress levels, and personal preferences.
+              </p>
             </div>
-          </motion.section>
-        </motion.div>
-      </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Smartphone className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Virtual Wellness Rooms</h3>
+              <p className="text-gray-600 text-sm">
+                Immersive environments for meditation, stretching, and relaxation activities during breaks.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Wellness Analytics</h3>
+              <p className="text-gray-600 text-sm">
+                Track wellness habits, mood, and productivity to understand what works best for you.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Team Challenges</h3>
+              <p className="text-gray-600 text-sm">
+                Collaborative wellness challenges to build healthy habits with colleagues.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <div className="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Boundary Protection</h3>
+              <p className="text-gray-600 text-sm">
+                Tools to enforce work-life boundaries and prevent after-hours work creep.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <div className="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Personalized Coaching</h3>
+              <p className="text-gray-600 text-sm">
+                AI-driven wellness coaching tailored to individual work patterns and goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* User Flow */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">User Journey</h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                1
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Onboarding</h3>
+              <p className="text-gray-600 text-sm">
+                Set up work schedule, wellness goals, and preferences for personalized experience.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                2
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Daily Integration</h3>
+              <p className="text-gray-600 text-sm">
+                Receive smart break reminders and wellness suggestions throughout the workday.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                3
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Wellness Activities</h3>
+              <p className="text-gray-600 text-sm">
+                Engage in guided wellness activities in virtual environments during breaks.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                4
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Progress Tracking</h3>
+              <p className="text-gray-600 text-sm">
+                Review wellness analytics and adjust habits based on insights and recommendations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Validation Results */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Concept Validation</h2>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-6">User Feedback</h3>
+              <div className="space-y-6">
+                <div className="bg-white p-6 rounded-xl shadow-sm">
+                  <p className="text-gray-600 italic mb-4">
+                    "This would be a game-changer for my remote work routine. I love the idea of virtual wellness
+                    rooms!"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                      <Users className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm">Alex Chen</p>
+                      <p className="text-gray-500 text-xs">Software Developer</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl shadow-sm">
+                  <p className="text-gray-600 italic mb-4">
+                    "The analytics feature would help me understand how my wellness habits affect my productivity."
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Users className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm">Sarah Kim</p>
+                      <p className="text-gray-500 text-xs">Marketing Manager</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold mb-6">Key Metrics</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Would use daily</span>
+                  <span className="font-bold text-green-600">85%</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Believe it would improve work-life balance</span>
+                  <span className="font-bold text-green-600">92%</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Would recommend to colleagues</span>
+                  <span className="font-bold text-green-600">78%</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Willing to pay for premium features</span>
+                  <span className="font-bold text-green-600">64%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Next Steps */}
+      <section className="py-16 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6">Next Steps</h2>
+          <p className="text-xl text-green-100 mb-8">
+            This concept validation provides strong evidence for the need and market fit. The next phase would involve
+            building an MVP and conducting user testing.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="flex items-center gap-2 bg-white text-green-600 px-6 py-3 rounded-full font-medium hover:bg-green-50 transition-colors">
+              <ExternalLink className="w-5 h-5" />
+              View Figma Prototype
+            </button>
+            <button className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
+              <Smartphone className="w-5 h-5" />
+              Interactive Demo
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ProjectModal } from "./project-modal"
 import type { Project } from "../types/portfolio"
 import { ExternalLink, Github, Figma, FileText, ArrowRight } from "lucide-react"
 
@@ -91,8 +90,12 @@ const categoryColors = {
   concept: "from-orange-500 to-orange-600",
 }
 
-export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+interface ProjectsSectionProps {
+  projects?: Project[]
+  onCaseStudyClick?: (projectId: number) => void
+}
+
+export function ProjectsSection({ projects: propProjects, onCaseStudyClick }: ProjectsSectionProps) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -100,6 +103,8 @@ export function ProjectsSection() {
   }, [])
 
   if (!mounted) return null
+
+  const projectsToShow = propProjects || projects
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
@@ -124,13 +129,13 @@ export function ProjectsSection() {
         {/* All Projects */}
         <div className="mb-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {projectsToShow.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                onClick={() => setSelectedProject(project)}
                 featured={project.featured}
                 index={index}
+                onCaseStudyClick={onCaseStudyClick}
               />
             ))}
           </div>
@@ -158,9 +163,6 @@ export function ProjectsSection() {
           </div>
         </div>
       </div>
-
-      {/* Project Modal */}
-      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </section>
   )
 }
@@ -168,12 +170,12 @@ export function ProjectsSection() {
 // Project Card Component
 interface ProjectCardProps {
   project: Project
-  onClick: () => void
   featured: boolean
   index: number
+  onCaseStudyClick?: (projectId: number) => void
 }
 
-function ProjectCard({ project, onClick, featured, index }: ProjectCardProps) {
+function ProjectCard({ project, featured, index, onCaseStudyClick }: ProjectCardProps) {
   const categoryColors = {
     research: "bg-blue-100 text-blue-700",
     design: "bg-purple-100 text-purple-700",
@@ -181,12 +183,32 @@ function ProjectCard({ project, onClick, featured, index }: ProjectCardProps) {
     concept: "bg-orange-100 text-orange-700",
   }
 
+  const handleClick = () => {
+    if (onCaseStudyClick) {
+      onCaseStudyClick(project.id)
+    } else {
+      // Fallback to HTML case studies
+      const caseStudyMap = {
+        1: "headspace-case-study.html",
+        2: "linkedin-case-study.html",
+        3: "wellnest-case-study.html",
+        4: "kalmont-case-study.html",
+        5: "granville-island-case-study.html",
+      }
+
+      const htmlFile = caseStudyMap[project.id as keyof typeof caseStudyMap]
+      if (htmlFile) {
+        window.open(htmlFile, "_blank")
+      }
+    }
+  }
+
   return (
     <div
       className={`group cursor-pointer animate-fade-in-up hover-lift ${
         featured ? "card-interactive" : ""
       } bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100`}
-      onClick={onClick}
+      onClick={handleClick}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       {/* Featured Badge */}

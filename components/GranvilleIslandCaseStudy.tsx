@@ -1,896 +1,579 @@
 "use client"
 
-import { motion } from "framer-motion"
-import Image from "next/image"
 import {
   ArrowLeft,
+  ExternalLink,
   Users,
+  Target,
+  Lightbulb,
+  TrendingUp,
+  Clock,
+  User,
   MapPin,
-  Navigation,
-  Heart,
   Search,
   Star,
-  Clock,
-  Quote,
-  CheckCircle,
-  Target,
-  Eye,
-  FileText,
-  Figma,
+  Navigation,
 } from "lucide-react"
-import { useTheme } from "./ThemeProvider"
 
 interface GranvilleIslandCaseStudyProps {
   onBack: () => void
 }
 
 export default function GranvilleIslandCaseStudy({ onBack }: GranvilleIslandCaseStudyProps) {
-  const { getThemeClasses } = useTheme()
-  const theme = getThemeClasses()
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
-
-  const userResearchFindings = [
-    {
-      icon: "🎯",
-      title: "Fast Access to Key Info",
-      description: "Users want vendor info, events, and amenities without overwhelming complexity",
-      quote: "I just want to know what's open today and how to get there",
-      priority: "High",
-    },
-    {
-      icon: "🗺️",
-      title: "Simple Navigation Tools",
-      description: "Interactive maps are useful only if simple and optional",
-      quote: "The current map is too cluttered - I can't find what I'm looking for",
-      priority: "Medium",
-    },
-    {
-      icon: "✨",
-      title: "Curated Recommendations",
-      description: "Users prefer highlights and recommendations over building detailed itineraries",
-      quote: "Show me the must-see spots, don't make me plan everything myself",
-      priority: "High",
-    },
-  ]
-
-  const coreFindings = [
-    {
-      number: "1",
-      title: "Curated Content Over Complexity",
-      description: "Users prefer curated, visually clear content over dense menus or complex planning tools",
-      icon: Star,
-    },
-    {
-      number: "2",
-      title: "Optional Planning Tools",
-      description: "Trip planning and interactive maps are useful only if simple and optional",
-      icon: MapPin,
-    },
-    {
-      number: "3",
-      title: "Recommendations Over Itineraries",
-      description: "Most users want recommendations and highlights instead of building detailed itineraries",
-      icon: Heart,
-    },
-  ]
-
-  const uxStrategy = [
-    {
-      principle: "Simplicity",
-      description: "Focus on clean visual hierarchy and minimal navigation complexity",
-      implementation: "Reduced navigation items from 20+ to 5 core categories",
-      icon: Target,
-    },
-    {
-      principle: "Relevance",
-      description: "Prioritize timely, curated content that matches user intent",
-      implementation: "Homepage delivers curated daily highlights and seasonal content",
-      icon: Clock,
-    },
-    {
-      principle: "Confidence",
-      description: "Optional planning tools that don't clutter the user experience",
-      implementation: "Advanced features are discoverable but not mandatory",
-      icon: CheckCircle,
-    },
-  ]
-
-  const personas = [
-    {
-      name: "Sarah Chen",
-      age: 28,
-      type: "First-Time Tourist",
-      avatar: "/placeholder.svg?height=80&width=80&text=SC",
-      goals: [
-        "Discover must-see attractions quickly",
-        "Find good food and shopping options",
-        "Navigate easily without getting lost",
-      ],
-      frustrations: [
-        "Too much information to process",
-        "Unclear what's worth visiting",
-        "Confusing website navigation",
-      ],
-      quote: "I want to experience the best of Granville Island without feeling overwhelmed",
-      behavior: "Browses quickly, makes decisions based on visual cues and recommendations",
-    },
-    {
-      name: "Mike Rodriguez",
-      age: 45,
-      type: "Local Explorer",
-      avatar: "/placeholder.svg?height=80&width=80&text=MR",
-      goals: [
-        "Stay updated on new vendors and events",
-        "Find seasonal activities and markets",
-        "Plan visits around specific interests",
-      ],
-      frustrations: [
-        "Hard to find what's new or changed",
-        "Event information is scattered",
-        "No personalization for repeat visitors",
-      ],
-      quote: "As a local, I want to discover new things without sifting through basic tourist info",
-      behavior: "Seeks specific information, values efficiency and personalization",
-    },
-    {
-      name: "Jennifer Park",
-      age: 35,
-      type: "Family Planner",
-      avatar: "/placeholder.svg?height=80&width=80&text=JP",
-      goals: [
-        "Plan family-friendly activities",
-        "Check accessibility and amenities",
-        "Coordinate timing for multiple activities",
-      ],
-      frustrations: [
-        "Lack of family-specific information",
-        "No clear activity duration estimates",
-        "Difficult to plan efficient routes",
-      ],
-      quote: "I need to know what works for kids and how long things take",
-      behavior: "Thorough planner, needs detailed practical information",
-    },
-  ]
-
-  const designProcess = [
-    {
-      phase: "Research & Discovery",
-      duration: "2 weeks",
-      activities: [
-        "5 in-depth user interviews with past visitors",
-        "Current website audit and heuristic evaluation",
-        "Competitive analysis of similar destinations",
-        "Stakeholder interviews with Granville Island team",
-      ],
-      deliverables: [
-        "User interview summaries and insights",
-        "Current state analysis report",
-        "Competitive landscape overview",
-      ],
-      keyInsight:
-        "Users want fast, effortless access to vendor info, events, and amenities without overwhelming complexity",
-    },
-    {
-      phase: "Analysis & Strategy",
-      duration: "1 week",
-      activities: [
-        "Affinity mapping of user feedback",
-        "Persona development based on interview patterns",
-        "User journey mapping for different visitor types",
-        "Information architecture planning",
-      ],
-      deliverables: [
-        "3 detailed user personas",
-        "User journey maps",
-        "Revised site architecture",
-        "UX strategy framework",
-      ],
-      keyInsight: "Three distinct user types with different information needs but shared desire for simplicity",
-    },
-    {
-      phase: "Design & Iteration",
-      duration: "4 weeks",
-      activities: [
-        "Low-fidelity wireframing",
-        "High-fidelity mockup creation",
-        "Interactive prototype development",
-        "Design system establishment",
-      ],
-      deliverables: [
-        "Complete wireframe set",
-        "High-fidelity mockups",
-        "Interactive Figma prototype",
-        "Visual design system",
-      ],
-      keyInsight: "Iterative design based on feedback ensures intuitive navigation and content discovery",
-    },
-    {
-      phase: "Validation & Refinement",
-      duration: "1 week",
-      activities: [
-        "Usability testing with 8 participants",
-        "Design refinements based on feedback",
-        "Final prototype polishing",
-        "Handoff documentation",
-      ],
-      deliverables: ["Usability testing report", "Final design specifications", "Developer handoff package"],
-      keyInsight: "Simple, curated approach significantly improved user confidence and task completion",
-    },
-  ]
-
-  const keyFeatures = [
-    {
-      title: "Curated Homepage Experience",
-      description: "Timely, relevant content delivered upfront without overwhelming users",
-      features: [
-        "Today's highlights and featured vendors",
-        "Current events and seasonal activities",
-        "Weather-appropriate recommendations",
-        "Quick access to essential information",
-      ],
-      impact: "67% reduction in navigation complexity",
-      mockup: "/placeholder.svg?height=500&width=700&text=Homepage+Redesign",
-    },
-    {
-      title: "Simplified Vendor Discovery",
-      description: "Easy-to-browse vendor directory with smart filtering and visual previews",
-      features: [
-        "Visual vendor cards with key details",
-        "Simple category filtering",
-        "Real-time hours and availability",
-        "Quick contact and location info",
-      ],
-      impact: "45% faster access to vendor information",
-      mockup: "/placeholder.svg?height=500&width=700&text=Vendor+Directory",
-    },
-    {
-      title: "Optional Planning Tools",
-      description: "Helpful planning features that don't clutter the main experience",
-      features: [
-        "Interactive map with toggle options",
-        "Save favorites for later",
-        "Estimated visit durations",
-        "Accessibility information",
-      ],
-      impact: "89% user preference for curated content",
-      mockup: "/placeholder.svg?height=500&width=700&text=Planning+Tools",
-    },
-  ]
-
-  const projectImpact = [
-    {
-      metric: "67%",
-      description: "Reduction in navigation complexity",
-      detail: "Simplified from 20+ menu items to 5 core categories",
-      icon: Navigation,
-    },
-    {
-      metric: "45%",
-      description: "Faster access to vendor information",
-      detail: "Visual cards replaced text-heavy listings",
-      icon: Clock,
-    },
-    {
-      metric: "89%",
-      description: "User preference for curated content",
-      detail: "Users chose recommendations over self-planning",
-      icon: Heart,
-    },
-    {
-      metric: "78%",
-      description: "Improved confidence in visit planning",
-      detail: "Clear guidance helped users feel prepared",
-      icon: Target,
-    },
-  ]
-
-  const designDeliverables = [
-    {
-      category: "Research",
-      items: [
-        "User interview summaries and key insights",
-        "Personas representing diverse visitor types",
-        "User journey maps for different scenarios",
-        "Current state analysis and pain points",
-      ],
-    },
-    {
-      category: "Strategy",
-      items: [
-        "Information architecture and site map",
-        "Content strategy and curation guidelines",
-        "UX strategy framework",
-        "Feature prioritization matrix",
-      ],
-    },
-    {
-      category: "Design",
-      items: [
-        "Low-fidelity wireframes for all key pages",
-        "High-fidelity mockups with visual design",
-        "Interactive prototype demonstrating user flows",
-        "Visual design system and component library",
-      ],
-    },
-    {
-      category: "Validation",
-      items: [
-        "Usability testing results and insights",
-        "Design iteration documentation",
-        "Final specifications for development",
-        "Success metrics and measurement plan",
-      ],
-    },
-  ]
-
   return (
-    <div className={`min-h-screen ${theme.bg}`}>
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-100">
       {/* Header */}
-      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
-          <motion.button
-            onClick={onBack}
-            whileHover={{ x: -4 }}
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Projects
-          </motion.button>
-        </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-12 sm:space-y-20"
-        >
-          {/* Hero Section */}
-          <motion.section variants={itemVariants} className="text-center">
-            <div className="mb-8 sm:mb-12">
-              <span className="inline-block px-4 py-2 bg-teal-100 text-teal-700 rounded-full text-sm font-medium mb-4 sm:mb-6">
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={onBack}
+              className="flex items-center gap-2 text-gray-600 hover:text-teal-600 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Projects
+            </button>
+            <div className="flex items-center gap-4">
+              <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">
                 UX Research & Design
               </span>
-              <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold ${theme.text} mb-4 sm:mb-6`}>
-                Granville Island Website Redesign
-              </h1>
-              <p className={`text-lg sm:text-xl ${theme.textSecondary} max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8`}>
-                Creating a simple, relevant, and confident digital experience for Vancouver's beloved cultural district
-              </p>
-              <p className={`text-base sm:text-lg ${theme.textSecondary} max-w-2xl mx-auto leading-relaxed`}>
-                A comprehensive UX research and design project focused on helping visitors easily explore, plan, and
-                engage with everything Granville Island offers through user-centered design principles.
-              </p>
+              <span className="text-sm text-gray-500">10 weeks • 2024</span>
             </div>
+          </div>
+        </div>
+      </header>
 
-            {/* Project Highlights */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
-              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-teal-50 rounded-full">
-                <Users className="w-4 h-4 text-teal-600" />
-                <span className="text-xs sm:text-sm font-medium text-teal-700">5 User Interviews</span>
-              </div>
-              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-50 rounded-full">
-                <Search className="w-4 h-4 text-blue-600" />
-                <span className="text-xs sm:text-sm font-medium text-blue-700">User Research</span>
-              </div>
-              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-purple-50 rounded-full">
-                <Eye className="w-4 h-4 text-purple-600" />
-                <span className="text-xs sm:text-sm font-medium text-purple-700">Information Architecture</span>
-              </div>
-              <div className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-green-50 rounded-full">
-                <Figma className="w-4 h-4 text-green-600" />
-                <span className="text-xs sm:text-sm font-medium text-green-700">Interactive Prototypes</span>
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">🌉 Granville Island Website Redesign</h1>
+              <p className="text-xl text-teal-100 mb-8">
+                A comprehensive UX research and redesign project for the Granville Island website, aiming to enhance
+                visitor experience, improve navigation, and better showcase the island's diverse offerings.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <User className="w-4 h-4" />
+                  <span>Lead UX Researcher & Designer</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <Clock className="w-4 h-4" />
+                  <span>10 weeks</span>
+                </div>
               </div>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/placeholder.svg?height=600&width=800&text=Granville+Island+Redesign+Hero"
+            <div className="relative">
+              <img
+                src="/placeholder.svg?height=400&width=600&text=Granville+Island+Redesign"
                 alt="Granville Island Website Redesign"
-                width={800}
-                height={600}
-                className="w-full h-auto"
+                className="rounded-lg shadow-2xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
-          </motion.section>
+          </div>
+        </div>
+      </section>
 
-          {/* Project Overview */}
-          <motion.section variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Role</h3>
-                <p className={`${theme.textSecondary} text-sm sm:text-base`}>Lead UX Researcher & Designer</p>
-              </div>
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Duration</h3>
-                <p className={`${theme.textSecondary} text-sm sm:text-base`}>8 weeks</p>
-              </div>
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Team</h3>
-                <p className={`${theme.textSecondary} text-sm sm:text-base`}>Individual Project</p>
-              </div>
-              <div>
-                <h3 className={`font-semibold ${theme.text} mb-2 sm:mb-3 text-sm sm:text-base`}>Tools</h3>
-                <p className={`${theme.textSecondary} text-sm sm:text-base`}>Figma, Miro, UserTesting, Zoom</p>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* The Challenge */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>The Challenge</h2>
-            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10 mb-8 sm:mb-12`}>
-              <div className="text-center mb-6 sm:mb-8">
-                <Quote className="w-10 sm:w-12 h-10 sm:h-12 text-teal-400 mx-auto mb-4 sm:mb-6" />
-                <p className={`text-lg sm:text-xl italic ${theme.text} leading-relaxed mb-4 sm:mb-6`}>
-                  "The current Granville Island website overwhelms visitors with too much information and complex
-                  navigation, making it difficult to plan visits and discover what matters most to them."
-                </p>
-              </div>
-              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed text-center`}>
-                Visitors needed a digital experience that matched the welcoming, accessible nature of Granville Island
-                itself—simple, relevant, and confidence-inspiring.
+      {/* Project Overview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center p-6 bg-teal-50 rounded-xl">
+              <Target className="w-12 h-12 text-teal-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Challenge</h3>
+              <p className="text-gray-600">
+                The existing website presented challenges for visitors seeking information, leading to a
+                less-than-optimal digital experience for tourists and locals alike.
               </p>
             </div>
-          </motion.section>
-
-          {/* User Research Process */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              User Research Process
-            </h2>
-            <div className="space-y-6 sm:space-y-10">
-              {designProcess.map((phase, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
-                    <div className="text-center">
-                      <div className="w-12 sm:w-16 h-12 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <span className="text-lg sm:text-2xl font-bold text-teal-600">{index + 1}</span>
-                      </div>
-                      <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-2 sm:mb-3`}>{phase.phase}</h3>
-                      <span className={`text-xs sm:text-sm ${theme.textSecondary} px-3 py-1 bg-gray-100 rounded-full`}>
-                        {phase.duration}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className={`font-medium ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Activities:</h4>
-                      <ul className="space-y-2 sm:space-y-3">
-                        {phase.activities.map((activity, activityIndex) => (
-                          <li
-                            key={activityIndex}
-                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
-                          >
-                            <div className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
-                            {activity}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className={`font-medium ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Deliverables:</h4>
-                      <ul className="space-y-2 sm:space-y-3">
-                        {phase.deliverables.map((deliverable, deliverableIndex) => (
-                          <li
-                            key={deliverableIndex}
-                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
-                          >
-                            <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            {deliverable}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className={`font-medium ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Key Insight:</h4>
-                      <p
-                        className={`text-xs sm:text-sm ${theme.textSecondary} italic p-3 sm:p-4 bg-teal-50 rounded-lg`}
-                      >
-                        "{phase.keyInsight}"
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="text-center p-6 bg-blue-50 rounded-xl">
+              <Lightbulb className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Solution</h3>
+              <p className="text-gray-600">
+                Conducted user research, created personas, and redesigned the site with focus on simplicity, curated
+                content, and intuitive navigation.
+              </p>
             </div>
-          </motion.section>
+            <div className="text-center p-6 bg-green-50 rounded-xl">
+              <TrendingUp className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Impact</h3>
+              <p className="text-gray-600">
+                65% increase in page engagement time, 40% reduction in navigation confusion, 55% improvement in vendor
+                discovery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          {/* Core Findings */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              Core Research Findings
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              {coreFindings.map((finding, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-6 sm:p-8 text-center hover:shadow-lg transition-shadow`}
-                >
-                  <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="w-8 sm:w-10 h-8 sm:h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
-                      {finding.number}
-                    </div>
-                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-teal-100 rounded-lg flex items-center justify-center">
-                      <finding.icon className="w-5 sm:w-6 h-5 sm:h-6 text-teal-600" />
-                    </div>
-                  </div>
-                  <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-3 sm:mb-4`}>{finding.title}</h3>
-                  <p className={`text-sm ${theme.textSecondary}`}>{finding.description}</p>
-                </motion.div>
-              ))}
+      {/* User Research Process */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">🔹 User Research Process</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">5 In-Depth Interviews</h3>
+              <p className="text-gray-600 text-sm">
+                Conducted comprehensive interviews with past visitors and interested users to understand motivations,
+                frustrations, and desired features.
+              </p>
             </div>
 
-            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
-              <h3 className={`text-lg sm:text-xl font-semibold ${theme.text} mb-6 sm:mb-8 text-center`}>
-                Key User Insights
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                {userResearchFindings.map((insight, index) => (
-                  <div key={index} className="text-center">
-                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                      <span className="text-xl sm:text-2xl">{insight.icon}</span>
-                    </div>
-                    <div
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 sm:mb-4 ${
-                        insight.priority === "High" ? "bg-red-100 text-red-700" : "bg-yellow-100 text-yellow-700"
-                      }`}
-                    >
-                      {insight.priority} Priority
-                    </div>
-                    <h4 className={`text-base sm:text-lg font-semibold ${theme.text} mb-2 sm:mb-3`}>{insight.title}</h4>
-                    <p className={`text-sm ${theme.textSecondary} mb-4 sm:mb-5`}>{insight.description}</p>
-                    <blockquote className={`text-xs italic ${theme.textSecondary} p-3 sm:p-4 bg-white/50 rounded-lg`}>
-                      "{insight.quote}"
-                    </blockquote>
-                  </div>
-                ))}
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
+                <Search className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Usability Testing</h3>
+              <p className="text-gray-600 text-sm">
+                Observed users navigating the current site to identify pain points and areas where visitors struggled to
+                find information.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                <Target className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Competitive Analysis</h3>
+              <p className="text-gray-600 text-sm">
+                Analyzed similar tourist destination websites to understand best practices and identify opportunities
+                for differentiation.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-teal-50 p-8 rounded-xl">
+            <h3 className="text-xl font-bold mb-4 text-teal-800">Key Research Insight</h3>
+            <p className="text-gray-700 text-lg italic">
+              "Users want fast, effortless access to vendor info, events, amenities, and navigation without overwhelming
+              complexity. They prefer curated, visually clear content over dense menus."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Findings */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">🔹 Core Findings</h2>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-red-800">Content Preference</h3>
+              <p className="text-gray-700 mb-4">
+                Users prefer curated, visually clear content over dense menus or complex planning tools.
+              </p>
+              <div className="bg-white/50 p-3 rounded-lg">
+                <p className="text-sm text-gray-600 italic">
+                  "I just want to see what's happening today and what's worth visiting. Too many options make it
+                  overwhelming."
+                </p>
               </div>
             </div>
-          </motion.section>
 
-          {/* User Personas */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>User Personas</h2>
-            <div className="space-y-6 sm:space-y-10">
-              {personas.map((persona, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
-                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
-                    <div className="text-center lg:text-left">
-                      <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gray-200 rounded-full mx-auto lg:mx-0 mb-3 sm:mb-4 overflow-hidden">
-                        <Image
-                          src={persona.avatar || "/placeholder.svg"}
-                          alt={persona.name}
-                          width={80}
-                          height={80}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className={`text-base sm:text-lg font-bold ${theme.text} mb-1 sm:mb-2`}>{persona.name}</h3>
-                      <p className={`text-sm ${theme.textSecondary} mb-2 sm:mb-3`}>Age {persona.age}</p>
-                      <span className="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs rounded-full">
-                        {persona.type}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Goals</h4>
-                      <ul className="space-y-2 sm:space-y-3">
-                        {persona.goals.map((goal, goalIndex) => (
-                          <li
-                            key={goalIndex}
-                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
-                          >
-                            <CheckCircle className="w-3 sm:w-4 h-3 sm:h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            {goal}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Frustrations</h4>
-                      <ul className="space-y-2 sm:space-y-3">
-                        {persona.frustrations.map((frustration, frustrationIndex) => (
-                          <li
-                            key={frustrationIndex}
-                            className={`text-xs sm:text-sm ${theme.textSecondary} flex items-start gap-2 sm:gap-3`}
-                          >
-                            <div className="w-3 sm:w-4 h-3 sm:h-4 bg-red-200 rounded-full mt-0.5 flex-shrink-0" />
-                            {frustration}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Quote</h4>
-                      <blockquote
-                        className={`text-xs sm:text-sm italic ${theme.textSecondary} p-3 sm:p-4 bg-white/50 rounded-lg mb-3 sm:mb-4`}
-                      >
-                        "{persona.quote}"
-                      </blockquote>
-                    </div>
-                    <div>
-                      <h4 className={`font-semibold ${theme.text} mb-3 sm:mb-4 text-sm sm:text-base`}>Behavior</h4>
-                      <p className={`text-xs sm:text-sm ${theme.textSecondary}`}>{persona.behavior}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* UX Strategy */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              UX Strategy Framework
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {uxStrategy.map((strategy, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow`}
-                >
-                  <div className="text-center mb-4 sm:mb-6">
-                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                      <strategy.icon className="w-6 sm:w-8 h-6 sm:h-8 text-teal-600" />
-                    </div>
-                    <h3 className={`text-lg sm:text-xl font-bold ${theme.text} mb-3 sm:mb-4`}>{strategy.principle}</h3>
-                    <p className={`${theme.textSecondary} mb-4 sm:mb-6 text-sm sm:text-base`}>{strategy.description}</p>
-                  </div>
-                  <div className="p-4 sm:p-5 bg-teal-50 rounded-lg">
-                    <h4 className="font-medium text-teal-800 mb-2 sm:mb-3 text-sm sm:text-base">Implementation:</h4>
-                    <p className="text-xs sm:text-sm text-teal-700">{strategy.implementation}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Design Solutions */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              Design Solutions
-            </h2>
-            <div className="space-y-10 sm:space-y-16">
-              {keyFeatures.map((feature, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
-                  <div
-                    className={`grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 items-center ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}
-                  >
-                    <div className={index % 2 === 1 ? "md:col-start-2" : ""}>
-                      <h3 className={`text-xl sm:text-2xl font-bold ${theme.text} mb-4 sm:mb-6`}>{feature.title}</h3>
-                      <p className={`${theme.textSecondary} mb-6 sm:mb-8 text-base sm:text-lg`}>
-                        {feature.description}
-                      </p>
-                      <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                        {feature.features.map((item, itemIndex) => (
-                          <li
-                            key={itemIndex}
-                            className={`flex items-start gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}
-                          >
-                            <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="p-4 sm:p-5 bg-green-50 rounded-lg border-l-4 border-green-400">
-                        <h4 className="font-semibold text-green-800 mb-1 sm:mb-2 text-sm sm:text-base">Impact</h4>
-                        <p className="text-green-700 text-sm sm:text-base">{feature.impact}</p>
-                      </div>
-                    </div>
-                    <div className={index % 2 === 1 ? "md:col-start-1" : ""}>
-                      <div className="relative rounded-xl overflow-hidden shadow-lg">
-                        <Image
-                          src={feature.mockup || "/placeholder.svg"}
-                          alt={`${feature.title} mockup`}
-                          width={700}
-                          height={500}
-                          className="w-full h-auto"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Project Impact */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>Project Impact</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-12">
-              {projectImpact.map((metric, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${theme.cardBg} rounded-2xl p-4 sm:p-8 text-center hover:shadow-lg transition-shadow`}
-                >
-                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                    <metric.icon className="w-6 sm:w-8 h-6 sm:h-8 text-teal-600" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-teal-600 mb-2 sm:mb-3">{metric.metric}</div>
-                  <p className={`text-xs sm:text-sm font-medium ${theme.text} mb-2 sm:mb-3`}>{metric.description}</p>
-                  <p className={`text-xs ${theme.textSecondary}`}>{metric.detail}</p>
-                </motion.div>
-              ))}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-blue-800">Navigation Needs</h3>
+              <p className="text-gray-700 mb-4">
+                Trip planning and interactive maps are useful only if simple and optional, not as primary navigation
+                methods.
+              </p>
+              <div className="bg-white/50 p-3 rounded-lg">
+                <p className="text-sm text-gray-600 italic">
+                  "The map is nice but I shouldn't need it just to find basic information about shops and restaurants."
+                </p>
+              </div>
             </div>
 
-            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
-              <h3 className={`text-lg sm:text-xl font-semibold ${theme.text} mb-6 sm:mb-8 text-center`}>
-                Key Outcomes
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <ul className="space-y-3 sm:space-y-4">
-                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
-                    Redesigned site helps users feel informed without overload
-                  </li>
-                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
-                    Inspires visits with approachable content and easy planning
-                  </li>
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-4 text-green-800">User Expectations</h3>
+              <p className="text-gray-700 mb-4">
+                Most users want recommendations and highlights instead of building detailed itineraries.
+              </p>
+              <div className="bg-white/50 p-3 rounded-lg">
+                <p className="text-sm text-gray-600 italic">
+                  "Show me the must-see places and current events. I'll figure out my own path when I get there."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* User Personas */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">User Personas</h2>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center">
+                  <Users className="w-8 h-8 text-pink-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Sarah the Tourist</h3>
+                  <p className="text-gray-500">First-time visitor</p>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700">Goals:</h4>
+                  <p className="text-sm text-gray-600">
+                    Find popular attractions, plan a day visit, discover unique experiences
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700">Frustrations:</h4>
+                  <p className="text-sm text-gray-600">
+                    Information overload, unclear navigation, outdated event listings
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                  <MapPin className="w-8 h-8 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Mike the Local</h3>
+                  <p className="text-gray-500">Regular visitor</p>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700">Goals:</h4>
+                  <p className="text-sm text-gray-600">
+                    Check current events, find new vendors, quick access to practical info
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700">Frustrations:</h4>
+                  <p className="text-sm text-gray-600">
+                    Slow loading times, buried information, tourist-focused content
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                  <Star className="w-8 h-8 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Emma the Explorer</h3>
+                  <p className="text-gray-500">Experience seeker</p>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700">Goals:</h4>
+                  <p className="text-sm text-gray-600">
+                    Discover hidden gems, find unique experiences, connect with local culture
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700">Frustrations:</h4>
+                  <p className="text-sm text-gray-600">
+                    Generic recommendations, lack of insider tips, poor mobile experience
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UX Strategy */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">🔹 UX Strategy</h2>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="text-center p-8 bg-teal-50 rounded-xl">
+              <div className="w-16 h-16 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
+                1
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-teal-800">Simplicity First</h3>
+              <p className="text-gray-600">
+                Focus on clean visual hierarchy and minimal navigation. Prioritize essential information and reduce
+                cognitive load for visitors.
+              </p>
+            </div>
+
+            <div className="text-center p-8 bg-blue-50 rounded-xl">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
+                2
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-blue-800">Relevance & Confidence</h3>
+              <p className="text-gray-600">
+                Feature a homepage that delivers timely, curated content upfront. Help users feel confident about their
+                visit decisions.
+              </p>
+            </div>
+
+            <div className="text-center p-8 bg-green-50 rounded-xl">
+              <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
+                3
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-green-800">Optional Complexity</h3>
+              <p className="text-gray-600">
+                Provide optional planning tools that don't clutter the main user experience. Advanced features available
+                when needed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Design Solutions */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Design Solutions</h2>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                  <Navigation className="w-6 h-6 text-teal-600" />
+                  Simplified Navigation
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Redesigned the main navigation to focus on user goals rather than organizational structure.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Reduced main menu items from 12 to 6</li>
+                  <li>• Grouped related content logically</li>
+                  <li>• Added visual icons for quick recognition</li>
+                  <li>• Implemented breadcrumb navigation</li>
                 </ul>
-                <ul className="space-y-3 sm:space-y-4">
-                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
-                    Serves first-time visitors and locals effectively
-                  </li>
-                  <li className={`flex items-center gap-3 sm:gap-4 ${theme.textSecondary} text-sm sm:text-base`}>
-                    <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" />
-                    Respects real user behaviors and needs
-                  </li>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                  <Star className="w-6 h-6 text-blue-600" />
+                  Curated Content Sections
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Created dedicated sections for different types of content based on user needs.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• "Today at Granville Island" - current events</li>
+                  <li>• "Must-See Highlights" - popular attractions</li>
+                  <li>• "Local Favorites" - insider recommendations</li>
+                  <li>• "Plan Your Visit" - practical information</li>
                 </ul>
               </div>
             </div>
-          </motion.section>
 
-          {/* Design Deliverables */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              Design Deliverables
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-              {designDeliverables.map((category, index) => (
-                <motion.div key={index} variants={itemVariants} className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
-                  <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-4 sm:mb-6 text-center`}>
-                    {category.category}
-                  </h3>
-                  <ul className="space-y-3 sm:space-y-4">
-                    {category.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className={`flex items-start gap-3 sm:gap-4 ${theme.textSecondary}`}>
-                        <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-xs sm:text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Design Process Showcase */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              Design Process Showcase
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-              <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
-                <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-4 sm:mb-6`}>
-                  Low-Fidelity Wireframes
+            <div className="space-y-8">
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                  <MapPin className="w-6 h-6 text-green-600" />
+                  Interactive Map Enhancement
                 </h3>
-                <div className="relative rounded-lg overflow-hidden shadow-md mb-4 sm:mb-6">
-                  <Image
-                    src="/placeholder.svg?height=300&width=400&text=Low-Fi+Wireframes"
-                    alt="Low-fidelity wireframes"
-                    width={400}
-                    height={300}
-                    className="w-full h-auto"
-                  />
-                </div>
-                <p className={`text-xs sm:text-sm ${theme.textSecondary}`}>
-                  Initial wireframes focused on information hierarchy and user flow optimization based on research
-                  insights
+                <p className="text-gray-600 mb-4">
+                  Improved the map functionality while making it optional for basic navigation.
                 </p>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Faster loading with progressive enhancement</li>
+                  <li>• Category filtering for different interests</li>
+                  <li>• Integration with vendor information</li>
+                  <li>• Mobile-optimized touch interactions</li>
+                </ul>
               </div>
-              <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-8`}>
-                <h3 className={`text-base sm:text-lg font-semibold ${theme.text} mb-4 sm:mb-6`}>
-                  High-Fidelity Mockups
+
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                  <Search className="w-6 h-6 text-purple-600" />
+                  Enhanced Search & Discovery
                 </h3>
-                <div className="relative rounded-lg overflow-hidden shadow-md mb-4 sm:mb-6">
-                  <Image
-                    src="/placeholder.svg?height=300&width=400&text=High-Fi+Mockups"
-                    alt="High-fidelity mockups"
-                    width={400}
-                    height={300}
-                    className="w-full h-auto"
-                  />
-                </div>
-                <p className={`text-xs sm:text-sm ${theme.textSecondary}`}>
-                  Polished designs incorporating visual branding and detailed interactions with curated content approach
+                <p className="text-gray-600 mb-4">
+                  Implemented smart search functionality to help users find what they're looking for quickly.
                 </p>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• Auto-complete with popular searches</li>
+                  <li>• Category-based filtering</li>
+                  <li>• Visual search results with images</li>
+                  <li>• "No results" page with helpful suggestions</li>
+                </ul>
               </div>
             </div>
-          </motion.section>
+          </div>
+        </div>
+      </section>
 
-          {/* Reflection & Learnings */}
-          <motion.section variants={itemVariants}>
-            <h2 className={`text-2xl sm:text-3xl font-bold ${theme.text} mb-8 sm:mb-12 text-center`}>
-              Reflection & Key Learnings
-            </h2>
-            <div className={`${theme.cardBg} rounded-2xl p-6 sm:p-10`}>
-              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed mb-6 sm:mb-8`}>
-                This project reinforced the importance of user research in challenging assumptions about what users
-                actually need. Initially, I thought comprehensive planning tools would be valuable, but research
-                revealed that users prefer curated, simple experiences over complex functionality.
-              </p>
-              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed mb-6 sm:mb-8`}>
-                The most significant insight was understanding that different user types (tourists, locals, families)
-                have fundamentally different information needs, but they all share a desire for simplicity and
-                confidence in their planning process.
-              </p>
-              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed mb-6 sm:mb-8`}>
-                Working on a beloved Vancouver landmark taught me how to balance innovation with respect for established
-                brand identity, and how to design for both emotional connection and practical functionality.
-              </p>
-              <p className={`text-base sm:text-lg ${theme.textSecondary} leading-relaxed`}>
-                The iterative design process, guided by continuous user feedback, was crucial in creating a solution
-                that truly serves real user behaviors and needs rather than assumptions about what they might want.
+      {/* Project Impact */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">🔹 Project Impact</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="text-center p-6 bg-green-50 rounded-xl">
+              <div className="text-4xl font-bold text-green-600 mb-2">65%</div>
+              <p className="text-gray-600 font-medium">Increase in Page Engagement</p>
+              <p className="text-gray-500 text-sm mt-1">Average time on site</p>
+            </div>
+            <div className="text-center p-6 bg-blue-50 rounded-xl">
+              <div className="text-4xl font-bold text-blue-600 mb-2">40%</div>
+              <p className="text-gray-600 font-medium">Reduction in Navigation Confusion</p>
+              <p className="text-gray-500 text-sm mt-1">User testing metrics</p>
+            </div>
+            <div className="text-center p-6 bg-purple-50 rounded-xl">
+              <div className="text-4xl font-bold text-purple-600 mb-2">55%</div>
+              <p className="text-gray-600 font-medium">Improvement in Vendor Discovery</p>
+              <p className="text-gray-500 text-sm mt-1">Vendor page visits</p>
+            </div>
+            <div className="text-center p-6 bg-teal-50 rounded-xl">
+              <div className="text-4xl font-bold text-teal-600 mb-2">4.2/5</div>
+              <p className="text-gray-600 font-medium">User Satisfaction Score</p>
+              <p className="text-gray-500 text-sm mt-1">Post-redesign survey</p>
+            </div>
+          </div>
+
+          <div className="bg-teal-50 p-8 rounded-xl text-center">
+            <h3 className="text-xl font-bold mb-4 text-teal-800">Key Success Metrics</h3>
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              The redesigned site helps users feel informed without overload, inspires visits with approachable content
+              and easy planning, and serves both first-time visitors and locals by respecting real user behaviors and
+              needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Design Deliverables */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">🎨 Design Deliverables</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">✓</div>
+                <h3 className="font-semibold">User Interview Summaries</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                Detailed findings from 5 in-depth user interviews with key insights and quotes.
               </p>
             </div>
-          </motion.section>
 
-          {/* Project Links */}
-          <motion.section variants={itemVariants} className="text-center">
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              <motion.a
-                href="https://figma.com/granville-island-redesign"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-medium transition-colors text-sm sm:text-base"
-              >
-                <Figma className="w-4 sm:w-5 h-4 sm:h-5" />
-                View Figma Prototype
-              </motion.a>
-              <motion.a
-                href="https://example.com/granville-island-research.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-colors text-sm sm:text-base"
-              >
-                <FileText className="w-4 sm:w-5 h-4 sm:h-5" />
-                Download Research Report
-              </motion.a>
-              <motion.button
-                onClick={onBack}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 sm:px-8 py-3 sm:py-4 ${theme.cardBg} ${theme.text} rounded-full font-medium transition-colors ${theme.hover} text-sm sm:text-base`}
-              >
-                Back to Projects
-              </motion.button>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">✓</div>
+                <h3 className="font-semibold">Personas & Journey Maps</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                Three detailed personas with corresponding user journey maps and pain point analysis.
+              </p>
             </div>
-          </motion.section>
-        </motion.div>
-      </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">✓</div>
+                <h3 className="font-semibold">Wireframe Versions</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                Low and high-fidelity wireframes showing information architecture and layout decisions.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">✓</div>
+                <h3 className="font-semibold">Final Mockups</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                High-fidelity mockups showing homepage and key pages with visual design applied.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">✓</div>
+                <h3 className="font-semibold">Navigation Highlights</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                Visual highlights of simplified navigation structure and improved user flows.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center">✓</div>
+                <h3 className="font-semibold">Curated Content Sections</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                Examples of curated content presentation and information hierarchy improvements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reflection & Learnings */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Reflection & Learnings</h2>
+
+          <div className="space-y-8">
+            <div className="bg-blue-50 p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-3 text-blue-800">What Worked Well</h3>
+              <p className="text-gray-700">
+                The user-centered approach proved invaluable. By focusing on real user needs rather than organizational
+                preferences, we created a more intuitive and effective experience. The emphasis on simplicity and
+                curated content resonated strongly with all user types.
+              </p>
+            </div>
+
+            <div className="bg-orange-50 p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-3 text-orange-800">Key Challenges</h3>
+              <p className="text-gray-700">
+                Balancing the needs of different user types (tourists vs. locals) required careful consideration. We
+                solved this by creating flexible content sections that could serve multiple purposes while maintaining a
+                clean, uncluttered interface.
+              </p>
+            </div>
+
+            <div className="bg-green-50 p-6 rounded-xl">
+              <h3 className="text-xl font-bold mb-3 text-green-800">Future Opportunities</h3>
+              <p className="text-gray-700">
+                The research revealed opportunities for personalization features and community-driven content. Future
+                iterations could include user accounts, personalized recommendations, and visitor-generated content to
+                further enhance the experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Next Steps */}
+      <section className="py-16 bg-gradient-to-r from-teal-600 to-cyan-700 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6">Project Outcomes</h2>
+          <p className="text-xl text-teal-100 mb-8">
+            This research and redesign project successfully transformed the Granville Island digital experience,
+            creating a more user-friendly and effective platform for visitors to discover and plan their visits.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="flex items-center gap-2 bg-white text-teal-600 px-6 py-3 rounded-full font-medium hover:bg-teal-50 transition-colors">
+              <ExternalLink className="w-5 h-5" />
+              View Figma Prototype
+            </button>
+            <button className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
+              <Users className="w-5 h-5" />
+              View Research Report
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
