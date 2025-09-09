@@ -1,172 +1,117 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { Palette, Search, Code, BarChart, Lightbulb } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
 
-export default function SkillsSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.1,
+interface Skill {
+  name: string
+  level: number
+}
+
+const skills: Skill[] = [
+  { name: "UI/UX Design", level: 95 },
+  { name: "User Research", level: 90 },
+  { name: "Prototyping", level: 88 },
+  { name: "Visual Design", level: 85 },
+  { name: "Figma", level: 95 },
+  { name: "Adobe Creative Suite", level: 85 },
+  { name: "HTML/CSS", level: 80 },
+  { name: "JavaScript", level: 70 },
+]
+
+export function SkillsSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
       },
-    },
-  }
+      { threshold: 0.3 },
+    )
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
 
-  const skills = [
-    {
-      category: "UX Research",
-      icon: Search,
-      skills: [
-        { name: "User Interviews", level: 95 },
-        { name: "Usability Testing", level: 90 },
-        { name: "Survey Design", level: 85 },
-        { name: "Data Analysis", level: 88 },
-      ],
-    },
-    {
-      category: "Design",
-      icon: Palette,
-      skills: [
-        { name: "UI Design", level: 92 },
-        { name: "Prototyping", level: 90 },
-        { name: "Design Systems", level: 88 },
-        { name: "Accessibility", level: 85 },
-      ],
-    },
-    {
-      category: "Development",
-      icon: Code,
-      skills: [
-        { name: "HTML/CSS", level: 85 },
-        { name: "React", level: 80 },
-        { name: "JavaScript", level: 78 },
-        { name: "Responsive Design", level: 90 },
-      ],
-    },
-  ]
-
-  const tools = [
-    "Figma",
-    "Adobe Creative Suite",
-    "Sketch",
-    "Principle",
-    "Framer",
-    "Miro",
-    "Notion",
-    "Maze",
-    "Hotjar",
-    "Google Analytics",
-    "Zoom",
-    "Slack",
-  ]
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section id="skills" className="py-20 bg-cream-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-brown-900 mb-6">Skills & Expertise</h2>
-            <p className="text-xl text-brown-700 max-w-3xl mx-auto leading-relaxed">
-              A comprehensive toolkit built through years of hands-on experience in user research, design, and
-              development.
-            </p>
-          </motion.div>
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+    >
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-2xl animate-float-slow"></div>
+        <div
+          className="absolute bottom-1/3 left-1/5 w-32 h-32 bg-gradient-to-br from-accent/5 to-primary/5 rounded-full blur-xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+      </div>
 
-          {/* Skills Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {skills.map((category, index) => (
-              <motion.div key={category.category} variants={itemVariants}>
-                <Card className="h-full border-brown-200/50 hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-6">
-                      <category.icon className="w-8 h-8 text-brown-600 mr-3" />
-                      <h3 className="text-xl font-semibold text-brown-900">{category.category}</h3>
-                    </div>
-                    <div className="space-y-4">
-                      {category.skills.map((skill) => (
-                        <div key={skill.name}>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-brown-700 font-medium">{skill.name}</span>
-                            <span className="text-brown-600 text-sm">{skill.level}%</span>
-                          </div>
-                          <Progress value={skill.level} className="h-2" />
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+      <div className="container mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-serif font-bold text-primary mb-4 animate-fade-in-up">Skills & Expertise</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto animate-fade-in-up stagger-1">
+            Core competencies in design, research, and development
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {skills.map((skill, index) => (
+              <div
+                key={skill.name}
+                className={`hover-lift animate-fade-in-up`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <span className="font-semibold text-gray-800 text-lg">{skill.name}</span>
+                  <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    {skill.level}%
+                  </span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div
+                    className="bg-gradient-to-r from-primary via-secondary to-accent h-3 rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
+                    style={{
+                      width: isVisible ? `${skill.level}%` : "0%",
+                      transitionDelay: `${index * 0.1}s`,
+                    }}
+                  >
+                    {/* Shimmer effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Process */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h3 className="text-3xl font-bold text-brown-900 text-center mb-12">My Design Process</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  icon: Search,
-                  title: "Research",
-                  description: "Understanding users, market, and constraints through comprehensive research methods.",
-                },
-                {
-                  icon: Lightbulb,
-                  title: "Ideate",
-                  description: "Generating creative solutions through brainstorming and collaborative workshops.",
-                },
-                {
-                  icon: Palette,
-                  title: "Design",
-                  description: "Creating intuitive interfaces with careful attention to usability and aesthetics.",
-                },
-                {
-                  icon: BarChart,
-                  title: "Validate",
-                  description: "Testing designs with real users and iterating based on feedback and data.",
-                },
-              ].map((step, index) => (
-                <Card key={step.title} className="border-brown-200/50 hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-brown-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <step.icon className="w-8 h-8 text-brown-600" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-brown-900 mb-3">{step.title}</h4>
-                    <p className="text-brown-700 text-sm leading-relaxed">{step.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+          {/* Skills Summary */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-8 px-8 py-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover-lift animate-fade-in-up stagger-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary mb-2">8+</div>
+                <div className="text-sm text-gray-500">Core Skills</div>
+              </div>
+              <div className="w-px h-12 bg-gray-200"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-secondary mb-2">3+</div>
+                <div className="text-sm text-gray-500">Years Experience</div>
+              </div>
+              <div className="w-px h-12 bg-gray-200"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-accent mb-2">50+</div>
+                <div className="text-sm text-gray-500">Projects</div>
+              </div>
             </div>
-          </motion.div>
-
-          {/* Tools */}
-          <motion.div variants={itemVariants} className="text-center">
-            <h3 className="text-3xl font-bold text-brown-900 mb-8">Tools I Use</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {tools.map((tool) => (
-                <Badge key={tool} variant="outline" className="text-brown-700 border-brown-300 px-4 py-2">
-                  {tool}
-                </Badge>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )
