@@ -1,169 +1,189 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Award, Users, Coffee, Heart } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Award, Users, Coffee, Heart, MapPin, Calendar } from "lucide-react"
 
 const stats = [
-  { icon: Award, label: "Years Experience", value: "3+" },
-  { icon: Users, label: "Projects Completed", value: "25+" },
-  { icon: Coffee, label: "Cups of Coffee", value: "500+" },
-  { icon: Heart, label: "Happy Clients", value: "15+" },
+  { icon: Award, label: "Projects Completed", value: "50+", color: "from-blue-500 to-blue-600" },
+  { icon: Users, label: "Happy Clients", value: "25+", color: "from-green-500 to-green-600" },
+  { icon: Coffee, label: "Years Experience", value: "3+", color: "from-purple-500 to-purple-600" },
+  { icon: Heart, label: "Cups of Coffee", value: "∞", color: "from-orange-500 to-orange-600" },
 ]
 
-const journey = [
+const values = [
   {
-    year: "2021",
-    title: "Started UX Journey",
-    description: "Began exploring user experience design through online courses and personal projects.",
+    icon: Heart,
+    title: "User-Centered",
+    description: "Every design decision is made with the user's needs and experience at the forefront.",
   },
   {
-    year: "2022",
-    title: "First Design Role",
-    description: "Joined a startup as a junior UX designer, working on mobile app interfaces.",
+    icon: Award,
+    title: "Quality Focused",
+    description: "I believe in delivering excellence through attention to detail and continuous refinement.",
   },
   {
-    year: "2023",
-    title: "Frontend Development",
-    description: "Expanded skills to include frontend development, bridging design and code.",
+    icon: Users,
+    title: "Collaborative",
+    description: "The best results come from working closely with teams and embracing diverse perspectives.",
   },
   {
-    year: "2024",
-    title: "Full-Stack Designer",
-    description: "Now working as a full-stack designer, handling projects from research to deployment.",
+    icon: Coffee,
+    title: "Always Learning",
+    description: "I stay curious and continuously expand my skills to keep up with evolving design trends.",
   },
 ]
 
 export function AboutSection() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Me</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            I'm a passionate UX designer and frontend developer who believes in creating digital experiences that are
-            both beautiful and functional.
-          </p>
-        </motion.div>
+    <section id="about" className="py-20 bg-white relative overflow-hidden">
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-xl animate-float-slow"></div>
+        <div
+          className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-br from-accent/5 to-primary/5 rounded-full blur-lg animate-float"
+          style={{ animationDelay: "3s" }}
+        ></div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Personal Story */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">My Story</h3>
-            <div className="space-y-4 text-gray-600">
-              <p>
-                My journey into UX design began with a simple question: "Why is this so hard to use?" This curiosity led
-                me to explore the intersection of psychology, technology, and design.
-              </p>
-              <p>
-                I believe that great design is invisible – it solves problems so elegantly that users don't even notice
-                the complexity behind it. My approach combines thorough user research with creative problem-solving to
-                create experiences that truly serve people's needs.
-              </p>
-              <p>
-                When I'm not designing or coding, you can find me exploring Vancouver's coffee shops, hiking local
-                trails, or experimenting with new design tools and techniques.
-              </p>
-            </div>
-          </motion.div>
+      <div className="container mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif font-bold text-primary mb-4 animate-fade-in-up">About Me</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto animate-fade-in-up stagger-1">
+              Passionate about creating meaningful digital experiences that connect with users on both functional and
+              emotional levels.
+            </p>
+          </div>
 
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/placeholder.svg?height=500&width=400&text=About+Me+Photo"
-                alt="Misha Gholami working"
-                className="w-full h-96 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-            </div>
-          </motion.div>
-        </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+            {/* Content */}
+            <div className="animate-slide-in-left">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-primary mb-4">Hi there! I'm Misha 👋</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    I'm a UX Designer and Creative Illustrator with over 3 years of experience in creating user-centered
+                    digital solutions. My journey began with a fascination for how design can solve real-world problems
+                    and create meaningful connections between people and technology.
+                  </p>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
-        >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon
-            return (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-amber-600" />
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    I specialize in user research, interface design, and creative illustration. My approach combines
+                    analytical thinking with creative problem-solving to deliver designs that are not only beautiful but
+                    also highly functional and accessible.
+                  </p>
+
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    When I'm not designing, you can find me sketching in coffee shops, exploring new art techniques, or
+                    collaborating with other creatives on passion projects. I believe that great design comes from
+                    understanding people, and I'm always eager to learn and grow in this ever-evolving field.
+                  </p>
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            )
-          })}
-        </motion.div>
 
-        {/* Journey Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-12">My Journey</h3>
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-amber-200 hidden md:block" />
-
-            <div className="space-y-12">
-              {journey.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  } flex-col md:gap-8`}
-                >
-                  <div
-                    className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} text-center md:text-left`}
-                  >
-                    <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                      <div className="text-amber-600 font-bold text-lg mb-2">{item.year}</div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                      <p className="text-gray-600">{item.description}</p>
+                {/* Location & Availability */}
+                <div className="flex flex-wrap gap-6 pt-4">
+                  <div className="flex items-center space-x-3 text-gray-600 hover-lift">
+                    <div className="w-10 h-10 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-gray-900">Vancouver, BC</div>
+                      <div className="text-sm text-gray-500">Based in Canada</div>
                     </div>
                   </div>
+                  <div className="flex items-center space-x-3 text-gray-600 hover-lift">
+                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                      <Calendar className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-green-700">Available for Projects</div>
+                      <div className="text-sm text-gray-500">Open to new opportunities</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                  {/* Timeline Dot */}
-                  <div className="w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow-lg z-10 hidden md:block" />
+            {/* Image & Stats */}
+            <div className="animate-slide-in-right">
+              {/* Profile Image */}
+              <div className="mb-8 hover-lift">
+                <div className="relative">
+                  <img
+                    src="/placeholder.svg?height=400&width=400&text=Misha+at+Work"
+                    alt="Misha working on design"
+                    className="w-full h-80 object-cover rounded-2xl shadow-xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-2xl"></div>
 
-                  <div className="flex-1 hidden md:block" />
-                </motion.div>
-              ))}
+                  {/* Floating decoration */}
+                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-full opacity-20 animate-float"></div>
+                  <div
+                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-float"
+                    style={{ animationDelay: "1s" }}
+                  ></div>
+                </div>
+              </div>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map((stat, index) => {
+                  const IconComponent = stat.icon
+                  return (
+                    <div
+                      key={stat.label}
+                      className={`card text-center hover-lift animate-scale-in`}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div
+                        className={`w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-r ${stat.color} flex items-center justify-center hover-scale`}
+                      >
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-2xl font-bold text-primary mb-1">{stat.value}</div>
+                      <div className="text-gray-600 text-sm">{stat.label}</div>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
-        </motion.div>
+
+          {/* Values Section */}
+          <div>
+            <h3 className="text-2xl font-serif font-bold text-primary text-center mb-12 animate-fade-in-up">
+              What Drives Me
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {values.map((value, index) => {
+                const IconComponent = value.icon
+                return (
+                  <div
+                    key={value.title}
+                    className={`card text-center hover-lift animate-fade-in-up`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center hover-scale">
+                      <IconComponent className="w-7 h-7 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-primary mb-3">{value.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
-
-export default AboutSection

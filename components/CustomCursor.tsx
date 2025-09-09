@@ -1,12 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useSpring } from "framer-motion"
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isVisible, setIsVisible] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+
+  const cursorX = useMotionValue(-100)
+  const cursorY = useMotionValue(-100)
+
+  const springConfig = { damping: 25, stiffness: 700 }
+  const cursorXSpring = useSpring(cursorX, springConfig)
+  const cursorYSpring = useSpring(cursorY, springConfig)
 
   useEffect(() => {
     // Check if device is mobile
@@ -17,94 +24,231 @@ export default function CustomCursor() {
     checkMobile()
     window.addEventListener("resize", checkMobile)
 
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+    if (isMobile) return
+
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX - 20)
+      cursorY.set(e.clientY - 20)
+      setIsVisible(true)
     }
 
-    const handleMouseEnter = () => setIsHovering(true)
-    const handleMouseLeave = () => setIsHovering(false)
+    const handleMouseEnter = () => setIsVisible(true)
+    const handleMouseLeave = () => setIsVisible(false)
 
-    if (!isMobile) {
-      document.addEventListener("mousemove", updateMousePosition)
+    // Add hover effects for interactive elements
+    const addHoverListeners = () => {
+      const interactiveElements = document.querySelectorAll(
+        'a, button, [role="button"], .hover-cursor, .project-card, .nav-link, .btn, input, textarea, select',
+      )
 
-      // Add hover listeners to interactive elements
-      const interactiveElements = document.querySelectorAll('a, button, [role="button"], input, textarea, select')
       interactiveElements.forEach((el) => {
-        el.addEventListener("mouseenter", handleMouseEnter)
-        el.addEventListener("mouseleave", handleMouseLeave)
+        el.addEventListener("mouseenter", () => setIsHovering(true))
+        el.addEventListener("mouseleave", () => setIsHovering(false))
       })
 
       return () => {
-        document.removeEventListener("mousemove", updateMousePosition)
         interactiveElements.forEach((el) => {
-          el.removeEventListener("mouseenter", handleMouseEnter)
-          el.removeEventListener("mouseleave", handleMouseLeave)
+          el.removeEventListener("mouseenter", () => setIsHovering(true))
+          el.removeEventListener("mouseleave", () => setIsHovering(false))
         })
-        window.removeEventListener("resize", checkMobile)
       }
     }
 
+    document.addEventListener("mousemove", moveCursor)
+    document.addEventListener("mouseenter", handleMouseEnter)
+    document.addEventListener("mouseleave", handleMouseLeave)
+
+    const cleanup = addHoverListeners()
+
+    // Re-add listeners when DOM changes (for dynamic content)
+    const observer = new MutationObserver(addHoverListeners)
+    observer.observe(document.body, { childList: true, subtree: true })
+
     return () => {
+      document.removeEventListener("mousemove", moveCursor)
+      document.removeEventListener("mouseenter", handleMouseEnter)
+      document.removeEventListener("mouseleave", handleMouseLeave)
       window.removeEventListener("resize", checkMobile)
+      cleanup()
+      observer.disconnect()
     }
-  }, [isMobile])
+  }, [cursorX, cursorY, isMobile])
 
   if (isMobile) return null
 
   return (
     <>
-      {/* Main cursor */}
+      {/* Hide default cursor */}
+      <style jsx global>{`
+        * {
+          cursor: none !important;
+        }
+        
+        a, button, [role="button"], .hover-cursor, .project-card, .nav-link, .btn, input, textarea, select {
+          cursor: none !important;
+        }
+      `}</style>
+
+      {/* Custom Cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 bg-amber-600 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-mode-difference"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+        }}
         animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
+          opacity: isVisible ? 1 : 0,
           scale: isHovering ? 1.5 : 1,
         }}
         transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5,
+          opacity: { duration: 0.2 },
+          scale: { duration: 0.3, ease: "easeOut" },
         }}
-      />
-
-      {/* Trailing cursor */}
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-amber-600 rounded-full pointer-events-none z-40"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isHovering ? 2 : 1,
-          opacity: isHovering ? 0.6 : 0.3,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 150,
-          damping: 15,
-          mass: 0.1,
-        }}
-      />
-
-      {/* Hover indicator */}
-      {isHovering && (
+      >
+        {/* Main cursor circle */}
         <motion.div
-          className="fixed top-0 left-0 w-4 h-4 pointer-events-none z-50"
+          className="relative"
           animate={{
-            x: mousePosition.x - 8,
-            y: mousePosition.y - 8,
+            rotate: isHovering ? 180 : 0,
           }}
           transition={{
-            type: "spring",
-            stiffness: 800,
-            damping: 25,
+            rotate: { duration: 0.6, ease: "easeInOut" },
           }}
         >
-          <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
-            <div className="w-2 h-2 bg-amber-600 rounded-full" />
-          </div>
+          {/* Outer glow ring */}
+          <motion.div
+            className="absolute inset-0 rounded-full"
+            style={{
+              width: "40px",
+              height: "40px",
+              background:
+                "radial-gradient(circle, rgba(139, 69, 19, 0.3) 0%, rgba(139, 69, 19, 0.1) 50%, transparent 70%)",
+              filter: "blur(8px)",
+            }}
+            animate={{
+              scale: isHovering ? 1.8 : 1,
+              opacity: isHovering ? 0.8 : 0.4,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+          />
+
+          {/* Main cursor circle */}
+          <motion.div
+            className="relative rounded-full border-2"
+            style={{
+              width: "40px",
+              height: "40px",
+              backgroundColor: "rgba(139, 69, 19, 0.2)",
+              borderColor: "rgba(139, 69, 19, 0.6)",
+              backdropFilter: "blur(10px)",
+            }}
+            animate={{
+              backgroundColor: isHovering ? "rgba(139, 69, 19, 0.4)" : "rgba(139, 69, 19, 0.2)",
+              borderColor: isHovering ? "rgba(139, 69, 19, 0.9)" : "rgba(139, 69, 19, 0.6)",
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+          >
+            {/* Inner dot */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+              style={{
+                width: "6px",
+                height: "6px",
+                backgroundColor: "rgba(139, 69, 19, 0.8)",
+              }}
+              animate={{
+                scale: isHovering ? 0 : 1,
+                opacity: isHovering ? 0 : 1,
+              }}
+              transition={{
+                duration: 0.2,
+                ease: "easeOut",
+              }}
+            />
+
+            {/* Hover state plus icon */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              animate={{
+                scale: isHovering ? 1 : 0,
+                opacity: isHovering ? 1 : 0,
+              }}
+              transition={{
+                duration: 0.2,
+                ease: "easeOut",
+              }}
+            >
+              <div
+                className="relative"
+                style={{
+                  width: "12px",
+                  height: "2px",
+                  backgroundColor: "rgba(139, 69, 19, 0.9)",
+                }}
+              />
+              <div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                style={{
+                  width: "2px",
+                  height: "12px",
+                  backgroundColor: "rgba(139, 69, 19, 0.9)",
+                }}
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Trailing particles */}
+          {isHovering && (
+            <>
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{
+                  width: "4px",
+                  height: "4px",
+                  backgroundColor: "rgba(139, 69, 19, 0.6)",
+                }}
+                animate={{
+                  x: [-20, -15, -10],
+                  y: [-10, 5, -5],
+                  opacity: [0, 0.8, 0],
+                  scale: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 1,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{
+                  width: "3px",
+                  height: "3px",
+                  backgroundColor: "rgba(139, 69, 19, 0.4)",
+                }}
+                animate={{
+                  x: [15, 20, 25],
+                  y: [8, -3, 12],
+                  opacity: [0, 0.6, 0],
+                  scale: [0.3, 0.8, 0.3],
+                }}
+                transition={{
+                  duration: 1.2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                  delay: 0.3,
+                }}
+              />
+            </>
+          )}
         </motion.div>
-      )}
+      </motion.div>
     </>
   )
 }
