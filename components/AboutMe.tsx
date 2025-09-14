@@ -63,7 +63,7 @@ export default function AboutMe() {
             <div className="relative">
               <div className="w-80 h-80 mx-auto lg:mx-0 rounded-3xl overflow-hidden shadow-2xl bg-brown-200 relative">
                 <Image
-                  src="/placeholder.svg?height=320&width=320"
+                  src="public/photo_2025-06-26 09.24.40.jpeg?height=320&width=320"
                   alt="Misha Gholami - Creative Developer and Illustrator"
                   width={320}
                   height={320}
