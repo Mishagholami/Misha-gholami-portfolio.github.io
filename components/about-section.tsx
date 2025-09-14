@@ -119,7 +119,7 @@ export function AboutSection() {
               <div className="mb-8 hover-lift">
                 <div className="relative">
                   <img
-                    src="public/profile-image.jpeg?height=400&width=400&text=Misha+at+Work"
+                    src="../public/profile-image.jpeg?height=400&width=400&text=Misha+at+Work"
                     alt="Misha working on design"
                     className="w-full h-80 object-cover rounded-2xl shadow-xl"
                   />
