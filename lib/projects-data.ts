@@ -8,7 +8,7 @@ export const projects: Project[] = [
     description:
       "A comprehensive UX redesign of the Headspace meditation app focusing on improved user engagement and accessibility.",
     longDescription:
-      "This project involved a complete UX audit and redesign of the Headspace meditation app, with a focus on improving user engagement, accessibility, and the overall meditation experience. Through extensive user research and iterative design, we created a more intuitive and calming interface.",
+      "This project involved a complete UX audit and redesign of the Headspace meditation app, with a focus on improving user engagement, accessibility, and the overall meditation experience. Through extensive user research and iterative design, we created a more intuitive and calming interface that helps users find the right meditation content for their current needs.",
     image: "/placeholder.svg?height=400&width=600&text=Headspace+Redesign",
     category: "UX Design",
     tags: ["Mobile App", "UX Research", "Prototyping", "Accessibility"],
@@ -56,8 +56,8 @@ export const projects: Project[] = [
         "Progress tracking motivates continued use",
       ],
       userQuotes: [
-        '"I just want to find a 5-minute meditation for anxiety without clicking through 10 screens."',
-        '"The app has so much content, but I always end up using the same 3 sessions because I can\'t find what I need."',
+        "I just want to find a 5-minute meditation for anxiety without clicking through 10 screens.",
+        "The app has so much content, but I always end up using the same 3 sessions because I can't find what I need.",
       ],
     },
     solution: {
@@ -112,6 +112,7 @@ export const projects: Project[] = [
         src: "/placeholder.svg?height=600&width=400&text=Home+Screen",
         alt: "Redesigned home screen with mood-based content",
         caption: "New home screen featuring mood-based meditation recommendations",
+        credit: "Headspace Design Team",
       },
       {
         src: "/placeholder.svg?height=600&width=400&text=Navigation",
@@ -122,6 +123,21 @@ export const projects: Project[] = [
         src: "/placeholder.svg?height=600&width=400&text=Progress",
         alt: "Enhanced progress tracking",
         caption: "Visual progress tracking with achievement rewards",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Wireframes",
+        alt: "Initial wireframe concepts",
+        caption: "Early wireframe explorations for the new navigation structure",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=User+Flow",
+        alt: "User flow diagram",
+        caption: "Simplified user flow from onboarding to meditation session",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Final+Design",
+        alt: "Final high-fidelity designs",
+        caption: "Final high-fidelity designs with improved visual hierarchy",
       },
     ],
     skills: ["UX Research", "User Interface Design", "Prototyping", "Usability Testing"],
@@ -151,7 +167,7 @@ export const projects: Project[] = [
     description:
       "Comprehensive user research study analyzing professional networking behaviors and pain points on LinkedIn.",
     longDescription:
-      "An in-depth user research study examining how professionals use LinkedIn for networking, job searching, and content consumption. The study revealed key insights about user behavior patterns and identified opportunities for platform improvement.",
+      "An in-depth user research study examining how professionals use LinkedIn for networking, job searching, and content consumption. The study revealed key insights about user behavior patterns and identified opportunities for platform improvement through mixed-methods research approaches.",
     image: "/placeholder.svg?height=400&width=600&text=LinkedIn+Study",
     category: "User Research",
     tags: ["User Research", "Data Analysis", "Behavioral Study", "Professional Networks"],
@@ -198,8 +214,8 @@ export const projects: Project[] = [
         "Networking success correlates with profile completeness",
       ],
       userQuotes: [
-        '"I scroll through LinkedIn like social media, but I never actually network."',
-        '"I want to reach out to people, but I never know what to say that won\'t sound spammy."',
+        "I scroll through LinkedIn like social media, but I never actually network.",
+        "I want to reach out to people, but I never know what to say that won't sound spammy.",
       ],
     },
     solution: {
@@ -265,6 +281,11 @@ export const projects: Project[] = [
         alt: "Strategic recommendations framework",
         caption: "Prioritized recommendations for platform improvement",
       },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Data+Analysis",
+        alt: "Behavioral data analysis charts",
+        caption: "Analysis of user interaction patterns and engagement metrics",
+      },
     ],
     skills: ["User Research", "Data Analysis", "Survey Design", "Interview Techniques"],
     tools: ["Miro", "Typeform", "SPSS", "Figma", "Notion"],
@@ -293,7 +314,7 @@ export const projects: Project[] = [
     description:
       "Mobile app concept helping new parents transition back to work with wellness tracking and support features.",
     longDescription:
-      "A comprehensive mobile application designed to support new parents during their transition back to work, featuring wellness tracking, childcare coordination, and peer support networks.",
+      "A comprehensive mobile application designed to support new parents during their transition back to work, featuring wellness tracking, childcare coordination, and peer support networks. The app addresses the unique challenges faced by working parents through a holistic approach to physical, mental, and logistical support.",
     image: "/placeholder.svg?height=400&width=600&text=Wellnest+App",
     category: "Mobile App",
     tags: ["Mobile Design", "Wellness", "User Experience", "Concept Design"],
@@ -342,8 +363,8 @@ export const projects: Project[] = [
         "Flexible scheduling tools are essential for work-life balance",
       ],
       userQuotes: [
-        '"I felt completely overwhelmed trying to manage everything when I went back to work."',
-        '"I wish I had other parents to talk to who understood what I was going through."',
+        "I felt completely overwhelmed trying to manage everything when I went back to work.",
+        "I wish I had other parents to talk to who understood what I was going through.",
       ],
     },
     solution: {
@@ -410,6 +431,16 @@ export const projects: Project[] = [
         alt: "Community support features",
         caption: "Peer support community with mentorship matching",
       },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Wireframes",
+        alt: "Initial wireframe concepts",
+        caption: "Early wireframe explorations for key user flows",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=User+Testing",
+        alt: "User testing session",
+        caption: "Concept testing with target users to validate features",
+      },
     ],
     skills: ["Mobile Design", "User Research", "Prototyping", "Design Systems"],
     tools: ["Figma", "Principle", "Maze", "Miro", "Notion"],
@@ -438,7 +469,7 @@ export const projects: Project[] = [
     description:
       "Full-stack web development project for a modern business website with custom CMS and e-commerce integration.",
     longDescription:
-      "A comprehensive web development project involving the design and development of a modern, responsive business website with custom content management system and integrated e-commerce functionality.",
+      "A comprehensive web development project involving the design and development of a modern, responsive business website with custom content management system and integrated e-commerce functionality. The project focused on performance optimization, scalability, and user experience to support business growth.",
     image: "/placeholder.svg?height=400&width=600&text=KALMONT+Website",
     category: "Web Development",
     tags: ["Full-Stack", "React", "Node.js", "E-commerce", "CMS"],
@@ -551,6 +582,16 @@ export const projects: Project[] = [
         alt: "E-commerce product pages",
         caption: "Integrated e-commerce with seamless checkout experience",
       },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Mobile+Design",
+        alt: "Mobile responsive design",
+        caption: "Fully responsive design optimized for mobile devices",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Performance",
+        alt: "Performance optimization results",
+        caption: "Lighthouse performance scores showing significant improvements",
+      },
     ],
     skills: ["React", "Node.js", "JavaScript", "CSS", "Database Design", "API Development"],
     tools: ["React", "Node.js", "MongoDB", "AWS", "Figma", "Git"],
@@ -579,7 +620,7 @@ export const projects: Project[] = [
     description:
       "UX research and design project improving the digital experience for Vancouver's iconic public market and cultural district.",
     longDescription:
-      "A comprehensive UX research and design project focused on improving the digital experience for visitors to Granville Island, Vancouver's premier destination for arts, culture, and local markets.",
+      "A comprehensive UX research and design project focused on improving the digital experience for visitors to Granville Island, Vancouver's premier destination for arts, culture, and local markets. The project addressed navigation challenges and enhanced the overall visitor experience through user-centered design.",
     image: "/placeholder.svg?height=400&width=600&text=Granville+Island",
     category: "UX Design",
     tags: ["UX Research", "Service Design", "Tourism", "Information Architecture"],
@@ -627,8 +668,8 @@ export const projects: Project[] = [
         "Accessibility information is essential but often missing",
       ],
       userQuotes: [
-        '"I never know what\'s happening here until I stumble upon it."',
-        "\"The map is confusing and doesn't help me find what I'm looking for.\"",
+        "I never know what's happening here until I stumble upon it.",
+        "The map is confusing and doesn't help me find what I'm looking for.",
       ],
     },
     solution: {
@@ -694,6 +735,16 @@ export const projects: Project[] = [
         src: "/placeholder.svg?height=600&width=800&text=Accessibility",
         alt: "Accessibility features and route planning",
         caption: "Comprehensive accessibility information and route planning",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=User+Research",
+        alt: "On-site user research sessions",
+        caption: "Conducting user interviews and observations on Granville Island",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Wireframes",
+        alt: "Information architecture wireframes",
+        caption: "Early wireframes showing improved information hierarchy",
       },
     ],
     skills: ["UX Research", "Information Architecture", "Service Design", "Accessibility Design"],

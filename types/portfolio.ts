@@ -51,6 +51,7 @@ export interface Project {
     src: string
     alt: string
     caption?: string
+    credit?: string
   }>
   skills: string[]
   tools: string[]
@@ -69,6 +70,14 @@ export interface GalleryItem {
   category: string
   tags: string[]
   featured: boolean
+  context?: string
+  year: number
+  client?: string
+  tools?: string[]
+  behanceLink?: string
+  dribbbleLink?: string
+  figmaLink?: string
+  projectLink?: string
 }
 
 export interface Skill {

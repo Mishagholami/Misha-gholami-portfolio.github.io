@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -21,19 +24,21 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
-      // Update active section based on scroll position
-      const sections = navItems.map((item) => item.href.substring(1))
-      const scrollPosition = window.scrollY + 100
+      // Only update active section on homepage
+      if (pathname === "/") {
+        const sections = navItems.map((item) => item.href.substring(1))
+        const scrollPosition = window.scrollY + 100
 
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
+        for (const section of sections) {
+          const element = document.getElementById(section)
+          if (element) {
+            const offsetTop = element.offsetTop
+            const offsetHeight = element.offsetHeight
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section)
+              break
+            }
           }
         }
       }
@@ -41,10 +46,18 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [pathname])
 
   const handleNavClick = (href: string) => {
     setIsOpen(false)
+
+    // If we're on a project page, navigate to homepage first
+    if (pathname !== "/") {
+      window.location.href = `/${href}`
+      return
+    }
+
+    // Otherwise, smooth scroll to section
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -61,12 +74,12 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <button
-              onClick={() => handleNavClick("#home")}
+            <Link
+              href="/"
               className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover-scale"
             >
               <img src="/placeholder-logo.svg" alt="Logo" className="w-8 h-8 object-contain" />
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -76,7 +89,7 @@ export function Navbar() {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`nav-link ${activeSection === item.href.substring(1) ? "active" : ""}`}
+                  className={`nav-link ${pathname === "/" && activeSection === item.href.substring(1) ? "active" : ""}`}
                 >
                   {item.label}
                 </button>
@@ -105,7 +118,7 @@ export function Navbar() {
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
                   className={`block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-all duration-300 hover-lift ${
-                    activeSection === item.href.substring(1)
+                    pathname === "/" && activeSection === item.href.substring(1)
                       ? "text-primary bg-primary/10 border-r-2 border-primary"
                       : "text-gray-600 hover:text-primary hover:bg-gray-50"
                   }`}
