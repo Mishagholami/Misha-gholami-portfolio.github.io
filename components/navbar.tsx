@@ -1,136 +1,173 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X, Home, User, Briefcase, Mail } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-
-  const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#contact", label: "Contact" },
-  ]
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-
-      // Only update active section on homepage
-      if (pathname === "/") {
-        const sections = navItems.map((item) => item.href.substring(1))
-        const scrollPosition = window.scrollY + 100
-
-        for (const section of sections) {
-          const element = document.getElementById(section)
-          if (element) {
-            const offsetTop = element.offsetTop
-            const offsetHeight = element.offsetHeight
-
-            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-              setActiveSection(section)
-              break
-            }
-          }
-        }
-      }
+      setScrolled(window.scrollY > 50)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [pathname])
+  }, [])
 
-  const handleNavClick = (href: string) => {
+  const isHomePage = pathname === "/"
+  const isProjectPage = pathname.startsWith("/projects/")
+
+  const navItems = [
+    { name: "Home", href: "/", icon: Home, id: "home" },
+    { name: "About", href: isHomePage ? "#about" : "/#about", icon: User, id: "about" },
+    { name: "Projects", href: isHomePage ? "#projects" : "/#projects", icon: Briefcase, id: "projects" },
+    { name: "Contact", href: isHomePage ? "#contact" : "/#contact", icon: Mail, id: "contact" },
+  ]
+
+  const handleNavClick = (href: string, id: string) => {
     setIsOpen(false)
 
-    // If we're on a project page, navigate to homepage first
-    if (pathname !== "/") {
-      window.location.href = `/${href}`
-      return
+    if (isHomePage && href.startsWith("#")) {
+      // On homepage, smooth scroll to section
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
     }
-
-    // Otherwise, smooth scroll to section
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    // For project pages or external navigation, let Next.js handle the routing
   }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover-scale"
-            >
-              <img src="/placeholder-logo.svg" alt="Logo" className="w-8 h-8 object-contain" />
+    <>
+      {/* Navigation Bar */}
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled || isProjectPage
+            ? "bg-white/80 backdrop-blur-md shadow-lg border-b border-brown-200/20"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2 group">
+              <div className="w-8 h-8 bg-gradient-to-br from-brown-600 to-brown-800 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                <span className="text-white font-bold text-sm">MG</span>
+              </div>
+              <span className="font-bold text-brown-900 text-lg hidden sm:block group-hover:text-brown-700 transition-colors duration-200">
+                Misha Gholami
+              </span>
             </Link>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-2">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`nav-link ${pathname === "/" && activeSection === item.href.substring(1) ? "active" : ""}`}
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    if (item.href.startsWith("#")) {
+                      e.preventDefault()
+                      handleNavClick(item.href, item.id)
+                    }
+                  }}
+                  className={`text-brown-700 hover:text-brown-900 transition-colors duration-200 font-medium relative group ${
+                    (isHomePage && pathname === "/" && item.href === "/") || (isProjectPage && item.id === "projects")
+                      ? "text-brown-900"
+                      : ""
+                  }`}
                 >
-                  {item.label}
-                </button>
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brown-600 transition-all duration-200 group-hover:w-full"></span>
+                </Link>
               ))}
             </div>
-          </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden text-brown-700 hover:text-brown-900 hover:bg-brown-100/50"
               onClick={() => setIsOpen(!isOpen)}
-              className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-all duration-300 hover-scale"
-              aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
           </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
         {isOpen && (
-          <div className="md:hidden animate-fade-in">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md border-t border-gray-200 rounded-b-lg shadow-lg">
-              {navItems.map((item, index) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-all duration-300 hover-lift ${
-                    pathname === "/" && activeSection === item.href.substring(1)
-                      ? "text-primary bg-primary/10 border-r-2 border-primary"
-                      : "text-gray-600 hover:text-primary hover:bg-gray-50"
-                  }`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 md:hidden"
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
+
+            {/* Menu Content */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="absolute right-0 top-0 h-full w-64 bg-white/95 backdrop-blur-md shadow-xl border-l border-brown-200/30"
+            >
+              <div className="flex flex-col h-full pt-20 px-6">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => {
+                        if (item.href.startsWith("#")) {
+                          e.preventDefault()
+                          handleNavClick(item.href, item.id)
+                        } else {
+                          setIsOpen(false)
+                        }
+                      }}
+                      className={`flex items-center space-x-3 py-4 text-brown-700 hover:text-brown-900 transition-colors duration-200 border-b border-brown-200/30 last:border-b-0 ${
+                        (isHomePage && pathname === "/" && item.href === "/") ||
+                        (isProjectPage && item.id === "projects")
+                          ? "text-brown-900 font-medium"
+                          : ""
+                      }`}
+                    >
+                      <item.icon className="w-5 h-5" />
+                      <span className="font-medium">{item.name}</span>
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* Mobile Menu Footer */}
+                <div className="mt-auto pb-6">
+                  <div className="text-center text-sm text-brown-600">
+                    <p>© 2024 Misha Gholami</p>
+                    <p className="mt-1">UX Designer & Developer</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
-      </div>
-    </nav>
+      </AnimatePresence>
+    </>
   )
 }

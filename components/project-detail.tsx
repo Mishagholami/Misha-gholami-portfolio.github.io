@@ -6,6 +6,7 @@ import { ArrowLeft, ExternalLink, Github, Figma, ChevronLeft, ChevronRight, X, E
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { Navbar } from "@/components/navbar"
 import Link from "next/link"
 import Image from "next/image"
 import type { Project } from "@/types/portfolio"
@@ -140,6 +141,9 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
         <div className="absolute bottom-40 right-10 w-40 h-40 bg-gradient-to-br from-yellow-200/30 to-pink-200/30 rounded-full blur-3xl animate-float"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-indigo-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse-custom"></div>
       </div>
+
+      {/* Navigation Bar - Same as homepage */}
+      <Navbar />
 
       <div className="relative z-10">
         <motion.div
