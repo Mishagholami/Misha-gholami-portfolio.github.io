@@ -60,12 +60,9 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
-              <div className="w-8 h-8 bg-gradient-to-br from-brown-600 to-brown-800 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                <span className="text-white font-bold text-sm">MG</span>
+              <div className="w-[50px] h-[50px] flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                <img src="/gg-logo.png" alt="GG Logo" className="w-[50px] h-[50px] object-contain" />
               </div>
-              <span className="font-bold text-brown-900 text-lg hidden sm:block group-hover:text-brown-700 transition-colors duration-200">
-                Misha Gholami
-              </span>
             </Link>
 
             {/* Desktop Navigation */}
