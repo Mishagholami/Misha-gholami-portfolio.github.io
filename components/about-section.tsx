@@ -119,9 +119,9 @@ export function AboutSection() {
               <div className="mb-8 hover-lift">
                 <div className="relative">
                   <img
-                    src="profile-image.jpeg?height=400&width=400&text=Misha+at+Work"
-                    alt="Misha working on design"
-                    className="w-full h-80 object-cover rounded-2xl shadow-xl"
+                    src="/profile-photo-new.jpeg"
+                    alt="Professional portrait of Ghazaleh"
+                    className="w-full h-80 object-cover object-center rounded-2xl shadow-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-2xl"></div>
 
