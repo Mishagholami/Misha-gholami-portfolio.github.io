@@ -40,11 +40,7 @@ export function SkillsSection() {
   }, [])
 
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
-    >
+    <section id="skills" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-2xl animate-float-slow"></div>
@@ -96,17 +92,17 @@ export function SkillsSection() {
           <div className="mt-16 text-center">
             <div className="inline-flex items-center gap-8 px-8 py-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover-lift animate-fade-in-up stagger-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">8+</div>
+                <div className="text-3xl font-bold text-gray-800 mb-2">8+</div>
                 <div className="text-sm text-gray-500">Core Skills</div>
               </div>
               <div className="w-px h-12 bg-gray-200"></div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-secondary mb-2">3+</div>
+                <div className="text-3xl font-bold text-gray-800 mb-2">3+</div>
                 <div className="text-sm text-gray-500">Years Experience</div>
               </div>
               <div className="w-px h-12 bg-gray-200"></div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent mb-2">50+</div>
+                <div className="text-3xl font-bold text-gray-800 mb-2">50+</div>
                 <div className="text-sm text-gray-500">Projects</div>
               </div>
             </div>

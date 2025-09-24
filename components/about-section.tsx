@@ -4,10 +4,10 @@ import { useState, useEffect } from "react"
 import { Award, Users, Coffee, Heart, MapPin, Calendar } from "lucide-react"
 
 const stats = [
-  { icon: Award, label: "Projects Completed", value: "50+", color: "from-blue-500 to-blue-600" },
-  { icon: Users, label: "Happy Clients", value: "25+", color: "from-green-500 to-green-600" },
-  { icon: Coffee, label: "Years Experience", value: "3+", color: "from-purple-500 to-purple-600" },
-  { icon: Heart, label: "Cups of Coffee", value: "∞", color: "from-orange-500 to-orange-600" },
+  { icon: Award, label: "Projects Completed", value: "50+", color: "from-pink-300 to-pink-400" },
+  { icon: Users, label: "Happy Clients", value: "25+", color: "from-blue-300 to-blue-400" },
+  { icon: Coffee, label: "Years Experience", value: "3+", color: "from-purple-300 to-purple-400" },
+  { icon: Heart, label: "Cups of Coffee", value: "∞", color: "from-green-300 to-green-400" },
 ]
 
 const values = [
@@ -71,19 +71,20 @@ export function AboutSection() {
                 <div>
                   <h3 className="text-2xl font-serif font-bold text-primary mb-4">Hi there! I'm Misha 👋</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    I'm a UX Designer and Creative Illustrator with over 3 years of experience in creating user-centered
-                    digital solutions. My journey began with a fascination for how design can solve real-world problems
-                    and create meaningful connections between people and technology.
+                    I'm an Interaction Design student and aspiring UX Designer, focusing on user research, interface
+                    design, and UX strategy. My work is grounded in creating user-centered digital solutions that are
+                    functional, accessible, and engaging. I'm fascinated by how design can solve real-world problems and
+                    build meaningful connections between people and technology.
                   </p>
 
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    I specialize in user research, interface design, and creative illustration. My approach combines
-                    analytical thinking with creative problem-solving to deliver designs that are not only beautiful but
-                    also highly functional and accessible.
+                    Alongside this, I bring over 3 years of experience as a Creative Illustrator, which gives me a
+                    strong foundation in visual storytelling and aesthetics. This background helps me blend analytical
+                    thinking with creativity, resulting in designs that are both thoughtful and visually compelling.
                   </p>
 
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    When I'm not designing, you can find me sketching in coffee shops, exploring new art techniques, or
+                    When I'm not designing, you'll find me sketching in coffee shops, exploring new art techniques, or
                     collaborating with other creatives on passion projects. I believe that great design comes from
                     understanding people, and I'm always eager to learn and grow in this ever-evolving field.
                   </p>
@@ -92,7 +93,7 @@ export function AboutSection() {
                 {/* Location & Availability */}
                 <div className="flex flex-wrap gap-6 pt-4">
                   <div className="flex items-center space-x-3 text-gray-600 hover-lift">
-                    <div className="w-10 h-10 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-rose-300 to-rose-400 rounded-full flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -101,7 +102,7 @@ export function AboutSection() {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-600 hover-lift">
-                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-300 to-emerald-400 rounded-full flex items-center justify-center">
                       <Calendar className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -126,9 +127,9 @@ export function AboutSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-2xl"></div>
 
                   {/* Floating decoration */}
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-full opacity-20 animate-float"></div>
+                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-pink-200 to-rose-200 rounded-full opacity-20 animate-float"></div>
                   <div
-                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-float"
+                    className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-20 animate-float"
                     style={{ animationDelay: "1s" }}
                   ></div>
                 </div>
@@ -166,13 +167,32 @@ export function AboutSection() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => {
                 const IconComponent = value.icon
+                let iconBackground = ""
+                switch (index) {
+                  case 0:
+                    iconBackground = "bg-gradient-to-r from-rose-200 to-pink-200"
+                    break
+                  case 1:
+                    iconBackground = "bg-gradient-to-r from-blue-200 to-indigo-200"
+                    break
+                  case 2:
+                    iconBackground = "bg-gradient-to-r from-green-200 to-emerald-200"
+                    break
+                  case 3:
+                    iconBackground = "bg-gradient-to-r from-purple-200 to-violet-200"
+                    break
+                  default:
+                    iconBackground = "bg-gradient-to-r from-lavender-300 to-lavender-400"
+                }
                 return (
                   <div
                     key={value.title}
                     className={`card text-center hover-lift animate-fade-in-up`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center hover-scale">
+                    <div
+                      className={`w-14 h-14 mx-auto mb-4 rounded-full ${iconBackground} flex items-center justify-center hover-scale`}
+                    >
                       <IconComponent className="w-7 h-7 text-white" />
                     </div>
                     <h4 className="font-semibold text-primary mb-3">{value.title}</h4>

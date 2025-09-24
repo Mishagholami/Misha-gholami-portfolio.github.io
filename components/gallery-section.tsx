@@ -197,10 +197,21 @@ export function GallerySection() {
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               I'm always excited to take on new creative challenges and collaborate on meaningful projects.
             </p>
-            <a href="#contact" className="btn btn-primary inline-flex items-center hover-scale group">
-              Let's Create Something Amazing
-              <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="#contact" className="btn btn-primary inline-flex items-center hover-scale group">
+                Let's Create Something Amazing
+                <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1e0WQCtjo9-JkQHMglx9oXzQqioYetSqD/view?usp=share_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary inline-flex items-center hover-scale group"
+              >
+                View Illustration Portfolio
+                <Eye className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

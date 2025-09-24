@@ -74,6 +74,16 @@ export function Footer() {
   return (
     <footer className="bg-cream-100 border-t border-brown-200/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Blurred Pastel Bubbles Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-pink-200/30 to-rose-300/20 rounded-full blur-2xl animate-float-slow"></div>
+          <div className="absolute top-20 right-16 w-24 h-24 bg-gradient-to-br from-blue-200/25 to-indigo-300/20 rounded-full blur-xl animate-float"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-200/20 to-violet-300/15 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-16 right-1/3 w-28 h-28 bg-gradient-to-br from-green-200/25 to-emerald-300/20 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute top-1/2 left-1/2 w-36 h-36 bg-gradient-to-br from-yellow-200/20 to-amber-300/15 rounded-full blur-2xl animate-float-slow transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-8 left-8 w-20 h-20 bg-gradient-to-br from-teal-200/30 to-cyan-300/20 rounded-full blur-xl animate-float"></div>
+        </div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"

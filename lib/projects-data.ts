@@ -9,7 +9,7 @@ export const projects: Project[] = [
       "A comprehensive UX redesign of the Headspace meditation app focusing on improved user engagement and accessibility.",
     longDescription:
       "This project involved a complete UX audit and redesign of the Headspace meditation app, with a focus on improving user engagement, accessibility, and the overall meditation experience. Through extensive user research and iterative design, we created a more intuitive and calming interface that helps users find the right meditation content for their current needs.",
-    image: "/placeholder.svg?height=400&width=600&text=Headspace+Redesign",
+    image: "/headspace-project.png",
     category: "UX Design",
     tags: ["Mobile App", "UX Research", "Prototyping", "Accessibility"],
     role: "Lead UX Designer",
@@ -168,7 +168,8 @@ export const projects: Project[] = [
       "Comprehensive user research study analyzing professional networking behaviors and pain points on LinkedIn.",
     longDescription:
       "An in-depth user research study examining how professionals use LinkedIn for networking, job searching, and content consumption. The study revealed key insights about user behavior patterns and identified opportunities for platform improvement through mixed-methods research approaches.",
-    image: "/placeholder.svg?height=400&width=600&text=LinkedIn+Study",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LinkedIn%20User%20Study.jpg-0e0wFKOkowoGDLQehcHYqlFS5QI0oE.jpeg",
     category: "User Research",
     tags: ["User Research", "Data Analysis", "Behavioral Study", "Professional Networks"],
     role: "Lead UX Researcher",
@@ -315,7 +316,8 @@ export const projects: Project[] = [
       "Mobile app concept helping new parents transition back to work with wellness tracking and support features.",
     longDescription:
       "A comprehensive mobile application designed to support new parents during their transition back to work, featuring wellness tracking, childcare coordination, and peer support networks. The app addresses the unique challenges faced by working parents through a holistic approach to physical, mental, and logistical support.",
-    image: "/placeholder.svg?height=400&width=600&text=Wellnest+App",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Wellness%20to%20work-TDdn210xxA2o8L0JDY5CqeB1w1IvsB.png",
     category: "Mobile App",
     tags: ["Mobile Design", "Wellness", "User Experience", "Concept Design"],
     role: "Product Designer",
@@ -470,7 +472,7 @@ export const projects: Project[] = [
       "Full-stack web development project for a modern business website with custom CMS and e-commerce integration.",
     longDescription:
       "A comprehensive web development project involving the design and development of a modern, responsive business website with custom content management system and integrated e-commerce functionality. The project focused on performance optimization, scalability, and user experience to support business growth.",
-    image: "/placeholder.svg?height=400&width=600&text=KALMONT+Website",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KALMONT-zIDFInOYwiZ4PyEchSW3UGqcdMXcMW.png",
     category: "Web Development",
     tags: ["Full-Stack", "React", "Node.js", "E-commerce", "CMS"],
     role: "Full-Stack Developer",
@@ -774,7 +776,8 @@ export const projects: Project[] = [
     description: "Reimagining professional networking for mobile-first users",
     longDescription:
       "A comprehensive redesign of LinkedIn's mobile experience focused on improving user engagement, streamlining content discovery, and enhancing professional networking capabilities for the modern mobile-first professional.",
-    image: "/placeholder.svg?height=600&width=800&text=LinkedIn+Mobile+Redesign",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LinkedIn%20Mobile%20Redesign-sPhIvm572ldIQRBW1loNSdyA7WFbTj.png",
     category: "Mobile App Design",
     tags: ["UX Research", "Mobile Design", "Prototyping", "User Testing"],
     role: "Lead UX Designer",
@@ -789,7 +792,7 @@ export const projects: Project[] = [
     },
     overview: {
       challenge:
-        "LinkedIn's mobile experience felt cluttered and overwhelming, with poor content discovery and limited engagement features for modern professionals.",
+        "LinkedIn's mobile experience felt cluttered and overwhelming, with poor content discovery and limited engagement features for modern users.",
       approach:
         "Conducted extensive user research, created user personas, and designed a streamlined mobile experience focused on meaningful professional connections.",
       outcome:

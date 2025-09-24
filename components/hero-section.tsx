@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ChevronDown, ArrowRight, Github, Linkedin, Mail, Dribbble } from "lucide-react"
+import { ChevronDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react"
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
@@ -504,21 +504,15 @@ export function HeroSection() {
             {[
               {
                 icon: Linkedin,
-                href: "https://linkedin.com/in/mishagholami",
+                href: "https://linkedin.com/in/misha-gholami-7b2079220",
                 label: "LinkedIn",
                 color: "hover:text-blue-600 hover:bg-blue-50",
               },
               {
                 icon: Github,
-                href: "https://github.com/mishagholami",
+                href: "https://github.com/Mishagholami",
                 label: "GitHub",
                 color: "hover:text-gray-800 hover:bg-gray-50",
-              },
-              {
-                icon: Dribbble,
-                href: "https://dribbble.com/mishagholami",
-                label: "Dribbble",
-                color: "hover:text-pink-600 hover:bg-pink-50",
               },
               {
                 icon: Mail,
@@ -560,7 +554,7 @@ export function HeroSection() {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection("#projects")}
-            className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full shadow-xl transition-all duration-300 flex items-center gap-3"
+            className="group px-10 py-4 bg-gradient-to-r from-pink-300 to-purple-300 hover:from-pink-400 hover:to-purple-400 text-white font-semibold rounded-full shadow-xl transition-all duration-300 flex items-center gap-3"
           >
             View My Work
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -574,9 +568,13 @@ export function HeroSection() {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection("#about")}
-            className="px-10 py-4 border-2 border-blue-600 hover:border-blue-700 text-blue-600 hover:text-blue-700 font-semibold rounded-full transition-all duration-300"
+            className="px-10 py-4 border-2 border-transparent bg-gradient-to-r from-orange-300 to-blue-300 hover:from-orange-400 hover:to-blue-400 text-transparent font-semibold rounded-full transition-all duration-300 relative overflow-hidden"
           >
-            Learn More
+            <span className="relative z-10">Learn More</span>
+            <div className="absolute inset-0 bg-white rounded-full m-0.5"></div>
+            <span className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold z-20">
+              Learn More
+            </span>
           </motion.button>
         </motion.div>
 
