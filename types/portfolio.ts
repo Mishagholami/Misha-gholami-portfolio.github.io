@@ -4,7 +4,7 @@ export interface Project {
   title: string
   description: string
   longDescription: string
-  image: string
+  image?: string
   category: string
   tags: string[]
   role: string
@@ -40,19 +40,19 @@ export interface Project {
     designDecisions: string[]
   }
   impact: {
-    metrics: Array<{
+    metrics: {
       label: string
       value: string
       description: string
-    }>
+    }[]
     outcomes: string[]
   }
-  gallery: Array<{
+  gallery: {
     src: string
     alt: string
     caption?: string
     credit?: string
-  }>
+  }[]
   skills: string[]
   tools: string[]
   reflection: {
@@ -62,54 +62,15 @@ export interface Project {
   }
 }
 
-export interface GalleryItem {
-  id: string
-  title: string
+export interface GalleryImage {
+  src: string
+  alt: string
+  caption?: string
+  credit?: string
+}
+
+export interface ProjectMetric {
+  label: string
+  value: string
   description: string
-  image: string
-  category: string
-  tags: string[]
-  featured: boolean
-  context?: string
-  year: number
-  client?: string
-  tools?: string[]
-  behanceLink?: string
-  dribbbleLink?: string
-  figmaLink?: string
-  projectLink?: string
-}
-
-export interface Skill {
-  name: string
-  level: number
-  category: string
-  icon?: string
-}
-
-export interface Experience {
-  title: string
-  company: string
-  period: string
-  description: string
-  achievements: string[]
-}
-
-export interface Education {
-  degree: string
-  school: string
-  period: string
-  description?: string
-}
-
-export interface ContactInfo {
-  email: string
-  phone?: string
-  location: string
-  social: {
-    linkedin?: string
-    github?: string
-    dribbble?: string
-    behance?: string
-  }
 }
