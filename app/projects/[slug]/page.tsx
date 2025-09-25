@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import ProjectDetail from "@/components/project-detail"
+import SaplinkProjectDetail from "@/components/saplink-project-detail"
 import { getProjectBySlug, getNextProject, getPreviousProject, getAllProjects } from "@/lib/projects-data"
 
 interface ProjectPageProps {
@@ -45,6 +46,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const nextProject = getNextProject(params.slug)
   const previousProject = getPreviousProject(params.slug)
+
+  // Use custom SAPLINK component for the SAPLINK project
+  if (project.slug === "saplink-tree-adoption") {
+    return <SaplinkProjectDetail project={project} nextProject={nextProject} previousProject={previousProject} />
+  }
 
   return <ProjectDetail project={project} nextProject={nextProject} previousProject={previousProject} />
 }

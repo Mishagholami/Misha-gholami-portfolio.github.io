@@ -16,7 +16,7 @@ export function ProjectsSection() {
   const featuredProjects = projects.filter((project) => project.featured)
 
   return (
-    <section id="projects" className="py-20 bg-cream-50">
+    <section id="projects" className="py-20 bg-gradient-to-b from-pink-50 to-blue-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-brown-900 mb-4">Featured Projects</h2>
@@ -101,14 +101,6 @@ export function ProjectsSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link href="/projects">
-            <Button size="lg" className="bg-brown-900 hover:bg-brown-800 text-white">
-              View All Projects
-            </Button>
-          </Link>
         </div>
       </div>
 

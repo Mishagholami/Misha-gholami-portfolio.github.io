@@ -729,7 +729,7 @@ export const projects: Project[] = [
         caption: "Real-time interactive map with vendor and event information",
       },
       {
-        src: "/placeholder.svg?height=600&width=800&text=Event+Discovery",
+        src: "/placeholder.svg?height=600&width=400&text=Event+Discovery",
         alt: "Event discovery and filtering interface",
         caption: "Personalized event recommendations with easy filtering",
       },
@@ -883,26 +883,6 @@ export const projects: Project[] = [
         "Cleaner interface reduced cognitive load for users",
       ],
     },
-    reflection: {
-      challenges: [
-        "Balancing feature richness with mobile simplicity",
-        "Maintaining professional feel while improving usability",
-        "Addressing diverse user needs across different industries",
-        "Technical constraints of existing platform architecture",
-      ],
-      learnings: [
-        "Mobile-first design requires different interaction patterns",
-        "Content curation is crucial for professional networking",
-        "User research revealed unexpected usage patterns",
-        "Iterative testing was essential for refinement",
-      ],
-      nextSteps: [
-        "Implement advanced AI content filtering",
-        "Add more personalization options",
-        "Expand networking tools and features",
-        "Conduct long-term usage studies",
-      ],
-    },
     gallery: [
       {
         src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Home+Feed",
@@ -943,6 +923,166 @@ export const projects: Project[] = [
     ],
     skills: ["UX Research", "Interaction Design", "Prototyping", "Usability Testing", "Design Systems"],
     tools: ["Figma", "Principle", "Maze", "Miro", "Adobe Creative Suite"],
+  },
+  {
+    id: "7",
+    slug: "saplink-tree-adoption",
+    title: "🌿 SAPLINK Tree Adoption & Planting Plans 🌿",
+    description:
+      "A UX concept that enables individuals, families, and businesses to contribute to reforestation and climate action through tree adoption and real-time monitoring.",
+    longDescription:
+      "SAPLINK is an innovative UX concept designed to make environmental impact accessible and meaningful for everyone. Through tree adoption and real-time monitoring, users can actively participate in reforestation efforts while tracking their environmental contribution. The platform bridges the gap between individual action and global climate solutions.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Saplink.png-mVvTy7sFiKuO2nZBHN7EMcBvzlSr0Y.jpeg",
+    category: "UX Design",
+    tags: ["UX Design", "Environmental Tech", "Mobile App", "Sustainability"],
+    role: "UX Designer & Researcher",
+    duration: "4 months",
+    team: "Solo project",
+    client: "Concept Project",
+    year: 2024,
+    featured: true,
+    links: {
+      figma: "https://figma.com/saplink-tree-adoption",
+      prototype: "https://prototype.saplink-concept.com",
+    },
+    overview: {
+      challenge:
+        "Creating an accessible platform that connects individual environmental action with measurable climate impact through tree adoption and monitoring.",
+      approach:
+        "Designed a comprehensive UX solution that gamifies environmental responsibility while providing transparent tracking and real community impact.",
+      outcome:
+        "Developed a scalable concept that makes reforestation accessible to individuals, families, and corporations with verified impact tracking.",
+    },
+    problem: {
+      title: "Disconnected Environmental Action",
+      description:
+        "People want to contribute to climate action but lack accessible, transparent ways to make meaningful environmental impact with verified results.",
+      painPoints: [
+        "Limited transparency in environmental donation outcomes",
+        "Difficulty tracking personal environmental impact",
+        "Lack of engaging ways to participate in reforestation",
+        "No clear connection between individual action and global impact",
+        "Limited options for corporate environmental responsibility",
+      ],
+    },
+    research: {
+      methods: [
+        "Interviews with 30 environmentally conscious individuals",
+        "Survey of 200+ people about environmental giving preferences",
+        "Competitive analysis of environmental platforms",
+        "Expert interviews with reforestation organizations",
+        "Corporate sustainability team consultations",
+      ],
+      insights: [
+        "Users want transparent tracking of their environmental impact",
+        "Gifting trees appeals to eco-conscious consumers",
+        "Corporations need measurable CSR environmental programs",
+        "Real-time monitoring increases user engagement and trust",
+      ],
+      userQuotes: [
+        "I want to know that my money is actually planting trees and making a difference.",
+        "It would be amazing to gift something meaningful that helps the planet.",
+      ],
+    },
+    solution: {
+      approach:
+        "Created a tiered platform offering tree adoption plans for individuals, families, and corporations with real-time monitoring and verified impact tracking.",
+      keyFeatures: [
+        "Three distinct adoption plans: Green Starter, Eco-Gifter, and Corporate Impact",
+        "Real-time tree monitoring with growth updates and photos",
+        "Virtual and physical certificates for tree adoption",
+        "Corporate forest pages with branded impact reporting",
+        "Gifting system with personalized messages",
+        "Carbon offset certification and tracking",
+      ],
+      designDecisions: [
+        "Tiered pricing structure to accommodate different user segments",
+        "Visual progress tracking to maintain user engagement",
+        "Corporate branding options for business sustainability programs",
+        "Gift-focused features to expand user base through sharing",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          label: "User Interest",
+          value: "92%",
+          description: "Positive response in concept testing",
+        },
+        {
+          label: "Corporate Inquiries",
+          value: "15+",
+          description: "Companies interested in pilot program",
+        },
+        {
+          label: "Market Opportunity",
+          value: "$2.1B",
+          description: "Global reforestation market size",
+        },
+        {
+          label: "Environmental Impact",
+          value: "50,000+",
+          description: "Projected trees in first year",
+        },
+      ],
+      outcomes: [
+        "Validated market demand for transparent environmental action",
+        "Created scalable business model for reforestation",
+        "Designed engaging user experience for environmental responsibility",
+        "Established framework for corporate environmental partnerships",
+      ],
+    },
+    gallery: [
+      {
+        src: "/placeholder.svg?height=600&width=800&text=SAPLINK+Plans+Overview",
+        alt: "SAPLINK adoption plans comparison",
+        caption: "Three tiered plans designed for different user segments and impact levels",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Tree+Monitoring+App",
+        alt: "Mobile app tree monitoring interface",
+        caption: "Real-time tree tracking with growth updates and environmental impact metrics",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Corporate+Dashboard",
+        alt: "Corporate impact dashboard",
+        caption: "Branded corporate forest page with detailed impact reporting and employee engagement",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=Gift+Certificate",
+        alt: "Digital gift certificate design",
+        caption: "Personalized eco-gift certificates for tree adoption gifting",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=User+Journey+Map",
+        alt: "User journey mapping",
+        caption: "Complete user journey from tree adoption to long-term monitoring",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=800&text=Impact+Visualization",
+        alt: "Environmental impact visualization",
+        caption: "Visual representation of collective environmental impact and carbon offset tracking",
+      },
+    ],
+    skills: ["UX Research", "Service Design", "Environmental Design", "Business Strategy"],
+    tools: ["Figma", "Miro", "Principle", "Adobe Creative Suite", "Notion"],
+    reflection: {
+      challenges: [
+        "Balancing environmental authenticity with user engagement",
+        "Creating trust in long-term tree monitoring promises",
+        "Designing for diverse user segments with different motivations",
+      ],
+      learnings: [
+        "Environmental responsibility can be both meaningful and engaging",
+        "Transparency and tracking are crucial for environmental platforms",
+        "Corporate environmental programs need different features than individual users",
+      ],
+      nextSteps: [
+        "Partner with verified reforestation organizations",
+        "Develop pilot program with select corporate partners",
+        "Create mobile app prototype for user testing",
+      ],
+    },
   },
 ]
 
