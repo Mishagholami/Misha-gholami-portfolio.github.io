@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Dribbble, CheckCircle, AlertCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Linkedin, Github, CheckCircle, AlertCircle } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -77,23 +77,23 @@ export function ContactSection() {
                     {
                       icon: Mail,
                       label: "Email",
-                      value: "hello@mishagholami.com",
-                      href: "mailto:hello@mishagholami.com",
-                      color: "from-primary to-secondary",
+                      value: "Gholamiwork79@gmail.com",
+                      href: "mailto:Gholamiwork79@gmail.com",
+                      color: "from-pink-200 to-rose-200",
                     },
                     {
                       icon: Phone,
                       label: "Phone",
-                      value: "+1 (234) 567-8900",
-                      href: "tel:+1234567890",
-                      color: "from-secondary to-accent",
+                      value: "+1(604)3455533",
+                      href: "tel:+16043455533",
+                      color: "from-purple-200 to-indigo-200",
                     },
                     {
                       icon: MapPin,
                       label: "Location",
                       value: "Vancouver, BC, Canada",
                       href: "#",
-                      color: "from-accent to-primary",
+                      color: "from-blue-200 to-cyan-200",
                     },
                   ].map((contact, index) => {
                     const IconComponent = contact.icon
@@ -133,21 +133,15 @@ export function ContactSection() {
                     {[
                       {
                         icon: Linkedin,
-                        href: "https://linkedin.com/in/mishagholami",
+                        href: "https://www.linkedin.com/in/misha-gholami-7b2079220?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhBmN%2FjEqQ7KMFZoAlokyaQ%3D%3D",
                         label: "LinkedIn",
                         color: "hover:text-blue-600",
                       },
                       {
                         icon: Github,
-                        href: "https://github.com/mishagholami",
+                        href: "https://github.com/Mishagholami",
                         label: "GitHub",
                         color: "hover:text-gray-800",
-                      },
-                      {
-                        icon: Dribbble,
-                        href: "https://dribbble.com/mishagholami",
-                        label: "Dribbble",
-                        color: "hover:text-pink-600",
                       },
                     ].map((social) => {
                       const IconComponent = social.icon
@@ -254,7 +248,7 @@ export function ContactSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed hover-scale"
+                    className="w-full py-3 px-6 bg-gradient-to-r from-pink-200 via-purple-200 to-indigo-200 hover:from-pink-300 hover:via-purple-300 hover:to-indigo-300 text-gray-800 font-medium rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transform hover:scale-[1.02]"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">

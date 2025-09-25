@@ -120,7 +120,7 @@ export function AboutSection() {
               <div className="mb-8 hover-lift">
                 <div className="relative">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2025-09-25%2012.01.55.jpg-7O2PX2YrmQ26qVqVSafITY29mYvl2b.jpeg"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/2025-09-25%2012.01.55.jpg%281%29-IE1fZWtGZHHYnbmMJ57ZZlQ3p2pLaV.jpeg"
                     alt="Professional portrait of Misha"
                     className="w-full h-80 object-cover object-center rounded-2xl shadow-xl"
                   />

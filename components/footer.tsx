@@ -15,13 +15,13 @@ const quickLinks = [
 const socialLinks = [
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/mishagholami",
+    href: "https://www.linkedin.com/in/misha-gholami-7b2079220?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhBmN%2FjEqQ7KMFZoAlokyaQ%3D%3D",
     icon: Linkedin,
     hoverColor: "hover:text-blue-600",
   },
   {
     name: "GitHub",
-    href: "https://github.com/mishagholami",
+    href: "https://github.com/Mishagholami",
     icon: Github,
     hoverColor: "hover:text-gray-800",
   },
@@ -139,8 +139,8 @@ export function Footer() {
                 ))}
               </div>
               <p className="text-brown-600 text-sm">
-                <a href="mailto:hello@mishagholami.com" className="hover:text-brown-800 transition-colors duration-200">
-                  hello@mishagholami.com
+                <a href="mailto:Gholamiwork79@gmail.com" className="hover:text-brown-800 transition-colors duration-200">
+                  Gholamiwork79@gmail.com
                 </a>
               </p>
             </motion.div>
