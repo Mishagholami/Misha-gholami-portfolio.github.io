@@ -428,18 +428,11 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   { src: "/sleep-mood-overview.png", alt: "Sleep Mood app overview and wireframes" },
-                  { src: "/sleep-mood-why.png", alt: "Why Sleep Mood - explaining the need for sleep wellness" },
-                  {
-                    src: "/sleep-mood-key-features.png",
-                    alt: "Sleep Mood key features: relaxation techniques, soundscapes, and bedtime stories",
-                  },
-                  { src: "/sleep-mood-brainstorm-mindmap.png", alt: "Sleep Mood brainstorm and concept mind map" },
-                  { src: "/sleep-mood-elevator-pitch.png", alt: "Sleep Mood elevator pitch presentation" },
-                  {
-                    src: "/sleep-mood-customizable-soundscapes.png",
-                    alt: "Customizable soundscapes feature interface",
-                  },
-                  { src: "/sleep-mood-wireframes.png", alt: "Sleep Mood wireframes to final design progression" },
+                  { src: "/sleep-mood-why.png", alt: "Why Sleep Mood explanation" },
+                  { src: "/sleep-mood-features.png", alt: "Sleep Mood key features" },
+                  { src: "/sleep-mood-brainstorm.png", alt: "Sleep Mood brainstorm and concept map" },
+                  { src: "/sleep-mood-pitch.png", alt: "Sleep Mood elevator pitch" },
+                  { src: "/sleep-mood-soundscapes.png", alt: "Customizable soundscapes feature" },
                 ].map((image, index) => (
                   <motion.div
                     key={index}
