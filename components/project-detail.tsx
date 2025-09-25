@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, ExternalLink, Github, Figma, ChevronLeft, ChevronRight, X, Eye, Maximize2 } from "lucide-react"
+import { ArrowLeft, ExternalLink, ChevronLeft, ChevronRight, X, Eye, Maximize2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
 import Link from "next/link"
 import Image from "next/image"
@@ -184,60 +184,22 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
               </motion.div>
 
               {/* Project Links */}
-              {Object.keys(project.links).length > 0 && (
-                <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-8">
-                  {project.links.figma && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="group bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300"
-                    >
-                      <a href={project.links.figma} target="_blank" rel="noopener noreferrer">
-                        <Figma className="w-4 h-4 mr-2" />
-                        View Design
-                        <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                      </a>
-                    </Button>
-                  )}
-                  {project.links.github && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="group bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300"
-                    >
-                      <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        View Code
-                        <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                      </a>
-                    </Button>
-                  )}
-                  {project.links.live && (
-                    <Button
-                      asChild
-                      className="group bg-brown-600 hover:bg-brown-700 text-white transition-all duration-300"
-                    >
-                      <a href={project.links.live} target="_blank" rel="noopener noreferrer">
-                        <Eye className="w-4 h-4 mr-2" />
-                        Live Demo
-                        <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                      </a>
-                    </Button>
-                  )}
-                  {project.links.prototype && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="group bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-300"
-                    >
-                      <a href={project.links.prototype} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Prototype
-                      </a>
-                    </Button>
-                  )}
-                </motion.div>
-              )}
+              <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-8">
+                <Button
+                  asChild
+                  className="group bg-gradient-to-r from-pink-200 via-purple-200 to-indigo-200 hover:from-pink-300 hover:via-purple-300 hover:to-indigo-300 text-gray-800 hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+                >
+                  <a
+                    href="https://drive.google.com/drive/folders/1X9O2MQ-lBLAIH7l3K7UEsDatyKGxNOcj?usp=share_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Eye className="w-4 h-4 mr-2" />
+                    View Full Project
+                    <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                  </a>
+                </Button>
+              </motion.div>
             </div>
 
             {/* Hero Image */}
@@ -317,15 +279,15 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
 
               {/* Challenge, Approach, Outcome */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="p-6 bg-orange-50/80 backdrop-blur-sm border-orange-200/30 hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-semibold text-orange-900 mb-3">Challenge</h3>
-                  <p className="text-orange-800 text-sm leading-relaxed">{project.overview.challenge}</p>
+                <Card className="p-6 bg-gradient-to-br from-pink-100/80 via-rose-100/80 to-orange-100/80 backdrop-blur-sm border-pink-200/30 hover:shadow-lg transition-all duration-300">
+                  <h3 className="font-semibold text-pink-900 mb-3">Challenge</h3>
+                  <p className="text-pink-800 text-sm leading-relaxed">{project.overview.challenge}</p>
                 </Card>
-                <Card className="p-6 bg-blue-50/80 backdrop-blur-sm border-blue-200/30 hover:shadow-lg transition-all duration-300">
+                <Card className="p-6 bg-gradient-to-br from-blue-100/80 via-purple-100/80 to-indigo-100/80 backdrop-blur-sm border-blue-200/30 hover:shadow-lg transition-all duration-300">
                   <h3 className="font-semibold text-blue-900 mb-3">Approach</h3>
                   <p className="text-blue-800 text-sm leading-relaxed">{project.overview.approach}</p>
                 </Card>
-                <Card className="p-6 bg-green-50/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300">
+                <Card className="p-6 bg-gradient-to-br from-green-100/80 via-emerald-100/80 to-teal-100/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300">
                   <h3 className="font-semibold text-green-900 mb-3">Outcome</h3>
                   <p className="text-green-800 text-sm leading-relaxed">{project.overview.outcome}</p>
                 </Card>
@@ -343,14 +305,14 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
           >
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-brown-900 mb-8 font-serif text-center">Problem</h2>
-              <Card className="p-8 bg-red-50/80 backdrop-blur-sm border-red-200/30">
-                <h3 className="text-2xl font-semibold text-red-900 mb-4">{project.problem.title}</h3>
-                <p className="text-red-800 mb-6 leading-relaxed text-lg">{project.problem.description}</p>
+              <Card className="p-8 bg-gradient-to-br from-rose-100/80 via-pink-100/80 to-purple-100/80 backdrop-blur-sm border-rose-200/30">
+                <h3 className="text-2xl font-semibold text-rose-900 mb-4">{project.problem.title}</h3>
+                <p className="text-rose-800 mb-6 leading-relaxed text-lg">{project.problem.description}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.problem.painPoints.map((point, index) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-red-800 text-sm leading-relaxed">{point}</p>
+                      <div className="w-2 h-2 bg-rose-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-rose-800 text-sm leading-relaxed">{point}</p>
                     </div>
                   ))}
                 </div>
@@ -452,61 +414,62 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
           </motion.section>
 
           {/* Design Process & Final Design Gallery */}
-          {project.gallery && project.gallery.length > 0 && (
-            <motion.section
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="mb-16"
-            >
-              <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold text-brown-900 mb-8 font-serif text-center">
-                  Design Process & Final Design
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {project.gallery.map((image, index) => (
-                    <motion.div
-                      key={index}
-                      variants={galleryItemVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-50px" }}
-                      className="group cursor-pointer"
-                      onClick={() =>
-                        openLightbox(
-                          { src: image.src, alt: image.alt, caption: image.caption, credit: image.credit },
-                          index + 1,
-                        )
-                      }
-                    >
-                      <Card className="overflow-hidden bg-white/80 backdrop-blur-sm border-brown-200/30 hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                        <div className="aspect-video relative overflow-hidden">
-                          <Image
-                            src={image.src || "/placeholder.svg"}
-                            alt={image.alt}
-                            width={400}
-                            height={300}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                            <Maximize2 className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          </div>
+          <motion.section
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-16"
+          >
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold text-brown-900 mb-8 font-serif text-center">
+                Design Process & Final Design
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { src: "/sleep-mood-overview.png", alt: "Sleep Mood app overview and wireframes" },
+                  { src: "/sleep-mood-why.png", alt: "Why Sleep Mood - explaining the need for sleep wellness" },
+                  {
+                    src: "/sleep-mood-key-features.png",
+                    alt: "Sleep Mood key features: relaxation techniques, soundscapes, and bedtime stories",
+                  },
+                  { src: "/sleep-mood-brainstorm-mindmap.png", alt: "Sleep Mood brainstorm and concept mind map" },
+                  { src: "/sleep-mood-elevator-pitch.png", alt: "Sleep Mood elevator pitch presentation" },
+                  {
+                    src: "/sleep-mood-customizable-soundscapes.png",
+                    alt: "Customizable soundscapes feature interface",
+                  },
+                  { src: "/sleep-mood-wireframes.png", alt: "Sleep Mood wireframes to final design progression" },
+                ].map((image, index) => (
+                  <motion.div
+                    key={index}
+                    variants={galleryItemVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="group cursor-pointer"
+                    onClick={() => openLightbox({ src: image.src, alt: image.alt }, index + 1)}
+                  >
+                    <Card className="overflow-hidden bg-white/80 backdrop-blur-sm border-brown-200/30 hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                      <div className="aspect-video relative overflow-hidden">
+                        <Image
+                          src={image.src || "/placeholder.svg"}
+                          alt={image.alt}
+                          width={400}
+                          height={300}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                          <Maximize2 className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
-                        {image.caption && (
-                          <CardContent className="p-4">
-                            <p className="text-sm text-brown-600 leading-relaxed">{image.caption}</p>
-                            {image.credit && <p className="text-xs text-brown-500 mt-1">Credit: {image.credit}</p>}
-                          </CardContent>
-                        )}
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
-            </motion.section>
-          )}
+            </div>
+          </motion.section>
 
           {/* Impact & Results Section */}
           <motion.section
@@ -559,7 +522,7 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-brown-900 mb-8 font-serif text-center">Reflection & Next Steps</h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Card className="p-6 bg-orange-50/80 backdrop-blur-sm border-orange-200/30">
+                <Card className="p-6 bg-gradient-to-br from-orange-100/80 via-peach-100/80 to-pink-100/80 backdrop-blur-sm border-orange-200/30">
                   <h3 className="font-semibold text-orange-900 mb-4">Challenges</h3>
                   <ul className="space-y-2">
                     {project.reflection.challenges.map((challenge, index) => (
@@ -570,7 +533,7 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
                     ))}
                   </ul>
                 </Card>
-                <Card className="p-6 bg-blue-50/80 backdrop-blur-sm border-blue-200/30">
+                <Card className="p-6 bg-gradient-to-br from-blue-100/80 via-indigo-100/80 to-purple-100/80 backdrop-blur-sm border-blue-200/30">
                   <h3 className="font-semibold text-blue-900 mb-4">Key Learnings</h3>
                   <ul className="space-y-2">
                     {project.reflection.learnings.map((learning, index) => (
@@ -583,7 +546,7 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
                 </Card>
               </div>
               {project.reflection.nextSteps && project.reflection.nextSteps.length > 0 && (
-                <Card className="p-6 bg-green-50/80 backdrop-blur-sm border-green-200/30 mt-8">
+                <Card className="p-6 bg-gradient-to-br from-green-100/80 via-teal-100/80 to-cyan-100/80 backdrop-blur-sm border-green-200/30 mt-8">
                   <h3 className="font-semibold text-green-900 mb-4">Next Steps</h3>
                   <ul className="space-y-2">
                     {project.reflection.nextSteps.map((step, index) => (
