@@ -70,20 +70,20 @@ export function SkillsSection() {
               >
                 <div className="flex justify-between items-center mb-4">
                   <span className="font-semibold text-gray-800 text-lg">{skill.name}</span>
-                  <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-purple-600 bg-purple-100 px-3 py-1 rounded-full">
                     {skill.level}%
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-primary via-secondary to-accent h-3 rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
+                    className="bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 h-3 rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
                     style={{
                       width: isVisible ? `${skill.level}%` : "0%",
                       transitionDelay: `${index * 0.1}s`,
                     }}
                   >
                     {/* Shimmer effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-200/40 to-transparent animate-shimmer"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent animate-shimmer"></div>
                   </div>
                 </div>
               </div>
