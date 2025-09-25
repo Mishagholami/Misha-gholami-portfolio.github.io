@@ -120,8 +120,8 @@ export function AboutSection() {
               <div className="mb-8 hover-lift">
                 <div className="relative">
                   <img
-                    src="/profile-photo-new.jpeg"
-                    alt="Professional portrait of Ghazaleh"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2025-09-25%2012.01.55.jpg-7O2PX2YrmQ26qVqVSafITY29mYvl2b.jpeg"
+                    alt="Professional portrait of Misha"
                     className="w-full h-80 object-cover object-center rounded-2xl shadow-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-2xl"></div>
