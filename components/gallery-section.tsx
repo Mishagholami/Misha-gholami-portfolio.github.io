@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ExternalLink, Palette, Sparkles, Package, Film, Share2, Coins } from "lucide-react"
+import { X, ExternalLink, Palette, Sparkles, Package, Film, Coins } from "lucide-react"
 
 // Gallery data organized by sections
 const galleryData = {
@@ -14,31 +14,43 @@ const galleryData = {
     items: [
       {
         id: "ill-1",
-        title: "Character Portrait Series",
-        description: "Digital character illustrations exploring different art styles",
-        image: "/placeholder.svg?height=400&width=300&text=Character+Portrait",
-        alt: "Digital character portrait illustration",
+        title: "Celebrity Saints Gallery",
+        description: "Religious iconography style portraits of contemporary celebrities displayed in gallery setting",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-24%20at%2011.05.41%E2%80%AFPM-91Q75RZa8VJC7bumPH9ffhLWDBgcaY.png",
+        alt: "Gallery wall showing celebrity portraits in religious saint style with halos and robes",
       },
       {
         id: "ill-2",
-        title: "Nature Studies",
-        description: "Botanical and landscape illustrations",
-        image: "/placeholder.svg?height=400&width=300&text=Nature+Studies",
-        alt: "Nature and botanical illustration studies",
+        title: "Olympic Panda Illustration",
+        description: "Stylized panda character in Greek Olympic setting with classical architectural elements",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0352.JPG-2dWzT4XxHEdKWOVY994pY9wYuOaoMF.jpeg",
+        alt: "Panda character illustration in Olympic Greek setting with rings and medal",
       },
       {
         id: "ill-3",
-        title: "Abstract Compositions",
-        description: "Experimental abstract digital artworks",
-        image: "/placeholder.svg?height=400&width=300&text=Abstract+Art",
-        alt: "Abstract digital composition artwork",
+        title: "Scatterbrain Coffee Branding",
+        description: "Whimsical hand-drawn illustrations for coffee brand packaging with playful doodle style",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0304.JPG-afnben93Ybnx2VHds8ofDmoW56Uaky.jpeg",
+        alt: "Scatterbrain Coffee branding with hand-drawn illustrations on cup and bag",
       },
       {
         id: "ill-4",
-        title: "Fantasy Creatures",
-        description: "Mythical and fantasy creature designs",
-        image: "/placeholder.svg?height=400&width=300&text=Fantasy+Creatures",
-        alt: "Fantasy creature illustration designs",
+        title: "Modern Saints Portrait Series",
+        description: "Contemporary celebrities reimagined as religious icons with traditional saint imagery",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-24%20at%2011.05.24%E2%80%AFPM-zu4pQB3QusmIIj7BXPXasjex74qCV4.png",
+        alt: "Collection of celebrity portraits in religious iconography style including Post Malone, Frida Kahlo, Drake, and Beyoncé",
+      },
+      {
+        id: "ill-5",
+        title: "Beyoncé Angel Portrait",
+        description: "Detailed religious-style portrait featuring golden halo and angel wings in classical composition",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-24%20at%2011.05.33%E2%80%AFPM-0pUNVkqnamdhjnF2qvQffULHFoD57n.png",
+        alt: "Close-up of Beyoncé portrait in religious iconography style with golden halo and angel wings",
       },
     ],
   },
@@ -50,24 +62,44 @@ const galleryData = {
     items: [
       {
         id: "nft-1",
-        title: "Cosmic Dreams Collection",
-        description: "Space-themed NFT series with animated elements",
-        image: "/placeholder.svg?height=400&width=300&text=Cosmic+Dreams+NFT",
-        alt: "Cosmic Dreams NFT collection artwork",
+        title: "The Hanged Man Tarot Collection",
+        description: "Mystical tarot card NFT series featuring The Hanged Man in different artistic interpretations",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0243.JPG-y2cX59zXWBLhpXUGTX187e9klsABrz.jpeg",
+        alt: "The Hanged Man tarot card NFT collection with three different color variations",
       },
       {
         id: "nft-2",
-        title: "Digital Botanica",
-        description: "Plant-inspired generative art collection",
-        image: "/placeholder.svg?height=400&width=300&text=Digital+Botanica",
-        alt: "Digital Botanica NFT collection",
+        title: "BRAT BAT Characters",
+        description: "Cute and quirky bat character NFT collection with unique personalities and accessories",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0300.JPG-iYab54P2UFuMvPD0ibl1NqcFDz3XOz.jpeg",
+        alt: "BRAT BAT NFT characters - three cartoon bat characters with different expressions",
       },
       {
         id: "nft-3",
-        title: "Geometric Harmony",
-        description: "Mathematical patterns and geometric designs",
-        image: "/placeholder.svg?height=400&width=300&text=Geometric+Harmony",
-        alt: "Geometric Harmony NFT artwork",
+        title: "Mystical Tarot Card Series",
+        description: "Complete tarot deck NFT collection featuring The Hanged Man, The Fool, and The Hermit cards",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0248.JPG-PZC8AwlZr6W1kakzOXp2kW0bN8TgPT.jpeg",
+        alt: "Collection of mystical tarot card NFTs with various artistic styles",
+      },
+      {
+        id: "nft-4",
+        title: "African Heritage Collection",
+        description:
+          "Diverse character NFTs celebrating African culture with geometric patterns and traditional elements",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-24%20at%2011.04.20%E2%80%AFPM-mmhJdBGuTOqYzlgQ2tXZulwTiXdgBk.png",
+        alt: "African heritage NFT collection featuring diverse characters with traditional patterns",
+      },
+      {
+        id: "nft-5",
+        title: "Cultural Portrait Series",
+        description: "Stylized portrait NFTs featuring people in traditional African-inspired clothing and accessories",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-24%20at%2011.04.28%E2%80%AFPM-Ya6R2pnrB6cImvnxmP4F6TzYScXZMr.png",
+        alt: "Cultural portrait NFT series with stylized characters wearing traditional clothing",
       },
     ],
   },
@@ -79,24 +111,43 @@ const galleryData = {
     items: [
       {
         id: "dp-1",
-        title: "Sunset Landscapes",
-        description: "Atmospheric landscape paintings with dramatic lighting",
-        image: "/placeholder.svg?height=400&width=300&text=Sunset+Landscapes",
-        alt: "Digital sunset landscape painting",
+        title: "African Heritage Portrait",
+        description: "Stylized digital portrait celebrating African culture with traditional patterns and landscape",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0329.JPG-LWeNZPNIAo1tGtra5gGl4nJzTEsHlv.jpeg",
+        alt: "Digital portrait of person in traditional African attire with geometric patterns and acacia tree landscape",
       },
       {
         id: "dp-2",
-        title: "Portrait Studies",
-        description: "Expressive digital portrait paintings",
-        image: "/placeholder.svg?height=400&width=300&text=Portrait+Studies",
-        alt: "Digital portrait painting studies",
+        title: "Mystical Tarot Collection",
+        description: "Traditional tarot card artwork featuring The Fool and other mystical imagery",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0239.JPG-N5AmwWADTOl9ZWkHUl1hxKO5doTY3o.jpeg",
+        alt: "Collection of tarot cards including The Fool card with vibrant traditional artwork",
       },
       {
         id: "dp-3",
-        title: "Urban Scenes",
-        description: "City life captured through digital brushstrokes",
-        image: "/placeholder.svg?height=400&width=300&text=Urban+Scenes",
-        alt: "Urban scene digital paintings",
+        title: "Global Panda - Germany",
+        description: "Character illustration of panda in German setting with urban graffiti background",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0337.JPG-MDH12ftupdgwS1qwZL0iKSUEeEDA3C.jpeg",
+        alt: "Stylized panda character in German uniform smoking pipe against urban graffiti background",
+      },
+      {
+        id: "dp-4",
+        title: "Global Panda - France",
+        description: "Elegant panda character illustration with French cultural elements and Parisian backdrop",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0353.JPG-RHoayrw31x9YYUlN0iAnnxr08MNIN2.jpeg",
+        alt: "Panda character in French attire with pearl necklaces and Eiffel Tower background",
+      },
+      {
+        id: "dp-5",
+        title: "Moonlit African Portrait",
+        description: "Vibrant digital portrait with traditional African clothing against nighttime landscape",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0325.JPG-RHu068dYjoszWrqNNGR7Tcv70BsWHU.jpeg",
+        alt: "Digital portrait of person in colorful African traditional dress with full moon and acacia trees",
       },
     ],
   },
@@ -104,28 +155,24 @@ const galleryData = {
     title: "Social Media Design",
     description:
       "Creative post designs and visual content created with Photoshop, Illustrator, and Clip Studio Paint for various social platforms.",
-    icon: Share2,
+    icon: Film,
     items: [
       {
         id: "sm-1",
-        title: "Instagram Campaign Series",
-        description: "Cohesive visual campaign for lifestyle brand",
-        image: "/placeholder.svg?height=400&width=300&text=Instagram+Campaign",
-        alt: "Instagram social media campaign design",
+        title: "Mobile App UI Design Collection",
+        description:
+          "Comprehensive mobile app interface designs including registration, dashboards, and analytics screens",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2011.41.26%E2%80%AFAM-Wir4hl6FwLk6h1wCtun0XWrCCGsx70.png",
+        alt: "Collection of mobile app UI designs showing registration forms, dashboard screens, and analytics interfaces",
       },
       {
         id: "sm-2",
-        title: "Product Launch Graphics",
-        description: "Promotional graphics for product announcements",
-        image: "/placeholder.svg?height=400&width=300&text=Product+Launch",
-        alt: "Product launch social media graphics",
-      },
-      {
-        id: "sm-3",
-        title: "Event Promotion Design",
-        description: "Visual assets for event marketing campaigns",
-        image: "/placeholder.svg?height=400&width=300&text=Event+Promotion",
-        alt: "Event promotion social media design",
+        title: "Financial Management App Design",
+        description: "Modern financial app interface design with investment tracking and analytics features",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2011.41.33%E2%80%AFAM-J2RpUhjR9udxyT5qn1cCZ3Pk7au2yf.png",
+        alt: "Financial management mobile app design with investment dashboard and analytics screens",
       },
     ],
   },
@@ -137,53 +184,44 @@ const galleryData = {
     items: [
       {
         id: "pkg-1",
-        title: "Cosmetic Brand Packaging",
-        description: "Elegant packaging design for luxury skincare line",
-        image: "/placeholder.svg?height=400&width=300&text=Cosmetic+Packaging",
-        alt: "Cosmetic brand packaging design mockup",
+        title: "LASH BLVD Professional Gel Pads",
+        description:
+          "Modern minimalist packaging design for beauty brand featuring clean typography and abstract line art",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0186.JPG-h4fgos2d6dPsGBdA1oYVsbVcAeZ4AU.jpeg",
+        alt: "LASH BLVD lash lock down professional gel pads packaging with modern minimalist design",
       },
       {
         id: "pkg-2",
-        title: "Coffee Brand Identity",
-        description: "Complete packaging system for artisan coffee brand",
-        image: "/placeholder.svg?height=400&width=300&text=Coffee+Packaging",
-        alt: "Coffee brand packaging design",
+        title: "Pure Tiva CBD Recovery Cream",
+        description: "Premium packaging design for CBD wellness product with gold accents",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0362.JPG-72Sui8jVjSiGwzQA5cqVRPwmULELCP.jpeg",
+        alt: "Pure Tiva CBD Recovery Cream packaging design",
       },
       {
         id: "pkg-3",
-        title: "Health Supplement Design",
-        description: "Clean, modern packaging for wellness products",
-        image: "/placeholder.svg?height=400&width=300&text=Health+Packaging",
-        alt: "Health supplement packaging design",
-      },
-    ],
-  },
-  storyboard: {
-    title: "Storyboard Art",
-    description:
-      "Storyboard sketches and visual narratives, including a 4-part NFT animation series that brings stories to life through sequential art.",
-    icon: Film,
-    items: [
-      {
-        id: "sb-1",
-        title: "4-Part NFT Animation Series",
-        description: "Sequential storyboard for animated NFT collection",
-        image: "/placeholder.svg?height=400&width=300&text=NFT+Animation+Storyboard",
-        alt: "4-part NFT animation series storyboard",
+        title: "VIO Health Product Line",
+        description: "Consistent branding across health product packaging series",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0192.JPG-ThAzAUuVDnvD54nBsVIphq54E5tQL5.jpeg",
+        alt: "VIO Health product line packaging design",
       },
       {
-        id: "sb-2",
-        title: "Commercial Storyboards",
-        description: "Visual planning for advertising campaigns",
-        image: "/placeholder.svg?height=400&width=300&text=Commercial+Storyboard",
-        alt: "Commercial advertising storyboard sketches",
+        id: "pkg-4",
+        title: "Pure Tiva Product Photography",
+        description: "Professional product photography showcasing packaging design",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0361.JPG-GcazF3jIPePaQBELIhp4UZTjoyaFge.jpeg",
+        alt: "Pure Tiva product photography",
       },
       {
-        id: "sb-3",
-        title: "Short Film Concepts",
-        description: "Narrative storyboards for creative projects",
-        image: "/placeholder.svg?height=400&width=300&text=Short+Film+Storyboard",
-        alt: "Short film concept storyboard art",
+        id: "pkg-5",
+        title: "VIO Health Vital Signs Monitor",
+        description: "Modern packaging design for health monitoring technology with flowing gradient elements",
+        image:
+          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0194.JPG-hq4YdpgGrGFpXCmpbFdJmA5KMrrjNc.jpeg",
+        alt: "VIO Health Vital Signs Monitor packaging design",
       },
     ],
   },

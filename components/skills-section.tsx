@@ -8,14 +8,14 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-  { name: "UI/UX Design", level: 95 },
-  { name: "User Research", level: 90 },
+  { name: "UI/UX Design", level: 60 },
+  { name: "User Research", level: 70 },
   { name: "Prototyping", level: 88 },
   { name: "Visual Design", level: 85 },
-  { name: "Figma", level: 95 },
+  { name: "Figma", level: 80 },
   { name: "Adobe Creative Suite", level: 85 },
-  { name: "HTML/CSS", level: 80 },
-  { name: "JavaScript", level: 70 },
+  { name: "HTML/CSS", level: 50 },
+  { name: "AI (Artificial Intelligence)", level: 85 },
 ]
 
 export function SkillsSection() {
@@ -50,15 +50,17 @@ export function SkillsSection() {
         ></div>
       </div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold text-primary mb-4 animate-fade-in-up">Skills & Expertise</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto animate-fade-in-up stagger-1">
+      <div className="container mx-auto relative z-10 px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-serif font-bold bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 bg-clip-text text-transparent mb-3 animate-fade-in-up">
+            Skills & Expertise
+          </h2>
+          <p className="text-gray-500 max-w-xl mx-auto text-sm animate-fade-in-up stagger-1">
             Core competencies in design, research, and development
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {skills.map((skill, index) => (
               <div
@@ -81,7 +83,7 @@ export function SkillsSection() {
                     }}
                   >
                     {/* Shimmer effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-200/40 to-transparent animate-shimmer"></div>
                   </div>
                 </div>
               </div>
