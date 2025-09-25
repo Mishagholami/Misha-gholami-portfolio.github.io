@@ -427,12 +427,24 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  { src: "/sleep-mood-overview.png", alt: "Sleep Mood app overview and wireframes" },
-                  { src: "/sleep-mood-why.png", alt: "Why Sleep Mood explanation" },
-                  { src: "/sleep-mood-features.png", alt: "Sleep Mood key features" },
-                  { src: "/sleep-mood-brainstorm.png", alt: "Sleep Mood brainstorm and concept map" },
-                  { src: "/sleep-mood-pitch.png", alt: "Sleep Mood elevator pitch" },
-                  { src: "/sleep-mood-soundscapes.png", alt: "Customizable soundscapes feature" },
+                  { src: "/linkedin-findings-insights.png", alt: "LinkedIn user research findings and key insights" },
+                  {
+                    src: "/linkedin-interview-questions.png",
+                    alt: "LinkedIn user interview questions and research methodology",
+                  },
+                  {
+                    src: "/linkedin-journey-map.png",
+                    alt: "LinkedIn user journey map with pain points and opportunities",
+                  },
+                  { src: "/linkedin-assumptions.png", alt: "LinkedIn design assumptions re-examination and analysis" },
+                  {
+                    src: "/linkedin-job-search-tools.png",
+                    alt: "LinkedIn simplified job search and filtering tools recommendations",
+                  },
+                  {
+                    src: "/linkedin-conclusion.png",
+                    alt: "LinkedIn user study conclusion and strategic recommendations",
+                  },
                 ].map((image, index) => (
                   <motion.div
                     key={index}
