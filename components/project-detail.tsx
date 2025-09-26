@@ -427,23 +427,29 @@ export default function ProjectDetail({ project, nextProject, previousProject }:
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  { src: "/linkedin-findings-insights.png", alt: "LinkedIn user research findings and key insights" },
                   {
-                    src: "/linkedin-interview-questions.png",
-                    alt: "LinkedIn user interview questions and research methodology",
+                    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2012.49.34%E2%80%AFPM-xGibj4Y6DniAphaKFyNaMslJVBbZ6z.png",
+                    alt: "Sleep Mood brainstorm and feature ideation mind map",
                   },
                   {
-                    src: "/linkedin-journey-map.png",
-                    alt: "LinkedIn user journey map with pain points and opportunities",
-                  },
-                  { src: "/linkedin-assumptions.png", alt: "LinkedIn design assumptions re-examination and analysis" },
-                  {
-                    src: "/linkedin-job-search-tools.png",
-                    alt: "LinkedIn simplified job search and filtering tools recommendations",
+                    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2012.49.19%E2%80%AFPM-p97A1zvYdudsxTKvni0xbAwmDe5ZvW.png",
+                    alt: "Sleep Mood elevator pitch - comprehensive mental wellness companion app",
                   },
                   {
-                    src: "/linkedin-conclusion.png",
-                    alt: "LinkedIn user study conclusion and strategic recommendations",
+                    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2012.48.48%E2%80%AFPM-vpHhVGZO7xN2OsQFaJM6eY0msGzXIA.png",
+                    alt: "Sleep Mood customizable soundscapes feature design and interface",
+                  },
+                  {
+                    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2012.49.26%E2%80%AFPM-kddKp5pO4ZWHDa47p2fSxMTFDKNUEs.png",
+                    alt: "Sleep Mood app rationale - Why Sleep Mood is needed for mental wellness",
+                  },
+                  {
+                    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2012.48.39%E2%80%AFPM-GJF3WEhphzTLj6I3hdQLXVR5RsLEfv.png",
+                    alt: "Sleep Mood app design process from wireframes to final interface design",
+                  },
+                  {
+                    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-09-25%20at%2012.49.10%E2%80%AFPM-f8S314Q67iRJnUmGxY8J6mqVtN0Q8E.png",
+                    alt: "Sleep Mood key features overview - relaxation techniques, soundscapes, and bedtime stories",
                   },
                 ].map((image, index) => (
                   <motion.div
