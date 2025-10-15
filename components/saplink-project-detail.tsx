@@ -152,14 +152,14 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
       {/* Animated Background Bubbles */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-green-200/30 to-blue-200/30 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute top-40 right-20 w-48 h-48 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 left-1/4 w-56 h-56 bg-gradient-to-br from-purple-200/30 to-green-200/30 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute bottom-40 right-10 w-40 h-40 bg-gradient-to-br from-green-200/30 to-blue-200/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-pulse-custom"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-gradient-to-br from-pink-200/30 to-blue-200/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-1/4 w-56 h-56 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-40 right-10 w-40 h-40 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-pink-200/20 to-blue-200/20 rounded-full blur-3xl animate-pulse-custom"></div>
       </div>
 
       {/* Navigation Bar */}
@@ -191,7 +191,7 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
                     <Badge
                       key={tag}
                       variant="secondary"
-                      className="bg-green-100 text-green-800 hover:bg-green-200 transition-colors duration-200"
+                      className="bg-purple-100 text-purple-800 hover:bg-purple-200 transition-colors duration-200"
                     >
                       {tag}
                     </Badge>
@@ -222,7 +222,7 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
                   {project.links.prototype && (
                     <Button
                       asChild
-                      className="group bg-green-600 hover:bg-green-700 text-white transition-all duration-300"
+                      className="group bg-gradient-to-r from-pink-300 to-purple-300 hover:from-pink-400 hover:to-purple-400 text-gray-900 transition-all duration-300"
                     >
                       <a href={project.links.prototype} target="_blank" rel="noopener noreferrer">
                         <Eye className="w-4 h-4 mr-2" />
@@ -275,11 +275,11 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
           >
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 font-serif text-center">Why Choose SAPLINK?</h2>
-              <Card className="p-8 bg-white/80 backdrop-blur-sm border-green-200/30 hover:shadow-xl transition-all duration-300">
+              <Card className="p-8 bg-white/80 backdrop-blur-sm border-purple-200/30 hover:shadow-xl transition-all duration-300">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {whyChooseFeatures.map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-green-500 rounded-full flex-shrink-0"></div>
+                      <div className="w-3 h-3 bg-purple-500 rounded-full flex-shrink-0"></div>
                       <span className="text-gray-700 font-medium">{feature}</span>
                     </div>
                   ))}
@@ -301,7 +301,7 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
-                  className="group bg-green-600 hover:bg-green-700 text-white transition-all duration-300 hover:scale-105"
+                  className="group bg-gradient-to-r from-pink-300 to-purple-300 hover:from-pink-400 hover:to-purple-400 text-gray-900 transition-all duration-300 hover:scale-105"
                 >
                   <Leaf className="w-5 h-5 mr-2" />✅ Plant a Tree Now
                 </Button>
@@ -341,17 +341,17 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
 
               {/* Role, Timeline, Tools */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <Card className="p-6 bg-white/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300">
+                <Card className="p-6 bg-white/80 backdrop-blur-sm border-purple-200/30 hover:shadow-lg transition-all duration-300">
                   <h3 className="font-semibold text-gray-800 mb-3">Role</h3>
                   <p className="text-gray-600">{project.role}</p>
                   {project.team && <p className="text-sm text-gray-500 mt-2">Team: {project.team}</p>}
                 </Card>
-                <Card className="p-6 bg-white/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300">
+                <Card className="p-6 bg-white/80 backdrop-blur-sm border-purple-200/30 hover:shadow-lg transition-all duration-300">
                   <h3 className="font-semibold text-gray-800 mb-3">Timeline</h3>
                   <p className="text-gray-600">{project.duration}</p>
                   <p className="text-sm text-gray-500 mt-2">{project.year}</p>
                 </Card>
-                <Card className="p-6 bg-white/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300">
+                <Card className="p-6 bg-white/80 backdrop-blur-sm border-purple-200/30 hover:shadow-lg transition-all duration-300">
                   <h3 className="font-semibold text-gray-800 mb-3">Tools</h3>
                   <div className="flex flex-wrap gap-1">
                     {project.tools.slice(0, 4).map((tool) => (
@@ -378,9 +378,9 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
                   <h3 className="font-semibold text-blue-900 mb-3">Approach</h3>
                   <p className="text-blue-800 text-sm leading-relaxed">{project.overview.approach}</p>
                 </Card>
-                <Card className="p-6 bg-green-50/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-semibold text-green-900 mb-3">Outcome</h3>
-                  <p className="text-green-800 text-sm leading-relaxed">{project.overview.outcome}</p>
+                <Card className="p-6 bg-purple-50/80 backdrop-blur-sm border-purple-200/30 hover:shadow-lg transition-all duration-300">
+                  <h3 className="font-semibold text-purple-900 mb-3">Outcome</h3>
+                  <p className="text-purple-800 text-sm leading-relaxed">{project.overview.outcome}</p>
                 </Card>
               </div>
             </div>
@@ -415,7 +415,7 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
                         )
                       }
                     >
-                      <Card className="overflow-hidden bg-white/80 backdrop-blur-sm border-green-200/30 hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                      <Card className="overflow-hidden bg-white/80 backdrop-blur-sm border-purple-200/30 hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                         <div className="aspect-video relative overflow-hidden">
                           <Image
                             src={image.src || "/placeholder.svg"}
@@ -459,9 +459,9 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
                 {project.impact.metrics.map((metric, index) => (
                   <Card
                     key={index}
-                    className="p-6 text-center bg-white/80 backdrop-blur-sm border-green-200/30 hover:shadow-lg transition-all duration-300"
+                    className="p-6 text-center bg-white/80 backdrop-blur-sm border-purple-200/30 hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="text-3xl font-bold text-green-600 mb-2">{metric.value}</div>
+                    <div className="text-3xl font-bold text-purple-600 mb-2">{metric.value}</div>
                     <div className="font-semibold text-gray-700 mb-1">{metric.label}</div>
                     <div className="text-xs text-gray-600 leading-relaxed">{metric.description}</div>
                   </Card>
@@ -469,12 +469,12 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
               </div>
 
               {/* Outcomes */}
-              <Card className="p-8 bg-white/80 backdrop-blur-sm border-green-200/30">
+              <Card className="p-8 bg-white/80 backdrop-blur-sm border-purple-200/30">
                 <h3 className="font-semibold text-gray-800 mb-4">Key Outcomes</h3>
                 <ul className="space-y-3">
                   {project.impact.outcomes.map((outcome, index) => (
                     <li key={index} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-gray-600 text-sm leading-relaxed">{outcome}</span>
                     </li>
                   ))}
@@ -497,7 +497,7 @@ export default function SaplinkProjectDetail({ project, nextProject, previousPro
                   <Link href="/#projects">
                     <Button
                       size="lg"
-                      className="bg-green-600 hover:bg-green-700 text-white transition-all duration-300"
+                      className="bg-gradient-to-r from-pink-300 to-purple-300 hover:from-pink-400 hover:to-purple-400 text-gray-900 transition-all duration-300"
                     >
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Back to Projects
