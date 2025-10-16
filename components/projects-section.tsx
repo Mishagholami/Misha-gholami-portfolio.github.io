@@ -1,14 +1,18 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Eye } from "lucide-react"
+import { ExternalLink, Eye } from "lucide-react"
 import { projects } from "@/lib/projects-data"
+import { ProjectModal } from "./project-modal"
 
 export function ProjectsSection() {
+  const [selectedProject, setSelectedProject] = useState<any>(null)
+
   const featuredProjects = projects.filter((project) => project.featured)
 
   return (
@@ -40,12 +44,23 @@ export function ProjectsSection() {
 
                 {/* Hover Overlay with Links */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Link href={`/projects/${project.slug}`}>
-                    <Button size="sm" className="bg-white/90 text-brown-900 hover:bg-white">
-                      <Eye className="w-4 h-4 mr-2" />
-                      View Details
+                  <div className="flex space-x-3">
+                    <Link href={`/projects/${project.slug}`}>
+                      <Button size="sm" className="bg-white/90 text-brown-900 hover:bg-white">
+                        <Eye className="w-4 h-4 mr-2" />
+                        View Details
+                      </Button>
+                    </Link>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="bg-white/90 text-brown-900 border-white/90 hover:bg-white"
+                      onClick={() => setSelectedProject(project)}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Quick View
                     </Button>
-                  </Link>
+                  </div>
                 </div>
 
                 {/* Category Badge */}
@@ -88,6 +103,10 @@ export function ProjectsSection() {
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectModal project={selectedProject} isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
     </section>
   )
 }

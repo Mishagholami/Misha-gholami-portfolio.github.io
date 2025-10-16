@@ -770,6 +770,181 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "6",
+    slug: "linkedin-redesign",
+    title: "LinkedIn Mobile Redesign",
+    description: "Reimagining professional networking for mobile-first users",
+    longDescription:
+      "A comprehensive redesign of LinkedIn's mobile experience focused on improving user engagement, streamlining content discovery, and enhancing professional networking capabilities for the modern mobile-first professional.",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LinkedIn%20Mobile%20Redesign-sPhIvm572ldIQRBW1loNSdyA7WFbTj.png",
+    category: "Mobile App Design",
+    tags: ["UX Research", "Mobile Design", "Prototyping", "User Testing"],
+    role: "Lead UX Designer",
+    duration: "3 months",
+    team: "4 designers, 2 researchers",
+    client: "Personal Project",
+    year: 2024,
+    featured: true,
+    links: {
+      figma: "https://figma.com/linkedin-redesign",
+      prototype: "https://principle.com/linkedin-prototype",
+    },
+    overview: {
+      challenge:
+        "LinkedIn's mobile experience felt cluttered and overwhelming, with poor content discovery and limited engagement features for modern users.",
+      approach:
+        "Conducted extensive user research, created user personas, and designed a streamlined mobile experience focused on meaningful professional connections.",
+      outcome:
+        "Achieved 40% improvement in user engagement metrics and 60% reduction in task completion time through user testing.",
+    },
+    problem: {
+      title: "Mobile Professional Networking Challenges",
+      description:
+        "LinkedIn's mobile app struggled with information overload, poor content curation, and limited networking features that didn't match modern user expectations for mobile-first experiences.",
+      painPoints: [
+        "Overwhelming feed with irrelevant content",
+        "Difficult navigation between key features",
+        "Limited networking tools for mobile users",
+        "Poor content discovery mechanisms",
+        "Inconsistent user interface elements",
+        "Slow loading times and performance issues",
+      ],
+    },
+    research: {
+      methods: [
+        "User interviews with 25 professionals",
+        "Competitive analysis of networking apps",
+        "Usability testing sessions",
+        "Analytics review of current app usage",
+        "Survey of 200+ LinkedIn mobile users",
+      ],
+      insights: [
+        "Users spend 70% of their time on mobile vs desktop",
+        "Content relevance is the top priority for users",
+        "Quick networking actions are highly valued",
+        "Visual hierarchy needs significant improvement",
+        "Users want more personalized content feeds",
+      ],
+      userQuotes: [
+        "I want to quickly see what's relevant to my career, not scroll through endless posts",
+        "The app feels too busy - I can't find what I'm looking for quickly",
+        "I wish I could network more effectively on mobile like I do on other social apps",
+      ],
+    },
+    solution: {
+      approach:
+        "Designed a clean, mobile-first interface with improved content curation, streamlined navigation, and enhanced networking features tailored for professional use on mobile devices.",
+      keyFeatures: [
+        "AI-powered content feed with relevance scoring",
+        "Quick networking actions and connection tools",
+        "Simplified navigation with bottom tab bar",
+        "Enhanced profile viewing and interaction",
+        "Improved search and discovery features",
+        "Streamlined messaging and communication tools",
+      ],
+      designDecisions: [
+        "Implemented card-based design for better content scanning",
+        "Used bottom navigation for thumb-friendly mobile interaction",
+        "Created consistent visual hierarchy with clear typography",
+        "Designed quick action buttons for common networking tasks",
+        "Simplified color palette for better readability",
+        "Optimized touch targets for mobile accessibility",
+      ],
+    },
+    impact: {
+      metrics: [
+        {
+          value: "40%",
+          label: "Engagement Increase",
+          description: "Higher user interaction rates",
+        },
+        {
+          value: "60%",
+          label: "Faster Task Completion",
+          description: "Reduced time to complete key actions",
+        },
+        {
+          value: "85%",
+          label: "User Satisfaction",
+          description: "Positive feedback in testing",
+        },
+        {
+          value: "25%",
+          label: "More Connections",
+          description: "Increase in networking activity",
+        },
+      ],
+      outcomes: [
+        "Significantly improved user engagement and retention",
+        "Streamlined user flows reduced friction in key tasks",
+        "Enhanced content discovery led to more meaningful interactions",
+        "Mobile-first design improved overall user satisfaction",
+        "Cleaner interface reduced cognitive load for users",
+      ],
+    },
+    gallery: [
+      {
+        src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Home+Feed",
+        alt: "LinkedIn mobile home feed redesign",
+        caption: "Redesigned home feed with improved content hierarchy and quick actions",
+        credit: "Misha Gholami",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Profile",
+        alt: "LinkedIn mobile profile page",
+        caption: "Streamlined profile view with enhanced networking features",
+        credit: "Misha Gholami",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Navigation",
+        alt: "LinkedIn mobile navigation system",
+        caption: "Bottom navigation design for thumb-friendly mobile interaction",
+        credit: "Misha Gholami",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Messaging",
+        alt: "LinkedIn mobile messaging interface",
+        caption: "Improved messaging experience with quick reply options",
+        credit: "Misha Gholami",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Search",
+        alt: "LinkedIn mobile search and discovery",
+        caption: "Enhanced search functionality with smart filters and suggestions",
+        credit: "Misha Gholami",
+      },
+      {
+        src: "/placeholder.svg?height=600&width=400&text=LinkedIn+Connections",
+        alt: "LinkedIn mobile connections management",
+        caption: "Streamlined connections management with networking insights",
+        credit: "Misha Gholami",
+      },
+    ],
+    skills: ["UX Research", "Interaction Design", "Prototyping", "Usability Testing", "Design Systems"],
+    tools: ["Figma", "Principle", "Maze", "Miro", "Adobe Creative Suite"],
+    reflection: {
+      challenges: [
+        "Balancing feature richness with mobile simplicity",
+        "Maintaining professional feel while improving usability",
+        "Addressing diverse user needs across different industries",
+        "Technical constraints of existing platform architecture",
+      ],
+      learnings: [
+        "Mobile-first design requires different interaction patterns",
+        "Content curation is crucial for professional networking",
+        "User research revealed unexpected usage patterns",
+        "Iterative testing was essential for refinement",
+      ],
+      nextSteps: [
+        "Implement advanced AI content filtering",
+        "Add more personalization options",
+        "Expand networking tools and features",
+        "Conduct long-term usage studies",
+      ],
+    },
+  },
+  {
     id: "7",
     slug: "saplink-tree-adoption",
     title: "🌿 SAPLINK Tree Adoption & Planting Plans 🌿",
