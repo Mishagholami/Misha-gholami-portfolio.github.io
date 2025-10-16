@@ -141,6 +141,16 @@ export default function LinkedInUserStudyPage() {
                 Exploring how users interact with LinkedIn notifications and engagement tools to improve clarity and
                 reduce overload.
               </p>
+              <div className="mt-8">
+                <a
+                  href="https://drive.google.com/drive/folders/1ux0XBGQr1pV74pcv0NNJbOyshrhHBjPL?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-300 to-purple-300 hover:from-pink-400 hover:to-purple-400 text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl"
+                >
+                  View Full Case Study
+                </a>
+              </div>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
