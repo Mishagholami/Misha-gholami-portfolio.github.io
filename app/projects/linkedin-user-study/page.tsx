@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowLeft, CheckCircle } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function LinkedInUserStudyPage() {
   const containerVariants = {
@@ -142,8 +143,15 @@ export default function LinkedInUserStudyPage() {
               </p>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-100/50 backdrop-blur-sm border-2 border-dashed border-gray-300 flex items-center justify-center min-h-[450px]">
-              <p className="text-2xl font-medium text-gray-600">{"{{Project Image Here}}"}</p>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LinkedIn%20User%20Study-onTJAIuKpyV2Mb92UyGOY8YUu9LYPP.jpg"
+                alt="LinkedIn User Study Project"
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </motion.section>
 
