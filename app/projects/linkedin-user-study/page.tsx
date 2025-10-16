@@ -55,7 +55,7 @@ export default function LinkedInUserStudyPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -121,7 +121,7 @@ export default function LinkedInUserStudyPage() {
           <motion.div variants={itemVariants}>
             <Link
               href="/#projects"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
               Back to Projects
@@ -131,13 +131,13 @@ export default function LinkedInUserStudyPage() {
           {/* Hero Section */}
           <motion.section variants={itemVariants} className="text-center">
             <div className="mb-8">
-              <span className="inline-block px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-gray-700 rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-muted-foreground rounded-full text-sm font-medium mb-4">
                 Individual UX Research Project
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 LinkedIn User Study — Understanding Notifications & Engagement Patterns
               </h1>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Exploring how users interact with LinkedIn notifications and engagement tools to improve clarity and
                 reduce overload.
               </p>
@@ -157,9 +157,9 @@ export default function LinkedInUserStudyPage() {
 
           {/* Overview */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Overview</h2>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 This individual UX research project focused on how LinkedIn users manage and respond to notifications.
                 The goal was to uncover pain points around cluttered alerts, poor prioritization, and disengagement,
                 then propose design improvements for a cleaner, more intuitive experience.
@@ -168,29 +168,29 @@ export default function LinkedInUserStudyPage() {
           </motion.section>
 
           {/* Project Type and Duration */}
-          <motion.section variants={itemVariants} className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Project Type and Duration</h2>
+          <motion.section variants={itemVariants} className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Project Type and Duration</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Type</h3>
-                <p className="text-gray-700">Individual UX Research Project</p>
+                <h3 className="font-semibold text-foreground mb-2">Type</h3>
+                <p className="text-muted-foreground">Individual UX Research Project</p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Duration</h3>
-                <p className="text-gray-700">4 weeks</p>
+                <h3 className="font-semibold text-foreground mb-2">Duration</h3>
+                <p className="text-muted-foreground">4 weeks</p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Process</h3>
-                <p className="text-gray-700">User interviews, heuristic evaluation, usability testing</p>
+                <h3 className="font-semibold text-foreground mb-2">Process</h3>
+                <p className="text-muted-foreground">User interviews, heuristic evaluation, usability testing</p>
               </div>
             </div>
           </motion.section>
 
           {/* Problem Statement */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Problem Statement</h2>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Problem Statement</h2>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Many LinkedIn users feel overwhelmed by irrelevant or redundant notifications. This information overload
                 makes it difficult to identify what truly matters, leading to missed professional opportunities and
                 disengagement.
@@ -200,11 +200,11 @@ export default function LinkedInUserStudyPage() {
 
           {/* Research Approach */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Approach</h2>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Research Approach</h2>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
               <ul className="space-y-3">
                 {researchApproach.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-gray-700">
+                  <li key={index} className="flex items-start gap-3 text-muted-foreground">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -215,11 +215,11 @@ export default function LinkedInUserStudyPage() {
 
           {/* Key Findings */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Key Findings</h2>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Key Findings</h2>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
               <ul className="space-y-3">
                 {keyFindings.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-gray-700">
+                  <li key={index} className="flex items-start gap-3 text-muted-foreground">
                     <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -230,16 +230,16 @@ export default function LinkedInUserStudyPage() {
 
           {/* Proposed Solutions */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Proposed Solutions</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Proposed Solutions</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {proposedSolutions.map((solution, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-card/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{solution.title}</h3>
-                  <p className="text-gray-700">{solution.description}</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{solution.title}</h3>
+                  <p className="text-muted-foreground">{solution.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -247,17 +247,17 @@ export default function LinkedInUserStudyPage() {
 
           {/* Tools Used */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Tools Used</h2>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <p className="text-lg text-gray-700">Figma · Notion · Google Forms · Miro</p>
+            <h2 className="text-3xl font-bold text-foreground mb-6">Tools Used</h2>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+              <p className="text-lg text-muted-foreground">Figma · Notion · Google Forms · Miro</p>
             </div>
           </motion.section>
 
           {/* Outcome */}
           <motion.section variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Outcome</h2>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Outcome</h2>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Prototype testing showed improved satisfaction and focus. Users reported faster recognition of key
                 updates and a clearer sense of professional activity.
               </p>
@@ -266,8 +266,8 @@ export default function LinkedInUserStudyPage() {
 
           {/* Project Image */}
           <motion.section variants={itemVariants}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-100/50 backdrop-blur-sm border-2 border-dashed border-gray-300 flex items-center justify-center min-h-[450px]">
-              <p className="text-2xl font-medium text-gray-600">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-muted/50 backdrop-blur-sm border-2 border-dashed border flex items-center justify-center min-h-[450px]">
+              <p className="text-2xl font-medium text-muted-foreground">
                 {"{{Project Image Placeholder – LinkedIn User Study}}"}
               </p>
             </div>
